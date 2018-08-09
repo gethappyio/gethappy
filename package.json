@@ -1,0 +1,20 @@
+{
+    "name": "get-happy-io",
+    "version": "0.1.0",
+    "repository": {
+      "type": "git",
+      "url": ""
+    },
+    "license": "GPL-3.0",
+    "devDependencies": {
+      "fancy-log": "latest",
+      "gulp": "latest",
+      "gulp-cli": "latest",
+      "gulp-concat": "latest",
+      "gulp-eslint": "latest",
+      "gulp-sass": "latest",
+      "gulp-scss-lint": "latest",
+      "gulp-uglify": "latest"
+    }
+  }
+  
