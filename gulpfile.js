@@ -7,6 +7,14 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 
 gulp.task('scss-lint', function() {
-  return gulp.src(['./tempaltes/**/*.scss'])
+  return gulp.src(['./styles/**/*.scss'])
     .pipe(scsslint({ 'config': 'scss-lint.yml' }));
 });
+
+gulp.task('sass', function() {
+    return gulp.src(['./styles/main.scss'])
+    .pipe(sass({style: 'expanded'}))
+    .on('error', log)
+    .pipe(gulp.dest('./styles'));
+  });
+  
