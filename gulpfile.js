@@ -17,4 +17,10 @@ gulp.task('sass', function() {
     .on('error', log)
     .pipe(gulp.dest('./styles'));
   });
-  
+
+gulp.task('eslint', function () {
+  return gulp.src(['./web/*.js'])
+    .pipe(eslint({configFile: '.eslintrc.json'}))
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
+});
