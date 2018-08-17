@@ -1,5 +1,6 @@
 /.env
 /.idea
+/rsync-exclude.txt
 /config/license.key
 /vendor
 /storage
