@@ -1,5 +1,6 @@
 /.env
 /.idea
+/config/license.key
 /vendor
 /storage
 .DS_Store
