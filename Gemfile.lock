@@ -19,6 +19,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ffi (= 1.9.18)
   scss_lint
 
 BUNDLED WITH
