@@ -1,3 +1,5 @@
+import '../css/main.scss';
+
 var map = require('lodash/map');
 
 function square(n) {
