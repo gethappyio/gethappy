@@ -32,6 +32,7 @@
     "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
+    "bourbon-neat": "^3.0.0",
     "classnames": "^2.2.6",
     "css-loader": "^1.0.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",

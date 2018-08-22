@@ -1,3 +1,6 @@
+@import "neat";
+
 .test {
+    @include grid-container;
     text-align: center;
 }
