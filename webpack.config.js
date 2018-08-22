@@ -3,8 +3,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
-        "app": __dirname + '/src/js/app.js',
-        "shop": __dirname + '/src/js/shop.js'
+        "app": __dirname + '/src/app.js',
+        "shop": __dirname + '/src/shop.js'
     },
     module: {
         rules: [
@@ -16,13 +16,16 @@ module.exports = {
                 })
             },
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: {
                   loader: "babel-loader"
                 }
             }
         ]
+    },
+    resolve: {
+        extensions: ['.js', '.jsx'],
     },
     output: {
         path: __dirname + "/public/dist",
