@@ -3,17 +3,29 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
-        "app": __dirname + '/src/js/app.js',
-        "shop": __dirname + '/src/js/shop.js'
+        "app": __dirname + '/src/app.js',
+        "shop": __dirname + '/src/shop.js'
     },
     module: {
-        rules: [{
-            test: /\.scss$/,
-            use: ExtractTextPlugin.extract({ 
-                fallback:'style-loader',
-                use:['css-loader','sass-loader'],
-            })
-        }]
+        rules: [
+            {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({ 
+                    fallback:'style-loader',
+                    use:['css-loader','sass-loader'],
+                })
+            },
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                use: {
+                  loader: "babel-loader"
+                }
+            }
+        ]
+    },
+    resolve: {
+        extensions: ['.js', '.jsx'],
     },
     output: {
         path: __dirname + "/public/dist",
