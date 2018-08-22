@@ -20,7 +20,8 @@ module.exports = {
                             loader: 'sass-loader',
                             options: {
                                 includePaths: [
-                                    require("bourbon-neat").includePaths
+                                    require("bourbon-neat").includePaths,
+                                    require("bourbon").includePaths
                                 ]
                             }
                         }
