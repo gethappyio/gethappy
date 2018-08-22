@@ -1,5 +1,15 @@
 {% extends "_layouts/default" %}
 {% includeJsFile siteUrl ~ "dist/js/ajax.bundle.js" %}
 {% block main %}
-    Test
+    <form method="POST" id="addToCartForm">
+        {{ getCsrfInput() }}
+        <input type="hidden" name="action" value="commerce/cart/updateCart">
+        <input type="hidden" name="redirect" value="/cart">
+        <input type="hidden" name="purchasableId" value="14">
+        <input type="number" name="qty" value="1">
+    </form>
+    <script type="text/javascript">
+        window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
+    </script>
+    
 {% endblock %}
