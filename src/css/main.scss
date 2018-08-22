@@ -1,6 +1,11 @@
+@import "bourbon";
 @import "neat";
 
 .test {
     @include grid-container;
     text-align: center;
+}
+
+::placeholder {
+    color: black;
 }

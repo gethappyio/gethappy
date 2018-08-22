@@ -24,7 +24,11 @@ module.exports = {
                                     require("bourbon").includePaths
                                 ]
                             }
+                        },
+                        {
+                            loader: 'postcss-loader'
                         }
+                        
                     ],
                 })
             },
