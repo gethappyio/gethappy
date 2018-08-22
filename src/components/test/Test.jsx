@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
+import "./styles/Test.scss";
+
 class Test extends Component {
   constructor() {
     super();
