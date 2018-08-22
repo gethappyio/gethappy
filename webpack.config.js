@@ -7,13 +7,22 @@ module.exports = {
         "shop": __dirname + '/src/js/shop.js'
     },
     module: {
-        rules: [{
-            test: /\.scss$/,
-            use: ExtractTextPlugin.extract({ 
-                fallback:'style-loader',
-                use:['css-loader','sass-loader'],
-            })
-        }]
+        rules: [
+            {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({ 
+                    fallback:'style-loader',
+                    use:['css-loader','sass-loader'],
+                })
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                  loader: "babel-loader"
+                }
+            }
+        ]
     },
     output: {
         path: __dirname + "/public/dist",
