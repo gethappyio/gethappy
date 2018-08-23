@@ -4,6 +4,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     entry: {
         "app": __dirname + '/src/app.js',
+        "app-react": __dirname + '/src/app-react.js',
         "ajax": __dirname + '/src/ajax.js',
         "shop": __dirname + '/src/shop.js'
     },
