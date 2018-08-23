@@ -1,25 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{{ "Craft Commerce"|t }}</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% includeJsFile siteUrl ~ "/dist/js/app.bundle.js" %}
-        {% includeCssFile siteUrl ~ "/dist/css/app.bundle.css" %}
-    </head>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
+{% extends "_layouts/boilerplate" %}
+
+{% includeJsFile siteUrl ~ "/dist/js/app.bundle.js" %}
+{% includeCssFile siteUrl ~ "/dist/css/app.bundle.css" %}
+
+{% block app %}
+<div id="app" class="base__expand">
+    <main class="base__expand base__withNav">
         {% include "_includes/header" %}
-        
+
+        <div class="base__expand base__scroll">
         {% block main %}
             <p>Empty</p>
         {% endblock %}
-
-        {% include "_includes/bottom" %}
-    </body>
-</html>
+            {% include "_includes/bottom" %}
+        </div>
+    </div>
+</div>
+{% endblock %}

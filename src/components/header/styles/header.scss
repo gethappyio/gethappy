@@ -1,0 +1,8 @@
+@import "bourbon";
+@import "neat";
+
+.header-container {
+    @include size(100%,45px);
+    position: absolute;
+    top: 0;
+}
