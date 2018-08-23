@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="Gethappy" class="base__expand" lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,17 +9,18 @@
         {% includeJsFile siteUrl ~ "/dist/js/app.bundle.js" %}
         {% includeCssFile siteUrl ~ "/dist/css/app.bundle.css" %}
     </head>
-    <body>
+    <body class="base__expand">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
-        {% include "_includes/header" %}
-        
-        {% block main %}
-            <p>Empty</p>
-        {% endblock %}
+        <div id="app" class="base__expand">
+            {% include "_includes/header" %}
+            
+            {% block main %}
+                <p>Empty</p>
+            {% endblock %}
 
-        {% include "_includes/bottom" %}
+            {% include "_includes/bottom" %}
+        </div>
     </body>
 </html>
