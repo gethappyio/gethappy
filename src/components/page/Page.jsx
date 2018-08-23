@@ -13,12 +13,12 @@ class Page extends Component {
         };
       }
     
-      render() {
+      render(props) {
         return (
             <main className="base__expand base__withNav">
                 <div id="happyHeader" class="header-container"><Header /></div>
                 <div class="base__expand base__scroll">
-                    <p>React! Fuck off!</p>
+                    {this.props.children}
                     <div id="happyBottom"><Bottom /></div>
                 </div>
             </main>

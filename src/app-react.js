@@ -17,7 +17,9 @@ class App extends Component {
     
       render() {
         return (
-            <Page />
+            <Page>
+                <p>Waddup</p>
+            </Page>
         );
       }
 }
