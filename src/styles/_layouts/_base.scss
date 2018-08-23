@@ -1,3 +1,13 @@
-.base__expand {
-    @include size(100%);    
+.base {
+    &__expand {
+        @include size(100%);    
+    }
+
+    &__scroll {
+        overflow-y: scroll;
+    }
+
+    &__withNav {
+        padding-top: 45px;
+    }
 }

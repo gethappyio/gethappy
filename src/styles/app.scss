@@ -1,3 +1,7 @@
 @import "bourbon";
 @import "neat";
 @import "_layouts/_base";
+
+* {
+    box-sizing: border-box;
+}
