@@ -8,7 +8,7 @@ import "normalize.css";
 import "./styles/app.scss";
 
 var wrapperHeader = document.getElementById("happyHeader");
-wrapperHeader ? ReactDOM.render(<Header />, wrapperHeader) : false;
+wrapperHeader ? ReactDOM.render(<Header container="false" />, wrapperHeader) : false;
 
 var wrapperBottom = document.getElementById("happyBottom");
-wrapperBottom ? ReactDOM.render(<Bottom />, wrapperBottom) : false;
+wrapperBottom ? ReactDOM.render(<Bottom container="false" />, wrapperBottom) : false;
