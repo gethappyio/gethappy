@@ -4,8 +4,8 @@ import ReactDOM from "react-dom";
 import "./styles/header.scss";
 
 class Header extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       title: ""

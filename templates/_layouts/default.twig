@@ -5,13 +5,15 @@
 
 {% block app %}
 <div id="app" class="base__expand">
-    {% include "_includes/header" %}
+    <main class="base__expand base__withNav">
+        {% include "_includes/header" %}
 
-    <div class="base__expand base__scroll base__withNav">
-    {% block main %}
-        <p>Empty</p>
-    {% endblock %}
-        {% include "_includes/bottom" %}
+        <div class="base__expand base__scroll">
+        {% block main %}
+            <p>Empty</p>
+        {% endblock %}
+            {% include "_includes/bottom" %}
+        </div>
     </div>
 </div>
 {% endblock %}
