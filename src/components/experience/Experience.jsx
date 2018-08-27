@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import axios from "axios";
 import Page from "../page/Page";
-import { Switch, Route, Link } from "react-router-dom";
 
 class Experience extends Component {
   constructor(props) {
@@ -8,12 +8,29 @@ class Experience extends Component {
     this.state = {
       title: ""
     };
+
+    this.slug = props.match.params.slug;
+  }
+
+  componentDidMount() {
+    let self = this;
+    axios.get('/experience/' + this.slug + '.json')
+    .then(function (response) {
+        var product = response.data.product;
+        var title = product.title;
+        console.log(product);
+        self.setState({title: title});
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+
   }
 
   render() {
     return (
         <Page>
-            <h1>{this.props.match.params.title}</h1>
+            <h1>{this.state.title}</h1>
         </Page>
     );
   }

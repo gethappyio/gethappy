@@ -24,7 +24,7 @@ class App extends Component {
                         <h1>Home Page</h1>
                     </Page>
                 )}/>
-                <Route path='/experience/:title' component={Experience}/>
+                <Route path='/experience/:slug' component={Experience}/>
             </Switch>
         );
       }
