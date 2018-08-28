@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Switch, Route, Link } from "react-router-dom";
-import Page from "../page/Page";
-import Experience from "../experience/Experience";
+import Page from "../Page/Page";
+import Experience from "../Experience/Experience";
 
 class App extends Component {
 

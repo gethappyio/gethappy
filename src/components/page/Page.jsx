@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import Header from "../header/Header";
-import Bottom from "../bottom/Bottom";
+import Header from "../Header/Header";
+import Bottom from "../Bottom/Bottom";
 
 class Page extends Component {
 

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Test from "./components/test/Test";
-import Header from "./components/header/Header";
-import Bottom from "./components/bottom/Bottom";
+import Header from "./components/Header/Header";
+import Bottom from "./components/Bottom/Bottom";
 
 import "normalize.css";
 import "./styles/app.scss";

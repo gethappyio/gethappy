@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Page from "../page/Page";
+import Page from "../Page/Page";
 
 class Experience extends Component {
   constructor(props) {
