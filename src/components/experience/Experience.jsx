@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Page from "../Page/Page";
+import DonationTier from "../DonationTier/DonationTier";
 
 class Experience extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: ""
+      title: "",
+      tiers: {}
     };
 
     this.slug = props.match.params.slug;
@@ -17,9 +19,9 @@ class Experience extends Component {
     axios.get('/experience/' + this.slug + '.json')
     .then(function (response) {
         var product = response.data.product;
-        var title = product.title;
-        console.log(product);
-        self.setState({title: title});
+        var tiers = response.data.tiers;
+        self.setState({title: product.title});
+        self.setState({tiers: tiers});
     })
     .catch(function (error) {
         console.log(error);
@@ -28,9 +30,14 @@ class Experience extends Component {
   }
 
   render() {
+    let donations = this.state && this.state.tiers.length > 0 ?
+    this.state.tiers.map(tier =>
+        <DonationTier tierData={tier}/>
+    ) : <span></span>;
     return (
         <Page>
             <h1>{this.state.title}</h1>
+            {donations}
         </Page>
     );
   }
