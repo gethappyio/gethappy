@@ -1,1 +1,6 @@
 {% extends "_layouts/react" %}
+
+{% set token %}
+    window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
+{% endset %}
+{% includeJs token first %}

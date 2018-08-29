@@ -4,6 +4,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import Page from "../Page/Page";
 import Experience from "../Experience/Experience";
 import ContactForm from "../ContactForm/ContatForm";
+import Login from "../Login/Login";
 
 class App extends Component {
 
@@ -27,6 +28,7 @@ class App extends Component {
                     </Page>
                 )}/>
                 <Route path='/experience/:slug' component={Experience}/>
+                <Route exact path='/signin' component={Login}/>
             </Switch>
         );
       }
