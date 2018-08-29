@@ -6,6 +6,7 @@ import Experience from "../Experience/Experience";
 import ContactForm from "../ContactForm/ContatForm";
 import User from "../User/User";
 import Login from "../Login/Login";
+import { AuthConsumer } from '../AuthContext/AuthContext';
 
 class App extends Component {
 
@@ -30,7 +31,13 @@ class App extends Component {
                     </Page>
                 )}/>
                 <Route path='/experience/:slug' component={Experience}/>
-                <Route exact path='/signin' component={Login}/>
+                <Route exact path='/signin'>
+                    <AuthConsumer>
+                        {context => 
+                            <Login context={context} />
+                        }
+                    </AuthConsumer>
+                </Route>
                 <PrivateRoute path='/user' component={User}/>
             </Switch>
         );
