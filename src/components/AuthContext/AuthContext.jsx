@@ -6,6 +6,17 @@ export class AuthProvider extends Component {
 
     constructor() {
         super();
+        this.isAuthenticated = false;
+    }
+
+    authenticate(cb) {
+        this.isAuthenticated = true;
+        cb();
+    }
+
+    signout(cb) {
+        this.isAuthenticated = false;
+        cb();
     }
 
     render() {
@@ -13,8 +24,9 @@ export class AuthProvider extends Component {
         return (
             <AuthContext.Provider
                 value={{
-                    isAuthenticated: false,
-                    isTrue: true
+                    isAuthenticated: this.isAuthenticated,
+                    authenticate: this.authenticate,
+                    signout: this.signout
                 }}>
                 {children}
             </AuthContext.Provider>

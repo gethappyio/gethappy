@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 import qs from "qs";
 
@@ -11,7 +12,6 @@ class Login extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        console.log(this.props);
     }
 
     handleChange(event) {
@@ -25,12 +25,8 @@ class Login extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
+        let self = this;
 
-        fakeAuth.authenticate(() => {
-            this.setState({ redirectToReferrer: true });
-        });
-
-        /*
         axios.post('/', qs.stringify({
             action: 'users/login',
             CRAFT_CSRF_TOKEN: window.csrfTokenValue,
@@ -38,24 +34,31 @@ class Login extends Component {
             loginName: this.state.loginName,
             password: this.state.password
         }))
-        .then(function (response) {
-            console.log(response);
+        .then(function (json) {
+            let response = json.data;
+            if(response.success == true) {
+                self.setState({ redirectToReferrer: true });
+                self.props.context.authenticate(() => {
+                    console.log('what');
+                    
+                });
+            }
         })
         .catch(function (error) {
             console.log(error);
         });
-        */
-
+        
     }
 
     render() {
-        const { from } = this.props.location.state || { from: { pathname: "/" } };
-        const { redirectToReferrer } = this.state.redirectToReferrer;
         
+        const { from } = this.props.location.state || { from: { pathname: "/" } };
+        const redirectToReferrer = this.state.redirectToReferrer;
+        console.log(redirectToReferrer);
         if(redirectToReferrer) {
             return <Redirect to={from} />;
         }
-        
+
         return(
             <form onSubmit={this.handleSubmit}>
                 <h3><label for="loginName">Username or email</label></h3>

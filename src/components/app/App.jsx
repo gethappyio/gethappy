@@ -30,14 +30,14 @@ class App extends Component {
                         <ContactForm />
                     </Page>
                 )}/>
-                <Route path='/experience/:slug' component={Experience}/>
-                <Route exact path='/signin'>
+                <Route path='/experience/:slug' component={Experience}/> 
+                <Route exact path='/signin' render={ ({location}) =>
                     <AuthConsumer>
-                        {context => 
-                            <Login context={context} />
+                        { context =>
+                            <Login context={context} location={location} {...this.props}/>
                         }
                     </AuthConsumer>
-                </Route>
+                }/>
                 <PrivateRoute path='/user' component={User}/>
             </Switch>
         );
