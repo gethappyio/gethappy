@@ -5,7 +5,10 @@ import qs from "qs";
 class Login extends Component {
     constructor() {
         super();
-        this.state = {};
+        this.state = {
+            redirectToReferrer: false
+        };
+
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -16,12 +19,17 @@ class Login extends Component {
         const name = target.name;
         this.setState({
             [name]: value
-        })
+        });
     }
 
     handleSubmit(event) {
         event.preventDefault();
 
+        fakeAuth.authenticate(() => {
+            this.setState({ redirectToReferrer: true });
+        });
+
+        /*
         axios.post('/', qs.stringify({
             action: 'users/login',
             CRAFT_CSRF_TOKEN: window.csrfTokenValue,
@@ -35,10 +43,18 @@ class Login extends Component {
         .catch(function (error) {
             console.log(error);
         });
+        */
 
     }
 
     render() {
+        const { from } = this.props.location.state || { from: { pathname: "/" } };
+        const { redirectToReferrer } = this.state.redirectToReferrer;
+        
+        if(redirectToReferrer) {
+            return <Redirect to={from} />;
+        }
+        
         return(
             <form onSubmit={this.handleSubmit}>
                 <h3><label for="loginName">Username or email</label></h3>
