@@ -38,7 +38,7 @@ class App extends Component {
                         }
                     </AuthConsumer>
                 }/>
-                <PrivateRoute path='/user' component={User}/>
+                <Route exact path='/user' component={User}/>
             </Switch>
         );
       }
