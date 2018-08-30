@@ -1,0 +1,37 @@
+{% requireLogin %}
+
+{% extends "_layouts/default" %}
+
+{% if cart is not defined %}
+    {% set cart = craft.commerce.carts.cart %}
+{% endif %}
+
+{% block main %}
+    {% if currentUser %}
+
+        <h1>My Orders</h1>
+
+        <table class="u-full-width">
+            <thead>
+            <tr>
+                <th>{{ "Order"|t }}</th>
+                <th>{{ "Date"|t }}</th>
+                <th>{{ "Total Quantity"|t }}</th>
+                <th>{{ "Total"|t }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {# Get completed orders for the current customer.#}
+            {% for order in craft.orders.customer(craft.commerce.customers.customer).isCompleted(true).all() %}
+                <tr>
+                    <td><a href="{{ url('user/orders/view', { number: order.number }) }}">Order #{{ order.id }}</a></td>
+                    <td>{{ order.dateOrdered|date }}</td>
+                    <td>{{ order.totalQty }} items</td>
+                    <td>{{ order.totalPrice|commerceCurrency(cart.currency) }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    {% endif %}
+{% endblock %}
