@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Page from "../Page/Page";
 import DonationTier from "../DonationTier/DonationTier";
+import Nav from "../Nav/Nav";
 
 class Experience extends Component {
   constructor(props) {
@@ -36,6 +37,7 @@ class Experience extends Component {
     ) : <span></span>;
     return (
         <Page>
+            <Nav />
             <h1>{this.state.title}</h1>
             {donations}
         </Page>
