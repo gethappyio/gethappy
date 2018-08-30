@@ -14,6 +14,8 @@ class User extends Component {
             <Page>
                 <Nav />
                 <h1>User account</h1>
+                <a href="./user/info">Edit profile</a>
+                <a href="./logout">Logout</a>
             </Page>
         );
     }
