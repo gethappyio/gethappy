@@ -1,0 +1,25 @@
+{% requireLogin %}
+
+{% extends "_layouts/default" %}
+{% block main %}
+<form method="post" accept-charset="UTF-8">
+    {{ csrfInput() }}
+    <input type="hidden" name="action" value="users/save-user">
+    <input type="hidden" name="userId" value="{{ currentUser.id }}">
+
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" value="{{ currentUser.email }}">
+    
+    <label for="first-name">First Name</label>
+    <input type="text" id="first-name" name="firstName" value="{{ currentUser.firstName }}">
+    
+    <label for="last-name">Last Name</label>
+    <input type="text" id="last-name" name="lastName" value="{{ currentUser.lastName }}">
+
+    <input type="submit" value="Save Profile">
+</form>
+
+{% set message = craft.session.getFlash( 'notice' ) %}
+{{message}}
+
+{% endblock %}
