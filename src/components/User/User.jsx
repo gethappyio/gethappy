@@ -17,6 +17,7 @@ class User extends Component {
                 <ul>
                     <li><a href="/user/info">Edit profile</a></li>
                     <li><a href="/user/orders">Orders</a></li>
+                    <li><a href="/user/addresses">Addresses</a></li>
                     <li><a href="/logout">Logout</a></li>
                 </ul>
             </Page>
