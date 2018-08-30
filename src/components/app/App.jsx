@@ -6,6 +6,7 @@ import Experience from "../Experience/Experience";
 import ContactForm from "../ContactForm/ContatForm";
 import User from "../User/User";
 import Login from "../Login/Login";
+import Nav from "../Nav/Nav";
 import { AuthConsumer } from '../AuthContext/AuthContext';
 
 class App extends Component {
@@ -23,9 +24,7 @@ class App extends Component {
             <Switch>
                 <Route exact path='/' render={(props) => (
                     <Page>
-                        <Link to='/user'>User</Link>
-                        <Link to='/'>Home</Link>
-                        <Link to='/experience/selena-gomez'>Experience</Link>
+                        <Nav />
                         <h1>Home Page</h1>
                         <ContactForm />
                     </Page>

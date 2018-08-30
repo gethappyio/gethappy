@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Page from "../Page/Page";
+import Nav from "../Nav/Nav";
 
 class User extends Component {
 
@@ -11,6 +12,7 @@ class User extends Component {
     render() {
         return (
             <Page>
+                <Nav />
                 <h1>User account</h1>
             </Page>
         );
