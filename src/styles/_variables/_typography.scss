@@ -1,22 +1,21 @@
 /// Typography
 
-$ln-height-tight: 1.1;
-$ln-height-reg: 1.3;
-$ln-height-lg: 1.33;
+$line-headings: 1.25;
+$line-standard-ui: 1.5;
 
 $typography-map: (
-  12px: (px: 12px, rem: 0.75rem, line-height: $ln-height-lg),
-  14px: (px: 14px, rem: 0.875rem, line-height: $ln-height-lg),
-  16px: (px: 16px, rem: 1rem, line-height: $ln-height-lg),
-  18px: (px: 18px, rem: 1.125rem, line-height: $ln-height-lg),
-  20px: (px: 20px, rem: 1.25rem, line-height: $ln-height-lg),
-  24px: (px: 24px, rem: 1.5rem, line-height: $ln-height-lg),
-  28px: (px: 28px, rem: 1.75rem, line-height: $ln-height-reg),
-  32px: (px: 32px, rem: 2rem, line-height: $ln-height-tight),
-  36px: (px: 36px, rem: 2.25rem, line-height: $ln-height-tight),
-  42px: (px: 42px, rem: 2.65rem, line-height: $ln-height-tight),
-  48px: (px: 48px, rem: 3rem, line-height: $ln-height-tight),
-  54px: (px: 54px, rem: 3.375rem, line-height: $ln-height-tight),
-  60px: (px: 60px, rem: 3.75rem, line-height: $ln-height-tight),
-  68px: (px: 68px, rem: 4.25rem, line-height: $ln-height-tight)
+  12px: (px: 12px, rem: 0.75rem, line-height: $line-standard-ui),
+  14px: (px: 14px, rem: 0.875rem, line-height: $line-standard-ui),
+  16px: (px: 16px, rem: 1rem, line-height: $line-standard-ui),
+  18px: (px: 18px, rem: 1.125rem, line-height: $line-standard-ui),
+  20px: (px: 20px, rem: 1.25rem, line-height: $line-standard-ui),
+  24px: (px: 24px, rem: 1.5rem, line-height: $line-standard-ui),
+  28px: (px: 28px, rem: 1.75rem, line-height: $line-standard-ui),
+  32px: (px: 32px, rem: 2rem, line-height: $line-headings),
+  36px: (px: 36px, rem: 2.25rem, line-height: $line-headings),
+  42px: (px: 42px, rem: 2.65rem, line-height: $line-headings),
+  48px: (px: 48px, rem: 3rem, line-height: $line-headings),
+  54px: (px: 54px, rem: 3.375rem, line-height: $line-headings),
+  60px: (px: 60px, rem: 3.75rem, line-height: $line-headings),
+  68px: (px: 68px, rem: 4.25rem, line-height: $line-headings)
 );
