@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { Switch, Route, Link } from "react-router-dom";
 import Page from "../Page/Page";
 import Experience from "../Experience/Experience";
+import ContactForm from "../ContactForm/ContatForm";
 
 class App extends Component {
 
@@ -22,6 +23,7 @@ class App extends Component {
                         <Link to='/'>Home</Link>
                         <Link to='/experience/selena-gomez'>Experience</Link>
                         <h1>Home Page</h1>
+                        <ContactForm />
                     </Page>
                 )}/>
                 <Route path='/experience/:slug' component={Experience}/>
