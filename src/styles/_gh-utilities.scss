@@ -1,3 +1,10 @@
+/// Get Happy Utilities
+///
+/// Partial to be imported into any scss file.
+/// Example: 
+///     @import "gh-utilities";
+///
+
 @import "_variables/breakpoints";
 @import "_variables/typography";
 @import "_mixins/breakpoint";
