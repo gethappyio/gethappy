@@ -1,0 +1,14 @@
+/// Get a type properties from typography map
+///
+/// @name Get Typography
+///
+/// @argument {string} $size
+///   The font size in pixel
+///   example: @include type(20px);
+///
+
+@mixin type($size) {
+    $typeobject: map-get($typography-map, $size);
+    font-size: map-get($typeobject, rem);
+    line-height: map-get($typeobject, line-height);
+}

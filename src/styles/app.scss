@@ -1,7 +1,19 @@
 @import "bourbon";
 @import "neat";
-@import "_layouts/_base";
+@import 'gh-utilities';
 
 * {
     box-sizing: border-box;
+}
+
+
+html {
+    font-size: 16px;
+
+    @include breakpoint("s") {
+        font-size: 18px;
+    }
+}
+h1 {
+    @include type(48px);
 }

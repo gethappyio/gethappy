@@ -23,7 +23,8 @@ module.exports = {
                             options: {
                                 includePaths: [
                                     require("bourbon-neat").includePaths,
-                                    require("bourbon").includePaths
+                                    require("bourbon").includePaths,
+                                    "src/styles"
                                 ]
                             }
                         },
