@@ -1,10 +1,6 @@
 @import "bourbon";
 @import "neat";
-@import "_variables/breakpoints";
-@import "_variables/typography";
-@import "_mixins/breakpoint";
-@import "_mixins/type";
-@import "_layouts/_base";
+@import 'gh-utilities';
 
 * {
     box-sizing: border-box;
