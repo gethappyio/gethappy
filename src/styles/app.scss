@@ -1,15 +1,23 @@
 @import "bourbon";
 @import "neat";
 @import "_variables/breakpoints";
+@import "_variables/typography";
 @import "_mixins/breakpoint";
+@import "_mixins/type";
 @import "_layouts/_base";
 
 * {
     box-sizing: border-box;
 }
 
-h1 {
-    @include breakpoint("l") {
-        font-size: 100px;
+
+html {
+    font-size: 16px;
+
+    @include breakpoint("s") {
+        font-size: 18px;
     }
+}
+h1 {
+    @include type(48px);
 }
