@@ -4,6 +4,7 @@
 
 .form-field {   
     &__wrapper {
+        @include grid-column(12);
         margin-bottom: 16px;
     }
 }

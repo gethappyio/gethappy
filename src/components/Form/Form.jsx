@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./styles/form-field.scss";
 import "./styles/form-text.scss";
+import "../Form/styles/form.scss";
 
 class InputText extends Component {
     constructor() {
