@@ -6,7 +6,8 @@ module.exports = {
         "app": __dirname + '/src/app.js',
         "app-react": __dirname + '/src/app-react.js',
         "ajax": __dirname + '/src/ajax.js',
-        "shop": __dirname + '/src/shop.js'
+        "shop": __dirname + '/src/shop.js',
+        "login-form": __dirname + '/src/login-form.js'
     },
     module: {
         rules: [
