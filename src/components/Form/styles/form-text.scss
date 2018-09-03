@@ -1,0 +1,13 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.form-text {
+    @include size(100%, auto);
+    @include type(16px, false);
+    padding: 10px;
+    outline: none;
+    border-color: rgb(235,235,235);
+    border-style: solid;
+    border-width: 1px;
+}
