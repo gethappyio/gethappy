@@ -2,12 +2,40 @@
 @import "neat";
 @import 'gh-utilities';
 
+@include font-face(
+  "Brandon-grotesque",
+  "../assets/fonts/brandon_reg-webfont",
+  ( "eot", "ttf", "woff2", "woff", "svg")
+) {
+  font-style: normal;
+  font-weight: 400;
+}
+
+@include font-face(
+  "Brandon-grotesque",
+  "../assets/fonts/brandon_thin-webfont",
+  ( "eot", "ttf", "woff2", "woff", "svg")
+) {
+  font-weight: 300;
+}
+
+@include font-face(
+  "Brandon-grotesque",
+  "../assets/fonts/brandon_med-webfont",
+  ( "eot", "ttf", "woff2", "woff", "svg")
+) {
+  font-style: bold;
+  font-weight: 500;
+}
+
+
 * {
     box-sizing: border-box;
 }
 
 
 html {
+    font-family: "Brandon-grotesque", arial;
     font-size: 16px;
 
     @include breakpoint("s") {

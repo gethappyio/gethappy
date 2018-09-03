@@ -52,6 +52,17 @@ module.exports = {
                 use: {
                   loader: "babel-loader"
                 }
+            },
+            {
+                test: /\.(ttf|eot|woff|woff2|svg)$/,
+                use: {
+                  loader: "file-loader",
+                  options: {
+                    name: "assets/fonts/[name].[ext]",
+                    publicPath: '../',
+                    useRelativePaths: true
+                  },
+                },
             }
         ]
     },
