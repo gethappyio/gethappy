@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, Redirect} from "react-router-dom";
 import Page from "../Page/Page";
 import Experience from "../Experience/Experience";
 import ContactForm from "../ContactForm/ContatForm";
+import User from "../User/User";
+import Login from "../Login/Login";
+import Nav from "../Nav/Nav";
+import { AuthConsumer } from '../AuthContext/AuthContext';
 
 class App extends Component {
 
@@ -20,16 +24,53 @@ class App extends Component {
             <Switch>
                 <Route exact path='/' render={(props) => (
                     <Page>
-                        <Link to='/'>Home</Link>
-                        <Link to='/experience/selena-gomez'>Experience</Link>
+                        <Nav />
                         <h1>Home Page</h1>
                         <ContactForm />
                     </Page>
                 )}/>
-                <Route path='/experience/:slug' component={Experience}/>
+                <Route path='/experience/:slug' component={Experience}/> 
+                <Route exact path='/signin' render={ ({location}) =>
+                    <AuthConsumer>
+                        { context =>
+                            <Login context={context} location={location} {...this.props}/>
+                        }
+                    </AuthConsumer>
+                }/>
+                <Route exact path='/user' component={User}/>
             </Switch>
         );
       }
 }
 
 export default App;
+
+const fakeAuth = {
+    isAuthenticated: false,
+    authenticate(cb) {
+      this.isAuthenticated = true;
+      setTimeout(cb, 100); // fake async
+    },
+    signout(cb) {
+      this.isAuthenticated = false;
+      setTimeout(cb, 100);
+    }
+};
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route
+      {...rest}
+      render={props =>
+        fakeAuth.isAuthenticated ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/signin",
+              state: { from: props.location }
+            }}
+          />
+        )
+      }
+    />
+  );

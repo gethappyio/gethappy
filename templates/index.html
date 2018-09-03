@@ -1,1 +1,7 @@
 {% extends "_layouts/react" %}
+
+{% set token %}
+    window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
+    window.donateRedirect = "{{ '/shop/cart'|hash }}";
+{% endset %}
+{% includeJs token first %}

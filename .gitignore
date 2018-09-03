@@ -1,6 +1,9 @@
 /.vscode
 /.env
 /.idea
+/package-lock.json
+/composer.json
+/composer.lock
 /rsync-exclude.txt
 /rsync.sh
 /config/license.key

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import DonationTierButton from "../DonationTierButton/DonationTierButton";
 
 class DonationTier extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class DonationTier extends Component {
         <div>
             {this.data.title}
             {this.data.sku}
+            <DonationTierButton purchaseableId={this.data.id}/>
         </div>
       );
   }
