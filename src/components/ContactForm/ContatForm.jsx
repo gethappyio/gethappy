@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Formik, Form, Field } from "formik";
+import { InputText } from "../Form/Form";
+
+import "../Form/styles/form.scss";
 
 class ContactForm extends Component {
 
@@ -10,16 +13,26 @@ class ContactForm extends Component {
     render() {
         return (
             <Formik 
+                initialValues={{
+                    action: "users/login",
+                    email: "",
+                    name: ""
+                }}
+                onSubmit={values => {
+                    this.form.submit();
+                }}
                 render={({
                     errors,
                     touched,
-                    isSubmitting,
+                    values,
+                    handleSubmit
                 }) => (
-                    <Form>
-                        <Field type="email" name="email" />
-                        <Field type="text" name="name" />
-                        <button type="submit" disabled={isSubmitting}>Submit</button>
-                    </Form>
+                    <form className="form__wrapper" onSubmit={handleSubmit} ref={  (input) => { this.form = input } }>
+                        <input type="hidden" name="action" value={values.action} />
+                        <Field component={InputText} type="email" name="email" value={values.email}/>
+                        <Field component={InputText} type="text" name="name" value={values.name}/>
+                        <button type="submit">Submit</button>
+                    </form>
                 )}
             />
         );

@@ -6,9 +6,20 @@
 ///   The font size in pixel
 ///   example: @include type(20px);
 ///
+/// @argument {boolean} $scale
+///   Determines if rem or px is used. 
+///   The default is true.
+///   example: @include type(20px, false);
+///
 
-@mixin type($size) {
+@mixin type($size, $scale: true) {
     $typeobject: map-get($typography-map, $size);
-    font-size: map-get($typeobject, rem);
+
+    @if ($scale) {
+        font-size: map-get($typeobject, rem);
+    } @else {
+        font-size: map-get($typeobject, px);
+    }
+    
     line-height: map-get($typeobject, line-height);
 }
