@@ -1,8 +1,8 @@
 import React from "react";
 
-const InputText = ({ field, form, ...rest }) => (
+const InputText = ({ field, form, ...props }) => (
    <div>
-      <input {...field} {...rest} />
+        <input {...field} {...props} />
    </div>
 );
 

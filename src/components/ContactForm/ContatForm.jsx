@@ -11,18 +11,24 @@ class ContactForm extends Component {
     render() {
         return (
             <Formik 
+                initialValues={{
+                    action: "users/login",
+                    email: "",
+                    name: ""
+                }}
                 onSubmit={values => {
-                    console.log(values);
                     this.form.submit();
                 }}
                 render={({
                     errors,
                     touched,
+                    values,
                     handleSubmit
                 }) => (
                     <form onSubmit={handleSubmit} ref={  (input) => { this.form = input } }>
-                        <Field component={InputText} type="email" name="email" />
-                        <Field component={InputText} type="text" name="name" />
+                        <input type="hidden" name="action" value={values.action} />
+                        <Field component={InputText} type="email" name="email" value={values.email}/>
+                        <Field component={InputText} type="text" name="name" value={values.name}/>
                         <button type="submit">Submit</button>
                     </form>
                 )}
