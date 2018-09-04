@@ -27,7 +27,7 @@ class Header extends Component {
 
   renderHeader() {
       return (
-        <div>Header Tits</div>
+        <div>Header</div>
       );
   }
 

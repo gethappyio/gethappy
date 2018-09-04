@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Formik, Field } from "formik";
+import * as Yup from "yup";
 import { InputText } from "../Form/Form";
 
 import "../Form/styles/form.scss";
@@ -12,7 +13,15 @@ class NewUserForm extends Component {
 
     render() {
         return (
-            <Formik 
+            <Formik
+                validationSchema={Yup.object().shape({
+                    username: Yup.string()
+                    .required('Username is required'),
+                    email: Yup.string()
+                    .required('Email is required'),
+                    password: Yup.string()
+                    .required('Password is required')
+                })}
                 initialValues={{
                     CRAFT_CSRF_TOKEN: window.csrfTokenValue,
                     action: "users/save-user",

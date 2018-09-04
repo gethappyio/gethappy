@@ -1,0 +1,9 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.form-error {
+    @include type(14px, false);
+    color: red;
+    margin-top: 10px;
+}
