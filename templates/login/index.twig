@@ -8,11 +8,16 @@
 {% includeJs token first %}
 
 {% block main %}
-<h2>Login</h2>
-<div id="loginForm"></div>
-{% if errorMessage is defined %}
-    <p>{{ errorMessage }}</p>
-{% endif %}
-<h2>Create new account</h2>
-<div id="newUserForm"></div>
+
+    <div class="section__wrapper">
+        <div class="section__full">
+            <h2>Login</h2>
+            <div id="loginForm"></div>
+            {% if errorMessage is defined %}
+                <p>{{ errorMessage }}</p>
+            {% endif %}
+            <h2>Create new account</h2>
+            <div id="newUserForm"></div>
+        </div>
+    </div>
 {% endblock %}

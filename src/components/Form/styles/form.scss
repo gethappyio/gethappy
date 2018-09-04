@@ -5,3 +5,7 @@
 .form__wrapper {
     @include grid-container();
 }
+
+.form__collapse {
+    @include grid-collapse();
+}

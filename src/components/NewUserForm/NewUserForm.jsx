@@ -39,12 +39,16 @@ class NewUserForm extends Component {
                     handleSubmit
                 }) => (
                     <form method="post" className="form__wrapper" onSubmit={handleSubmit} ref={  (input) => { this.form = input } }>
-                        <input type="hidden" name="CRAFT_CSRF_TOKEN" value={values.CRAFT_CSRF_TOKEN} />
-                        <input type="hidden" name="action" value={values.action} />
-                        <Field component={InputText} type="text" name="username" placeholder="Username" value={values.username}/>
-                        <Field component={InputText} type="email" name="email" placeholder="Email" value={values.email}/>
-                        <Field component={InputText} type="password" name="password" placeholder="Password" value={values.password}/>
-                        <button type="submit">Register</button>
+                        <div className="form__collapse">
+                            <input type="hidden" name="CRAFT_CSRF_TOKEN" value={values.CRAFT_CSRF_TOKEN} />
+                            <input type="hidden" name="action" value={values.action} />
+                            <Field component={InputText} type="text" name="username" placeholder="Username" value={values.username}/>
+                            <Field component={InputText} type="email" name="email" placeholder="Email" value={values.email}/>
+                            <Field component={InputText} type="password" name="password" placeholder="Password" value={values.password}/>
+                            <div className="form-field__wrapper">
+                                <button type="submit">Register</button>
+                            </div>
+                        </div>
                     </form>
                 )}
             />

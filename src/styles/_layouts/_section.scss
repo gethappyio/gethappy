@@ -1,0 +1,9 @@
+.section {
+    &__wrapper {
+        @include grid-container();
+    }
+
+    &__full {
+        @include grid-column(12);
+    }
+}
