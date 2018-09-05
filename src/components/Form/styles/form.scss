@@ -8,5 +8,5 @@
 }
 
 .form__collapse {
-    @include grid-collapse();
+    @include grid-responsive-collapse();
 }
