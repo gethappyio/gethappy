@@ -4,6 +4,7 @@
 
 .form__wrapper {
     @include grid-container();
+    overflow: hidden;
 }
 
 .form__collapse {

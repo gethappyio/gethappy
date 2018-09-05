@@ -42,10 +42,10 @@ class NewUserForm extends Component {
                         <div className="form__collapse">
                             <input type="hidden" name="CRAFT_CSRF_TOKEN" value={values.CRAFT_CSRF_TOKEN} />
                             <input type="hidden" name="action" value={values.action} />
-                            <Field component={InputText} type="text" name="username" placeholder="Username" value={values.username}/>
-                            <Field component={InputText} type="email" name="email" placeholder="Email" value={values.email}/>
-                            <Field component={InputText} type="password" name="password" placeholder="Password" value={values.password}/>
-                            <div className="form-field__wrapper">
+                            <Field component={InputText} className="form-field__col-xs-12" type="text" name="username" placeholder="Username" value={values.username}/>
+                            <Field component={InputText} className="form-field__col-xs-12" type="email" name="email" placeholder="Email" value={values.email}/>
+                            <Field component={InputText} className="form-field__col-xs-12" type="password" name="password" placeholder="Password" value={values.password}/>
+                            <div className="form-field__wrapper form-field__col-xs-12">
                                 <button type="submit">Register</button>
                             </div>
                         </div>

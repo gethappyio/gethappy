@@ -2,6 +2,9 @@
 @import "neat";
 @import 'gh-utilities';
 
+@import "_layouts/_base";
+@import "_layouts/_section";
+
 @include font-face(
   "Brandon-grotesque",
   "../assets/fonts/brandon_reg-webfont",

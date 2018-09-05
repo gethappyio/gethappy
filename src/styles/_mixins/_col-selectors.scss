@@ -1,0 +1,26 @@
+/// Output selectors for each breakpoint with columns.
+/// Uses the breakpoint mixin along with the grid-responsive 
+/// mixin to handle gutters.
+///
+/// @name Get Col Selectors
+///
+/// @example scss
+/// 
+/// .form-field {
+///   @include col-selectors();
+/// }
+
+
+@mixin col-selectors() {
+    $columns: 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1;
+
+    @each $name, $value in $breakpoints {
+        @include breakpoint($name) {
+            @each $colamt in $columns {
+                &__col-#{$name}-#{$colamt} {
+                    @include grid-responsive($colamt);
+                }
+            }
+        } 
+    }
+}
