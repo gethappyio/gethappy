@@ -1,0 +1,21 @@
+/// Set collapse with larger gutters 
+/// for the small breakpoint.
+///
+/// @name Get Grid Responsive Collapse
+///
+/// @example scss
+/// 
+/// .form__collapse {
+///   @include grid-responsive-collapse();
+/// }
+///
+
+@mixin grid-responsive-collapse() {
+    @include grid-collapse();
+    @media (max-width: map-get($breakpoints, "s")) {
+        @include grid-collapse((
+            columns: 12,
+            gutter: 10px,
+        ))
+    }
+}
