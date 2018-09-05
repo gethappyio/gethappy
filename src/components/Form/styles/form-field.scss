@@ -2,9 +2,9 @@
 @import "neat";
 @import "gh-utilities";
 
-.form-field {   
+.form-field { 
+    @include col-selectors();
     &__wrapper {
-        @include grid-column(12);
         margin-bottom: 16px;
     }
 }

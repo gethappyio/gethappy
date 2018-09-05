@@ -1,0 +1,24 @@
+/// Set the number of grid columns with larger gutters 
+/// for the small breakpoint.
+///
+/// @name Get Grid Responsive
+///
+/// @argument {number} $col
+///   The number of columns
+///
+/// @example scss
+/// 
+/// .form-field_col-12 {
+///   @include grid-responsive(12);
+/// }
+///
+
+@mixin grid-responsive($col) {
+    @include grid-column($col);
+    @media (max-width: map-get($breakpoints, "s")) {
+        @include grid-column($col, (
+            columns: 12,
+            gutter: 10px,
+        ))
+    }
+}

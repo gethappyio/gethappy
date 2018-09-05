@@ -1,0 +1,7 @@
+.section {
+    @include col-selectors();
+    &__wrapper {
+        @include grid-container();
+        overflow: hidden;
+    }
+}
