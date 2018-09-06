@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Formik, Field } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
+import qs from "qs";
 import { InputText } from "../Form/Form";
 import Select from "react-select";
 
@@ -31,6 +33,35 @@ class AddressForm extends Component {
                 }}
                 onSubmit={(values) => {
                     console.log(values);
+                    let addressObj = { 
+                        firstName: values.firstName,
+                        lastName: values.lastName,
+                        address1: values.address1,
+                        address2: values.address2,
+                        city: values.city,
+                        zipCode: values.zipCode,
+                        phone: values.phone,
+                        countryId: values.countryId
+                    };
+
+                    if(addressData.addressId) {
+                        addressObj.id = addressData.addressId
+                    }
+
+                    axios.post('/', qs.stringify({
+                        action: 'commerce/customer-addresses/save',
+                        CRAFT_CSRF_TOKEN: window.csrfTokenValue,
+                        address: addressObj
+                    }))
+                    .then(function (json) {
+                        let response = json.data;
+                        if(response.success == true) {
+                            console.log('success');
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
                     //this.form.submit();
                 }}
                 validateOnBlur={false}

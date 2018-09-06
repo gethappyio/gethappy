@@ -3,20 +3,23 @@
 {% includeJsFile "/dist/js/user-address-form.bundle.js" %}
 {% includeCssFile "/dist/css/user-address-form.bundle.css" %}
 {% set addressId = craft.app.request.param('addressId') %}
-{% set address = craft.commerce.customers.customer.getAddressById(addressId) %}
+{% if not address is defined and addressId %}
+    {% set address = craft.commerce.customers.customer.getAddressById(addressId) %}
+{% endif %}
+{% set address = address is defined ? address : null %}
 {% set countries = craft.commerce.countries.allCountriesAsList %}
 
 {% set addressData %}
     window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
     window.addressData = {
-        addressId: {{addressId}},
-        firstName: "{{address.firstName}}",
-        lastName: "{{address.lastName}}",
-        address1: "{{address.address1}}",
-        address2: "{{address.address2}}",
-        city: "{{address.city}}",
-        zipCode: "{{address.zipCode}}",
-        phone: "{{address.phone}}",
+        addressId: {{address ? addressId : "null"}},
+        firstName: "{{address ? address.firstName : ""}}",
+        lastName: "{{address ? address.lastName : ""}}",
+        address1: "{{address ? address.address1 : ""}}",
+        address2: "{{address ? address.address2 : ""}}",
+        city: "{{address ? address.city : ""}}",
+        zipCode: "{{address ? address.zipCode : ""}}",
+        phone: "{{address ? address.phone : ""}}",
         countryId: 198,
         countries: [ {% for key, option in countries %} { value: {{key}}, label: "{{option}}" },{% endfor %} ]
     };
