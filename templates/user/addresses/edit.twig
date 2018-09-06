@@ -17,8 +17,8 @@
         city: "{{address.city}}",
         zipCode: "{{address.zipCode}}",
         phone: "{{address.phone}}",
-        countryId: "{{address.countryId}}",
-        countries: { {% for key, option in countries %}{{key}}: "{{option}}",{% endfor %} }
+        countryId: 198,
+        countries: [ {% for key, option in countries %} { value: {{key}}, label: "{{option}}" },{% endfor %} ]
     };
 {% endset %}
 {% includeJs addressData first %}

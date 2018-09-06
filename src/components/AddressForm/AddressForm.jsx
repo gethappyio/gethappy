@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Formik, Field } from "formik";
 import * as Yup from "yup";
 import { InputText } from "../Form/Form";
+import Select from "react-select";
 
 import "../Form/styles/form.scss";
 
@@ -13,6 +14,7 @@ class AddressForm extends Component {
     
     render() {
         const addressData = this.props.addressData;
+
         return (
             <Formik 
                 initialValues={{
@@ -25,7 +27,7 @@ class AddressForm extends Component {
                     city: addressData.city,
                     zipCode: addressData.zipCode,
                     phone: addressData.phone,
-                    countryId: addressData.countryId
+                    countryId: 198
                 }}
                 onSubmit={(values) => {
                     console.log(values);
@@ -54,6 +56,12 @@ class AddressForm extends Component {
                                    type="text" name="lastName" 
                                    placeholder="Lastname" 
                                    value={values.lastName}/>
+                            <div className="form-field__wrapper form-field__col-xs-12">
+                            <Select id="country"
+                                    options={addressData.countries}
+                                    defaultValue={values.countryId}
+                                    />
+                            </div>
                             <Field component={InputText} 
                                    className="form-field__col-xs-12" 
                                    type="text" 
@@ -84,6 +92,8 @@ class AddressForm extends Component {
                                    name="phone"
                                    placeholder="Phone" 
                                    value={values.phone}/>
+                            
+                            
 
                             <div className="form-field__wrapper form-field__col-xs-12">
                                 <button type="submit">Submit</button>
