@@ -1,12 +1,13 @@
 {% extends '_layouts/default' %}
-
+{% includeJsFile "/dist/js/user-addresses.bundle.js" %}
+{% includeCssFile "/dist/css/user-addresses.bundle.css" %}
 {% if cart is not defined %}
     {% set cart = craft.commerce.carts.cart %}
 {% endif %}
 {% set customer = craft.commerce.customers.customer %}
 {% set customerAddressData %}
     window.customerAddressData = [{% for address in customer.addresses %}{
-        addressId: {{address.id}},
+        id: {{address.id}},
         firstName: "{{address.firstName}}",
         lastName: "{{address.lastName}}",
         address1: "{{address.address1}}",
@@ -20,5 +21,5 @@
 {% includeJs customerAddressData first %}
 
 {% block main %}
-
+<div id="userAddresses"></div>
 {% endblock %}
