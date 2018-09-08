@@ -40,4 +40,38 @@ class CustomerAddressesController extends Controller
 
         return $this->asJson(['success' => true, 'addresses' => $addresses]);
     }
+
+    /**
+     * Retrieve single address using its id
+     * 
+     * @return Response
+     * @throws Exception
+     * @throws HttpException
+     */
+    public function actionRetrieveById()
+    {
+        $this->requirePostRequest();
+        $addressesService = Plugin::getInstance()->getAddresses();
+
+        $id = Craft::$app->getRequest()->getRequiredBodyParam('id');
+
+        if(!$id) {
+            $error = Craft::t('commerce', 'Need to pass address id.');
+            if (Craft::$app->getRequest()->getAcceptsJson()) {
+                return $this->asJson(['error' => $error]);
+            }
+        }
+
+        $address = $addressesService->getAddressById($id);
+
+        if(!$address) {
+            $error = Craft::t('commerce', 'Address does not exist');
+            if (Craft::$app->getRequest()->getAcceptsJson()) {
+                return $this->asJson(['error' => $error]);
+            }
+        }
+
+        return $this->asJson(['success' => true, 'address' => $address]);
+        
+    }
 }
