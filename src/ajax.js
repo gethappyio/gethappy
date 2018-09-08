@@ -13,11 +13,8 @@ axios.get('/experience.json')
   });
 
 axios.post('/', qs.stringify({
-    action: 'commerce/cart/update-cart',
-    CRAFT_CSRF_TOKEN: window.csrfTokenValue,
-    redirect: "/cart",
-    qty: 1,
-    purchasableId: 14
+    action: 'gethappy/customer-addresses/retrieve',
+    CRAFT_CSRF_TOKEN: window.csrfTokenValue
 }))
 .then(function (response) {
     console.log(response);
