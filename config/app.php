@@ -19,7 +19,9 @@
 
 return [
     'modules' => [
-        'my-module' => \modules\Module::class,
+        'gethappy' => [
+            'class' => \modules\gethappy\GethappyModule::class,
+        ]
     ],
-    //'bootstrap' => ['my-module'],
+    'bootstrap' => ['gethappy'],
 ];
