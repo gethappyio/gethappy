@@ -13,8 +13,9 @@ axios.get('/experience.json')
   });
 
 axios.post('/', qs.stringify({
-    action: 'gethappy/users/profile',
-    CRAFT_CSRF_TOKEN: window.csrfTokenValue
+    action: 'gethappy/orders/get-order',
+    CRAFT_CSRF_TOKEN: window.csrfTokenValue,
+    orderId: 29
 }))
 .then(function (response) {
     console.log(response);
