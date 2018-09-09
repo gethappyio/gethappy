@@ -1,49 +1,25 @@
 {% extends '_layouts/default' %}
-
+{% includeJsFile "/dist/js/user-addresses.bundle.js" %}
+{% includeCssFile "/dist/css/user-addresses.bundle.css" %}
 {% if cart is not defined %}
     {% set cart = craft.commerce.carts.cart %}
 {% endif %}
+{% set customer = craft.commerce.customers.customer %}
+{% set customerAddressData %}
+    window.customerAddressData = [{% for address in customer.addresses %}{
+        id: {{address.id}},
+        firstName: "{{address.firstName}}",
+        lastName: "{{address.lastName}}",
+        address1: "{{address.address1}}",
+        address2: "{{address.address2}}",
+        zipCode: {{address.zipCode}},
+        city: "{{address.city}}",
+        countryText: "{{address.countryText}}",
+        phone: {{address.phone}}
+    },{% endfor %}];
+{% endset %}
+{% includeJs customerAddressData first %}
 
 {% block main %}
-    {% set customer = craft.commerce.customers.customer %}
-    {% set primaryBillingAddress = customer.getPrimaryBillingAddress() %}
-    {% set primaryShippingAddress = customer.getPrimaryShippingAddress() %}
-
-    <div class="row">
-    <div class="one-half column">
-        <h1>Manage Addresses</h1>
-    </div>
-    <div class="one-half column">
-        <a class="button button-primary right" href="{{ url('user/addresses/edit') }}">Add New Address</a>
-    </div>
-
-    </div>
-    {% for address in customer.addresses %}
-        {% if loop.index0 is divisible by(3) %}
-        <div class="row">
-        {% endif %}
-            <div class="address-card one-third column">
-                {% include 'shop/_includes/addresses/address' with {'address': address} %}
-                {% set isPrimaryBilling = cart.customer.primaryBillingAddressId == address.id %}
-                {% set isPrimaryShipping = cart.customer.primaryShippingAddressId == address.id %}
-
-                <p>
-                    {% if isPrimaryBilling %}<div>This is the primary billing address</div>{% endif %}
-                    {% if isPrimaryShipping %}<div>This is the primary shipping address</div>{% endif %}
-                </p>
-
-                <a class="button button-primary" href="{{ url('user/addresses/edit') }}?addressId={{ address.id }}">Edit</a>
-                <form method="POST">
-                    <input type="hidden" name="action" value="commerce/customer-addresses/delete">
-                    {{ csrfInput() }}
-                    <input type="hidden" name="id" value="{{ address.id }}"/>
-                    <input type="submit" value="delete"/>
-                </form>
-                <strong>{% if primaryBillingAddress and primaryBillingAddress.id == address.id %}Primary Billing{% endif %}</strong><br>
-                <strong>{% if primaryShippingAddress and primaryShippingAddress.id == address.id %}Primary Shipping{% endif %}</strong>
-            </div>
-        {% if loop.index is divisible by(3) %}
-        </div>
-        {% endif %}
-    {% endfor %}
+<div id="userAddresses"></div>
 {% endblock %}
