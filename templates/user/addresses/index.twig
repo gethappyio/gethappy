@@ -1,25 +1,7 @@
-{% extends '_layouts/default' %}
+{% extends "_layouts/react-single" %}
 {% includeJsFile "/dist/js/user-addresses.bundle.js" %}
 {% includeCssFile "/dist/css/user-addresses.bundle.css" %}
-{% if cart is not defined %}
-    {% set cart = craft.commerce.carts.cart %}
-{% endif %}
-{% set customer = craft.commerce.customers.customer %}
-{% set customerAddressData %}
-    window.customerAddressData = [{% for address in customer.addresses %}{
-        id: {{address.id}},
-        firstName: "{{address.firstName}}",
-        lastName: "{{address.lastName}}",
-        address1: "{{address.address1}}",
-        address2: "{{address.address2}}",
-        zipCode: {{address.zipCode}},
-        city: "{{address.city}}",
-        countryText: "{{address.countryText}}",
-        phone: {{address.phone}}
-    },{% endfor %}];
+{% set token %}
+    window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
 {% endset %}
-{% includeJs customerAddressData first %}
-
-{% block main %}
-<div id="userAddresses"></div>
-{% endblock %}
+{% includeJs token first %}
