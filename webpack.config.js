@@ -9,7 +9,8 @@ module.exports = {
         "shop": __dirname + '/src/shop.js',
         "login-form": __dirname + '/src/login-form.js',
         "user-address-form": __dirname + '/src/user-address-form.js',
-        "user-addresses": __dirname + '/src/user-addresses.js'
+        "user-addresses": __dirname + '/src/user-addresses.js',
+        "user-profile": __dirname + '/src/user-profile.js'
     },
     module: {
         rules: [

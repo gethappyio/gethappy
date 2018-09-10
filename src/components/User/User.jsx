@@ -15,7 +15,7 @@ class User extends Component {
                 <Nav />
                 <h1>User account</h1>
                 <ul>
-                    <li><a href="/user/info">Edit profile</a></li>
+                    <li><a href="/user/profile">Edit profile</a></li>
                     <li><a href="/user/orders">Orders</a></li>
                     <li><a href="/user/addresses">Addresses</a></li>
                     <li><a href="/logout">Logout</a></li>

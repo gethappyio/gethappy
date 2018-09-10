@@ -1,0 +1,12 @@
+{% requireLogin %}
+{% extends "_layouts/default" %}
+{% includeJsFile "/dist/js/user-profile.bundle.js" %}
+{% includeCssFile "/dist/css/user-profile.bundle.css" %}
+
+{% set token %}
+    window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
+{% endset %}
+{% includeJs token first %}
+{% block main %}
+<div id="userProfile"></div>
+{% endblock %}
