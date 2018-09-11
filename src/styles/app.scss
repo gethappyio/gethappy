@@ -31,6 +31,13 @@
   font-weight: 500;
 }
 
+@include font-face(
+  "Brandon-grotesque",
+  "../assets/fonts/brandon_blk-webfont",
+  ( "eot", "ttf", "woff2", "woff", "svg")
+) {
+  font-weight: 600;
+}
 
 * {
     box-sizing: border-box;
