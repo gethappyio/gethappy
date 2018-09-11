@@ -1,5 +1,6 @@
 {% extends "_layouts/react" %}
-
+{% includeJsFile siteUrl ~ "/dist/js/app-react.bundle.js" %}
+{% includeCssFile siteUrl ~ "/dist/css/app-react.bundle.css" %}
 {% set token %}
     window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
     window.donateRedirect = "{{ '/shop/cart'|hash }}";

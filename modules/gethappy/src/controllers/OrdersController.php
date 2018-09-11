@@ -48,16 +48,16 @@ class OrdersController extends Controller
     {   
         $addressesService = Plugin::getInstance()->getAddresses();
         $ordersService = Plugin::getInstance()->getOrders();
-        $id = Craft::$app->getRequest()->getRequiredBodyParam('orderId');
+        $number = Craft::$app->getRequest()->getRequiredBodyParam('number');
 
-        if(!$id) {
-            $error = Craft::t('commerce', 'Need to pass order id.');
+        if(!$number) {
+            $error = Craft::t('commerce', 'Need to pass order number.');
             if (Craft::$app->getRequest()->getAcceptsJson()) {
                 return $this->asJson(['error' => $error]);
             }
         }
 
-        $order = $ordersService->getOrderById($id);
+        $order = $ordersService->getOrderByNumber($number);
 
         if(!$order) {
             $error = Craft::t('commerce', 'Order does not exist.');

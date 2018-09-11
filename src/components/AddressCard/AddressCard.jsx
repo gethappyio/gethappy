@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class AddressCard extends Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class AddressCard extends Component {
                 <p>{address.countryText}</p>
                 <p>{address.zipCode}</p>
                 <p>{address.phone}</p>
-                <a href={"addresses/edit?addressId=" + address.id}>Edit</a>
+                <Link to={"/user/addresses/edit/" + address.id}>Edit</Link>
             </div>
         );
     }

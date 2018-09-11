@@ -12,23 +12,50 @@ class AddressForm extends Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            address: ""
+        }
+
+        this.id = props.match.params.id;
+    }
+
+    componentDidMount() {
+        let self = this;
+
+        if(this.id) {
+            axios.post('/',  qs.stringify({
+                action: '/gethappy/customer-addresses/retrieve-by-id',
+                CRAFT_CSRF_TOKEN: window.csrfTokenValue,
+                id: this.id
+            }))
+            .then(function (response) {
+               var address = response.data.address;
+    
+               self.setState({
+                    address: address
+               });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });    
+        }
+        
     }
     
     render() {
-        const addressData = this.props.addressData;
+        const addressData = this.state.address;
 
         return (
             <Formik 
                 initialValues={{
-                    CRAFT_CSRF_TOKEN: window.csrfTokenValue,
-                    action: "users/login",
-                    firstName: addressData.firstName,
-                    lastName: addressData.lastName,
-                    address1: addressData.address1,
-                    address2: addressData.address2,
-                    city: addressData.city,
-                    zipCode: addressData.zipCode,
-                    phone: addressData.phone,
+                    firstName: this.state.address.firstName,
+                    lastName: this.state.address.lastName,
+                    address1: this.state.address.address1,
+                    address2: this.state.address.address2,
+                    city: this.state.address.city,
+                    zipCode: this.state.address.zipCode,
+                    phone: this.state.address.phone,
                     countryId: 198
                 }}
                 onSubmit={(values) => {
@@ -44,8 +71,8 @@ class AddressForm extends Component {
                         countryId: values.countryId
                     };
 
-                    if(addressData.addressId) {
-                        addressObj.id = addressData.addressId
+                    if(addressData.id) {
+                        addressObj.id = addressData.id
                     }
 
                     axios.post('/', qs.stringify({
@@ -62,8 +89,8 @@ class AddressForm extends Component {
                     .catch(function (error) {
                         console.log(error);
                     });
-                    //this.form.submit();
                 }}
+                enableReinitialize={true}
                 validateOnBlur={false}
                 render={({
                     errors,
@@ -124,8 +151,6 @@ class AddressForm extends Component {
                                    placeholder="Phone" 
                                    value={values.phone}/>
                             
-                            
-
                             <div className="form-field__wrapper form-field__col-xs-12">
                                 <button type="submit">Submit</button>
                             </div>
