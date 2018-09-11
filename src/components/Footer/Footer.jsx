@@ -28,7 +28,11 @@ class Footer extends Component {
 
   renderFooter() {
       return (
-        <div className="footer">Footer</div>
+        <div className="footer footer--grey section__wrapper">
+            <div className="footer__wrapper section__col-xs-12">
+                footer
+            </div>
+        </div>
       );
   }
 

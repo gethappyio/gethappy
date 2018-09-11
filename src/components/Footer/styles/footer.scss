@@ -3,7 +3,11 @@
 @import "gh-utilities";
 
 .footer {
-    background: #333333;
-    min-height: 300px;
-    width: 100%;
+    &--grey {
+        background-color: #efefef;
+    }
+    &__wrapper {
+        padding: 40px 0;
+        text-align: center;
+    }
 }
