@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
-
+import imgLogo from "../../assets/icons/logo-full-navy.svg";
 import "./styles/footer.scss";
 
 class Footer extends Component {
@@ -30,7 +29,8 @@ class Footer extends Component {
       return (
         <div className="footer footer--grey section__wrapper">
             <div className="footer__wrapper section__col-xs-12">
-                footer
+                <div className="footer__logo"><img src={imgLogo} /></div>
+                <div className="footer__copyright">All Rights Reserved 2018</div>
             </div>
         </div>
       );
