@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
+import img from "../../assets/icons/logo.svg";
 import "./styles/header.scss";
 
 class Header extends Component {
@@ -27,7 +28,7 @@ class Header extends Component {
 
   renderHeader() {
       return (
-        <div>Header</div>
+        <div>Header <img src={img}/></div>
       );
   }
 
