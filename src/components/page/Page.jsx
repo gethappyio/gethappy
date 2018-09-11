@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Header from "../Header/Header";
-import Bottom from "../Bottom/Bottom";
+import Footer from "../Footer/Footer";
 
 class Page extends Component {
 
@@ -19,7 +19,7 @@ class Page extends Component {
                 <Header />
                 <div class="base__expand base__scroll">
                     {this.props.children}
-                    <Bottom />
+                    <Footer />
                 </div>
             </main>
         );

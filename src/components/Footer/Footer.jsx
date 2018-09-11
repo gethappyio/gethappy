@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
-import "./styles/bottom.scss";
+import "./styles/footer.scss";
 
-class Bottom extends Component {
+class Footer extends Component {
   constructor(props) {
     super(props);
 
@@ -12,31 +12,31 @@ class Bottom extends Component {
     };
   }
 
-  processBottom() {
+  processFooter() {
     if(this.props.container == "false") {
         return (
-            this.renderBottom()
+            this.renderFooter()
         );
     }
 
     return (
-        <div id="happyBottom">
-            {this.renderBottom()}
+        <div id="happyFooter">
+            {this.renderFooter()}
         </div>
     );
   }
 
-  renderBottom() {
+  renderFooter() {
       return (
-        <div className="bottom">Bottom</div>
+        <div className="footer">Footer</div>
       );
   }
 
   render() {
     return (
-        this.processBottom()
+        this.processFooter()
     );
   }
 }
 
-export default Bottom;
+export default Footer;
