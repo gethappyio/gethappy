@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
-
-import imgLogo from "../../assets/icons/logo.svg";
-import imgInfo from "../../assets/icons/info.svg";
+import { Link } from "react-router-dom";
 
 import "./styles/header.scss";
 
@@ -31,9 +28,9 @@ class Header extends Component {
   renderHeader() {
       return (
         <div className="header__container-inner">
-            <div className="header__icon header__icon--user"></div>
-            <div className="header__icon header__icon--logo"></div>
-            <div className="header__icon header__icon--info"></div>
+            <div className="header__icon header__icon--user"><Link to='/user' className="header__icon-link"></Link></div>
+            <div className="header__icon header__icon--logo"><Link to='/' className="header__icon-link"></Link></div>
+            <div className="header__icon header__icon--info"><Link to='/experience/selena-gomez' className="header__icon-link"></Link></div>
         </div>
       );
   }
