@@ -1,0 +1,20 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.share {
+    &__wrapper {
+        @include size(275px, auto);
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto 20px auto;
+    }
+
+    &__icon {
+        @include size(30px);
+    }
+
+    &__image {
+        height: 100%;
+    }
+}

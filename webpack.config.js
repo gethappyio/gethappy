@@ -63,18 +63,18 @@ module.exports = {
                 use: {
                     loader: 'file-loader',
                     options: {
-                        name: "assets/icons/[name].[ext]",
+                        name: "assets/[name].[ext]",
                         publicPath: '/dist/',
                     }
                   }
             },
             {
                 test: /\.(ttf|eot|woff|woff2|svg)$/,
-                exclude: /icons/,
+                include: /fonts/,
                 use: {
                   loader: "file-loader",
                   options: {
-                    name: "assets/fonts/[name].[ext]",
+                    name: "assets/[name].[ext]",
                     publicPath: '/dist/'
                   },
                 },

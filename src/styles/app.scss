@@ -31,6 +31,40 @@
   font-weight: 500;
 }
 
+@include font-face(
+  "Brandon-grotesque",
+  "../assets/fonts/brandon_blk-webfont",
+  ( "eot", "ttf", "woff2", "woff", "svg")
+) {
+  font-weight: 600;
+}
+
+@include font-face(
+  "Akkurat-mono",
+  "../assets/fonts/Akkurat-Mono",
+  ( "ttf" )
+) {
+  font-style: normal;
+  font-weight: 400;
+}
+
+@include font-face(
+  "Akkurat-normal",
+  "../assets/fonts/Akkurat-Normal",
+  ( "ttf" )
+) {
+  font-style: normal;
+  font-weight: 400;
+}
+
+@include font-face(
+  "Akkurat-bold",
+  "../assets/fonts/Akkurat-Bold",
+  ( "ttf" )
+) {
+  font-style: normal;
+  font-weight: 400;
+}
 
 * {
     box-sizing: border-box;
