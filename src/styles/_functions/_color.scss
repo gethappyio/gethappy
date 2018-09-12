@@ -1,0 +1,12 @@
+/// Get a color hex from color map
+///
+/// @name Get Color
+///
+/// @argument {string} $name
+///   The color name
+///   example: @include color("brand-primary");
+///
+
+@function color($name) {
+    @return map-get($color-map, $name);
+}
