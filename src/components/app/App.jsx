@@ -5,6 +5,7 @@ import Page from "../Page/Page";
 import Experience from "../Experience/Experience";
 import ContactForm from "../ContactForm/ContatForm";
 import User from "../User/User";
+import About from "../About/About";
 import Login from "../Login/Login";
 import Nav from "../Nav/Nav";
 import { AuthConsumer } from '../AuthContext/AuthContext';
@@ -29,6 +30,7 @@ class App extends Component {
                         <ContactForm />
                     </Page>
                 )}/>
+                <Route exact path='/about' component={About} />
                 <Route path='/experience/:slug' component={Experience}/> 
                 <Route exact path='/signin' render={ ({location}) =>
                     <AuthConsumer>
