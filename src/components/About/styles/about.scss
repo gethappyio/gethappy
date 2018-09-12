@@ -1,0 +1,36 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.about{ 
+    &__section {
+        padding: 40px 0;
+        text-align: center;
+
+        &:not(:first-child) {
+            border-top: 1px solid #979797;
+        }
+    }
+
+    &__title {
+        @include type(36px);
+        color: color("brand-primary");
+    }
+
+    &__statement {
+        @include type(16px);
+        font-family: "Akkurat-mono", monospace, sans-serif;
+        font-weight: bold;
+    }
+
+    &__body {
+        @include type(14px);
+        font-family: "Akkurat-mono", monospace, sans-serif;
+        padding: 0 20px;
+    }
+
+    &__cartoon-head {
+        display: inline-block;
+        width: 125px;
+    }
+}
