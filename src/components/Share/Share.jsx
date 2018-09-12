@@ -16,7 +16,7 @@ class Share extends Component {
   render() {
     return (
         <div className="share__wrapper">
-            <div className="share__icon share__icon--fb"><img className="share__image" src={iconFb}/></div>
+            <div className="share__icon"><img className="share__image" src={iconFb}/></div>
             <div className="share__icon"><img className="share__image" src={iconInsta}/></div>
             <div className="share__icon"><img className="share__image" src={iconTwitter}/></div>
             <div className="share__icon"><img className="share__image" src={iconYoutube}/></div>
