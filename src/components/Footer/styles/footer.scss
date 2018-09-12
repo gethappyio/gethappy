@@ -19,4 +19,18 @@
         @include type(12px);
         font-family: "Akkurat-mono", monospace, sans-serif;
     }
+    
+    &__title {
+        @include type(18px);
+        font-weight: 600;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    &__subtitle {
+        @include type(16px);
+        font-family: "Akkurat-mono", monospace, sans-serif;
+        margin-bottom: 20px;
+        margin-top: 0;
+    }
 }
