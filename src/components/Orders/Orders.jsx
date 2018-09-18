@@ -42,9 +42,9 @@ class Orders extends Component {
     render() {
         const orders = this.getOutput();
         return (
-            <div>
+            <Page>
                 {orders}
-            </div>
+            </Page>
         );
     }
 }

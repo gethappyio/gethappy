@@ -1,0 +1,29 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.user-help {
+    &__wrapper {
+        @include size(50%, auto);
+        color: color("brand-primary");
+        margin: 20px auto;
+        max-width: 200px;
+        text-align: center;
+    }
+
+    &__cartoon {
+        width: 70%;
+    }
+
+    &__question {
+        @include type(16px);
+        font-weight: 600;
+        margin: 20px 0;
+        text-transform: uppercase;
+    }
+
+    &__sub {
+        @include type(14px);
+        font-family: "Akkurat-mono", monospace, sans-serif;
+    }
+}
