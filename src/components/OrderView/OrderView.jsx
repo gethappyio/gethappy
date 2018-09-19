@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
+import Page from "../Page/Page";
+import LineItem from "./LineItem";
+import "./styles/order-view.scss";
 
 class OrderView extends Component {
     constructor(props) {
@@ -34,19 +37,29 @@ class OrderView extends Component {
 
     getOutput() {
         let order = this.state.order;
-        if(order) {
-            return <div>Order #{order.id}, Date: {order.dateOrdered}</div>;
+        let items = order.lineItems;
+        if(items) {
+            return items.map((item) => 
+                <LineItem item={item} />
+            );
         } else {
             return "";
         }
     }
 
     render() {
-        const order = this.getOutput();
+        const items = this.getOutput();
+        const order = this.state.order;
         return (
-            <div>
-                {order}
-            </div>
+            <Page>
+                <div className="base__pad section__wrapper order-view">
+                    <div className="section__content">
+                        <div className="order-view__date">Ordered on {order.dateFormatted}</div>
+                        <div className="order-view__number">Order no. {order.id}</div>
+                    </div>
+                    {items}
+                </div>
+            </Page>
         );
     }
 }

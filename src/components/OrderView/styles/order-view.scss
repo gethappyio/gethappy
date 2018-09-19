@@ -1,0 +1,17 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.order-view {
+    @include type(18px);
+    text-align: center;
+    
+    &__date {
+        font-family: "Akkurat-mono", monospace, sans-serif;
+        margin-top: 20px;
+    }
+    
+    &__number {
+        color: #a1a4a6;
+    }
+}

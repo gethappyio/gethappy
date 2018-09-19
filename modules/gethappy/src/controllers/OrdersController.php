@@ -58,6 +58,8 @@ class OrdersController extends Controller
     {   
         $addressesService = Plugin::getInstance()->getAddresses();
         $ordersService = Plugin::getInstance()->getOrders();
+        $productsService = Plugin::getInstance()->getProducts();
+        $variantsService = Plugin::getInstance()->getVariants();
         $number = Craft::$app->getRequest()->getRequiredBodyParam('number');
 
         if(!$number) {
@@ -75,6 +77,15 @@ class OrdersController extends Controller
                 return $this->asJson(['error' => $error]);
             }
         }
+        $cleanedItems = [];
+        foreach($order["lineItems"] as $num => $item) {
+            $variant = $variantsService->getVariantById($item["purchasableId"]);
+            $product = $productsService->getProductById($variant["productId"]);
+            $cleanedItem["product"] = $product;
+            $cleanedItem["variant"] = $variant;
+            $cleanedItem["lineItem"] = $item;
+            $cleanedItems[] = $cleanedItem;
+        }
 
         $cleanedOrder = [];
         $cleanedOrder["dateOrdered"] = $order["dateOrdered"];
@@ -82,6 +93,7 @@ class OrdersController extends Controller
         $cleanedOrder["itemTotal"] = $order["itemTotal"];
         $cleanedOrder["number"] = $order["number"];
         $cleanedOrder["id"] = $order["id"];
+        $cleanedOrder["lineItems"] = $cleanedItems;
 
         $shippingId = $order["shippingAddressId"];
         if($shippingId) {
