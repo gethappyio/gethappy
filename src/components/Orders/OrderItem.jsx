@@ -15,7 +15,7 @@ class OrderItem extends Component {
             <RowButton link={"/user/orders/view/" + order.number}>
                 <div className="section__wrapper order-item">
                     <div className="section__col-xs-12 section__content">
-                        <div className="order-item__date">{order.dateOrdered}</div>
+                        <div className="order-item__date">{order.dateFormatted}</div>
                         <div className="order-item__number">Order no. {order.id}</div>
                     </div>
                     <div className="section__col-xs-12 section__content order-item__name">

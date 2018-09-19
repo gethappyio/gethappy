@@ -34,6 +34,16 @@ class OrdersController extends Controller
         $currentCustomer = $customerService->getCustomer();
         $orders = $ordersService->getOrdersByCustomer($currentCustomer);
 
+        foreach($orders as $num => $order) {
+            $cleanedOrder = [];
+            $cleanedOrder["dateOrdered"] = $order["dateOrdered"];
+            $cleanedOrder["dateFormatted"] = $order["dateOrdered"]->format('F d, Y');
+            $cleanedOrder["itemTotal"] = $order["itemTotal"];
+            $cleanedOrder["number"] = $order["number"];
+            $cleanedOrder["id"] = $order["id"];
+            $orders[$num] = $cleanedOrder;
+        }
+
         return $this->asJson(['success' => true, 'orders' => $orders]);
     }
 
@@ -66,13 +76,20 @@ class OrdersController extends Controller
             }
         }
 
+        $cleanedOrder = [];
+        $cleanedOrder["dateOrdered"] = $order["dateOrdered"];
+        $cleanedOrder["dateFormatted"] = $order["dateOrdered"]->format('F d, Y');
+        $cleanedOrder["itemTotal"] = $order["itemTotal"];
+        $cleanedOrder["number"] = $order["number"];
+        $cleanedOrder["id"] = $order["id"];
+
         $shippingId = $order["shippingAddressId"];
         if($shippingId) {
             $address = $addressesService->getAddressById($shippingId);
         }
-        return $this->asJson(['success' => true, 'order' => $order, 'address' => $address]);
+        return $this->asJson(['success' => true, 'order' => $cleanedOrder, 'address' => $address]);
     }
 }
 
-
+    
 
