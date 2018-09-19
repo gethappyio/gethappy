@@ -143,6 +143,7 @@ class OrderView extends Component {
                     {items}
                     {address}
                     {payment}
+                    <a href={order.receipt}>Receipt</a>
                 </div>
             </Page>
         );

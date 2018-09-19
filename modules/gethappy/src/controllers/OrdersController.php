@@ -99,6 +99,7 @@ class OrdersController extends Controller
         $cleanedOrder["shippingMethodHandle"] = $order["shippingMethodHandle"];
         $cleanedOrder["lineItems"] = $cleanedItems;
         $cleanedOrder["paymentMethod"] = $gatewaysService->getGatewayById($order["gatewayId"])["name"];
+        $cleanedOrder["receipt"] = $order->getPdfUrl('receipt');
 
         $cleanedTotals = [];
         $cleanedTotals["Subtotal"] = "$" . number_format((float)$order["itemSubtotal"], 2, '.', '');
