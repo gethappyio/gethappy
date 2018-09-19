@@ -5,12 +5,14 @@ import Page from "../Page/Page";
 import LineItem from "./LineItem";
 import "./styles/order-view.scss";
 
+
 class OrderView extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            order: ""
+            order: "",
+            address: ""
         }
 
         this.number = props.match.params.number;
@@ -25,9 +27,11 @@ class OrderView extends Component {
         }))
         .then(function (response) {
            var order = response.data.order;
+           var address = response.data.address;
 
            self.setState({
-                order: order
+                order: order,
+                address: address
            });
         })
         .catch(function (error) {
@@ -46,10 +50,64 @@ class OrderView extends Component {
             return "";
         }
     }
+    
+    getAddress() {
+        const address = this.state.address;
+        let addressLines = [];
+
+        if(address.address1) {
+            addressLines.push(
+                <OrderViewAddressLine>
+                    {address.address1}
+                </OrderViewAddressLine>);
+        }
+
+        if(address.address2) {
+            addressLines.push(
+                <OrderViewAddressLine>
+                    {address.address2}
+                </OrderViewAddressLine>);
+        }
+
+        if(address.city) {
+            addressLines.push(
+                <OrderViewAddressLine>
+                    {address.city}
+                </OrderViewAddressLine>);
+        }
+
+        if(address.zipCode) {
+            addressLines.push(
+                <OrderViewAddressLine>
+                    {address.zipCode}
+                </OrderViewAddressLine>);
+        }
+
+        if(address.countryText) {
+            addressLines.push(
+                <OrderViewAddressLine>
+                    {address.countryText}
+                </OrderViewAddressLine>);
+        }
+
+        return (
+            <div class="section__wrapper">
+                <div className="section__col-xs-12 order-view__module">
+                    <h2 className="order-view__header">Delivery details</h2>
+                    <div class="section__wrapper">
+                        <div className="section__col-xs-12">
+                            {addressLines}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     render() {
         const items = this.getOutput();
         const order = this.state.order;
+        const address = this.getAddress();
         return (
             <Page>
                 <div className="base__pad section__wrapper order-view">
@@ -58,6 +116,7 @@ class OrderView extends Component {
                         <div className="order-view__number">Order no. {order.id}</div>
                     </div>
                     {items}
+                    {address}
                 </div>
             </Page>
         );
@@ -65,3 +124,8 @@ class OrderView extends Component {
 }
 
 export default OrderView;
+
+
+const OrderViewAddressLine = (props) => (
+       <p className="order-view__p">{props.children}</p>
+ );
