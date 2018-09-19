@@ -3,6 +3,7 @@ import axios from "axios";
 import qs from "qs";
 import Page from "../Page/Page";
 import LineItem from "./LineItem";
+import TotalsTable from "../TotalsTable/TotalsTable";
 import "./styles/order-view.scss";
 
 
@@ -12,7 +13,8 @@ class OrderView extends Component {
 
         this.state = {
             order: "",
-            address: ""
+            address: "",
+            totals: ""
         }
 
         this.number = props.match.params.number;
@@ -28,10 +30,12 @@ class OrderView extends Component {
         .then(function (response) {
            var order = response.data.order;
            var address = response.data.address;
+           var totals = response.data.totals;
 
            self.setState({
                 order: order,
-                address: address
+                address: address,
+                totals: totals
            });
         })
         .catch(function (error) {
@@ -49,6 +53,26 @@ class OrderView extends Component {
         } else {
             return "";
         }
+    }
+
+    getPayment() {
+        const totals = this.state.totals;
+        const order = this.state.order;
+
+        return (
+            <div class="section__wrapper">
+                <div className="section__col-xs-12 order-view__module">
+                    <h2 className="order-view__header">Payment details</h2>
+                    <div class="section__wrapper">
+                        <div className="section__col-xs-12">
+                            <TotalsTable data={totals} />
+                            <h3>Payment Method</h3>
+                            <div>{order.paymentMethod}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
     }
     
     getAddress() {
@@ -108,6 +132,7 @@ class OrderView extends Component {
         const items = this.getOutput();
         const order = this.state.order;
         const address = this.getAddress();
+        const payment = this.getPayment();
         return (
             <Page>
                 <div className="base__pad section__wrapper order-view">
@@ -117,6 +142,7 @@ class OrderView extends Component {
                     </div>
                     {items}
                     {address}
+                    {payment}
                 </div>
             </Page>
         );

@@ -60,6 +60,7 @@ class OrdersController extends Controller
         $ordersService = Plugin::getInstance()->getOrders();
         $productsService = Plugin::getInstance()->getProducts();
         $variantsService = Plugin::getInstance()->getVariants();
+        $gatewaysService = Plugin::getInstance()->getGateways();
         $number = Craft::$app->getRequest()->getRequiredBodyParam('number');
 
         if(!$number) {
@@ -93,13 +94,23 @@ class OrdersController extends Controller
         $cleanedOrder["itemTotal"] = $order["itemTotal"];
         $cleanedOrder["number"] = $order["number"];
         $cleanedOrder["id"] = $order["id"];
+        $cleanedOrder["orderStatusId"] = $order["orderStatusId"];
+        $cleanedOrder["isCompleted"] = $order["isCompleted"];
+        $cleanedOrder["shippingMethodHandle"] = $order["shippingMethodHandle"];
         $cleanedOrder["lineItems"] = $cleanedItems;
+        $cleanedOrder["paymentMethod"] = $gatewaysService->getGatewayById($order["gatewayId"])["name"];
+
+        $cleanedTotals = [];
+        $cleanedTotals["Subtotal"] = "$" . number_format((float)$order["itemSubtotal"], 2, '.', '');
+        $cleanedTotals["Tax"] = "$0.00";
+        $cleanedTotals["Shipping"] = "$0.00";
+        $cleanedTotals["Total"] = "$" . number_format((float)$order["itemTotal"], 2, '.', '');
 
         $shippingId = $order["shippingAddressId"];
         if($shippingId) {
             $address = $addressesService->getAddressById($shippingId);
         }
-        return $this->asJson(['success' => true, 'order' => $cleanedOrder, 'address' => $address]);
+        return $this->asJson(['success' => true, 'order' => $cleanedOrder, 'totals' => $cleanedTotals, 'address' => $address]);
     }
 }
 
