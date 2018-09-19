@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
 import Page from "../Page/Page";
-import { Link } from "react-router-dom";
+import OrderItem from "./OrderItem";
 
 class Orders extends Component {
     constructor(props) {
@@ -33,7 +33,9 @@ class Orders extends Component {
 
     getOutput() {
         if(this.state.orders) {
-            return this.state.orders.map((order) => <div>Order #{order.id}, Date: {order.dateOrdered}, <Link to={"/user/orders/view/" + order.number}>view</Link></div>);
+            return this.state.orders.map((order) => 
+                <OrderItem order={order} />
+            );
         } else {
             return "";
         }
@@ -43,7 +45,9 @@ class Orders extends Component {
         const orders = this.getOutput();
         return (
             <Page>
-                {orders}
+                <div className="base__pad">
+                    {orders}
+                </div>
             </Page>
         );
     }

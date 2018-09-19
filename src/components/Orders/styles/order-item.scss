@@ -1,0 +1,19 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.order-item {
+    @include type(18px);
+
+    &__date {
+        font-family: "Akkurat-mono", monospace, sans-serif;
+    }
+    
+    &__number {
+        color: #a1a4a6;
+    }
+
+    &__name {
+        font-weight: 600;
+    }
+}

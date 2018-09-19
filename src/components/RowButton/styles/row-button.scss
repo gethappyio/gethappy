@@ -1,0 +1,30 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.row-button {
+    color: black;
+    display: block;
+    padding: 24px 0;
+    position: relative;
+    text-decoration: none;
+
+    &::after {
+        @include size(20px, 100%);
+        background: url("../assets/arrow.svg") right center no-repeat;
+        content: "";
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 0;
+    }
+
+    &__wrapper {
+        border-top: 1px solid color("brand-primary");
+
+        &:last-child {
+            border-bottom: 1px solid color("brand-primary");
+        }
+        
+    }
+}

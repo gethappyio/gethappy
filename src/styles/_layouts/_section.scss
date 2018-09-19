@@ -4,4 +4,8 @@
         @include grid-container();
         overflow: hidden;
     }
+
+    &__content {
+        margin-bottom: 20px;
+    }
 }
