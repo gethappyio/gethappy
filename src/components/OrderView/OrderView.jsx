@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
-import Page from "../Page/Page";
+import PageNavigationBar from "../Page/PageNavigationBar";
 import LineItem from "./LineItem";
 import TotalsTable from "../TotalsTable/TotalsTable";
 import "./styles/order-view.scss";
@@ -134,7 +134,7 @@ class OrderView extends Component {
         const address = this.getAddress();
         const payment = this.getPayment();
         return (
-            <Page>
+            <PageNavigationBar title="Order view" to="/user/orders">
                 <div className="base__pad section__wrapper order-view">
                     <div className="section__content">
                         <div className="order-view__date">Ordered on {order.dateFormatted}</div>
@@ -145,7 +145,7 @@ class OrderView extends Component {
                     {payment}
                     <a href={order.receipt}>Receipt</a>
                 </div>
-            </Page>
+            </PageNavigationBar>
         );
     }
 }
