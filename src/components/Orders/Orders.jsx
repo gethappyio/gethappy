@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
-import Page from "../Page/Page";
-import { Link } from "react-router-dom";
+import PageNavigationBar from "../Page/PageNavigationBar";
+import OrderItem from "./OrderItem";
 
 class Orders extends Component {
     constructor(props) {
@@ -33,7 +33,9 @@ class Orders extends Component {
 
     getOutput() {
         if(this.state.orders) {
-            return this.state.orders.map((order) => <div>Order #{order.id}, Date: {order.dateOrdered}, <Link to={"/user/orders/view/" + order.number}>view</Link></div>);
+            return this.state.orders.map((order) => 
+                <OrderItem order={order} />
+            );
         } else {
             return "";
         }
@@ -42,9 +44,11 @@ class Orders extends Component {
     render() {
         const orders = this.getOutput();
         return (
-            <div>
-                {orders}
-            </div>
+            <PageNavigationBar title="Orders" href="/user">
+                <div className="base__pad">
+                    {orders}
+                </div>
+            </PageNavigationBar>
         );
     }
 }

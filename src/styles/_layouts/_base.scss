@@ -11,4 +11,11 @@
     &__withNav {
         padding-top: 50px;
     }
+    
+    &__pad {
+        padding: 0 10px;
+        @media (min-width: map-get($breakpoints, "s")) {
+            padding: 0 20px;
+        }
+    }
 }

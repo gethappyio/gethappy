@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+import NavigationBar from "../NavigationBar/NavigationBar";
 
-class Page extends Component {
+class PageNavigationBar extends Component {
 
     constructor(props) {
         super(props);
@@ -16,14 +14,13 @@ class Page extends Component {
       render() {
         return (
             <main className="base__expand base__withNav">
-                <Header />
+                <NavigationBar href={this.props.href} to={this.props.to} title={this.props.title}/>
                 <div class="base__expand base__scroll">
                     {this.props.children}
-                    <Footer />
                 </div>
             </main>
         );
       }
 }
 
-export default Page;
+export default PageNavigationBar;

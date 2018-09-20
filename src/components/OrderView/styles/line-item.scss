@@ -1,0 +1,16 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.line-item {
+    @include type(18px);
+    text-align: center;
+    
+    &__number {
+        color: #a1a4a6;
+    }
+
+    &__name {
+        font-weight: 600;
+    }
+}

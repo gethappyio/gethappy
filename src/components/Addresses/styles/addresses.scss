@@ -1,0 +1,12 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.addresses {
+    
+    &__main {
+        border-bottom: 2px solid color("brand-primary");
+        margin-bottom: 40px;
+        padding: 40px 0;
+    }
+}

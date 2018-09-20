@@ -72,11 +72,11 @@
 
 
 html {
+    @include type(16px, false);
     font-family: "Brandon-grotesque", arial;
-    font-size: 16px;
 
     @include breakpoint("s") {
-        font-size: 18px;
+        @include type(16px, false);
     }
 }
 h1 {

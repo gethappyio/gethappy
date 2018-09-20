@@ -34,6 +34,16 @@ class OrdersController extends Controller
         $currentCustomer = $customerService->getCustomer();
         $orders = $ordersService->getOrdersByCustomer($currentCustomer);
 
+        foreach($orders as $num => $order) {
+            $cleanedOrder = [];
+            $cleanedOrder["dateOrdered"] = $order["dateOrdered"];
+            $cleanedOrder["dateFormatted"] = $order["dateOrdered"]->format('F d, Y');
+            $cleanedOrder["itemTotal"] = $order["itemTotal"];
+            $cleanedOrder["number"] = $order["number"];
+            $cleanedOrder["id"] = $order["id"];
+            $orders[$num] = $cleanedOrder;
+        }
+
         return $this->asJson(['success' => true, 'orders' => $orders]);
     }
 
@@ -48,6 +58,9 @@ class OrdersController extends Controller
     {   
         $addressesService = Plugin::getInstance()->getAddresses();
         $ordersService = Plugin::getInstance()->getOrders();
+        $productsService = Plugin::getInstance()->getProducts();
+        $variantsService = Plugin::getInstance()->getVariants();
+        $gatewaysService = Plugin::getInstance()->getGateways();
         $number = Craft::$app->getRequest()->getRequiredBodyParam('number');
 
         if(!$number) {
@@ -65,14 +78,42 @@ class OrdersController extends Controller
                 return $this->asJson(['error' => $error]);
             }
         }
+        $cleanedItems = [];
+        foreach($order["lineItems"] as $num => $item) {
+            $variant = $variantsService->getVariantById($item["purchasableId"]);
+            $product = $productsService->getProductById($variant["productId"]);
+            $cleanedItem["product"] = $product;
+            $cleanedItem["variant"] = $variant;
+            $cleanedItem["lineItem"] = $item;
+            $cleanedItems[] = $cleanedItem;
+        }
+
+        $cleanedOrder = [];
+        $cleanedOrder["dateOrdered"] = $order["dateOrdered"];
+        $cleanedOrder["dateFormatted"] = $order["dateOrdered"]->format('F d, Y');
+        $cleanedOrder["itemTotal"] = $order["itemTotal"];
+        $cleanedOrder["number"] = $order["number"];
+        $cleanedOrder["id"] = $order["id"];
+        $cleanedOrder["orderStatusId"] = $order["orderStatusId"];
+        $cleanedOrder["isCompleted"] = $order["isCompleted"];
+        $cleanedOrder["shippingMethodHandle"] = $order["shippingMethodHandle"];
+        $cleanedOrder["lineItems"] = $cleanedItems;
+        $cleanedOrder["paymentMethod"] = $gatewaysService->getGatewayById($order["gatewayId"])["name"];
+        $cleanedOrder["receipt"] = $order->getPdfUrl('receipt');
+
+        $cleanedTotals = [];
+        $cleanedTotals["Subtotal"] = "$" . number_format((float)$order["itemSubtotal"], 2, '.', '');
+        $cleanedTotals["Tax"] = "$0.00";
+        $cleanedTotals["Shipping"] = "$0.00";
+        $cleanedTotals["Total"] = "$" . number_format((float)$order["itemTotal"], 2, '.', '');
 
         $shippingId = $order["shippingAddressId"];
         if($shippingId) {
             $address = $addressesService->getAddressById($shippingId);
         }
-        return $this->asJson(['success' => true, 'order' => $order, 'address' => $address]);
+        return $this->asJson(['success' => true, 'order' => $cleanedOrder, 'totals' => $cleanedTotals, 'address' => $address]);
     }
 }
 
-
+    
 
