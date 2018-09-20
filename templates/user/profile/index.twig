@@ -1,5 +1,5 @@
 {% requireLogin %}
-{% extends "_layouts/default" %}
+{% extends "_layouts/react" %}
 {% includeJsFile "/dist/js/user-profile.bundle.js" %}
 {% includeCssFile "/dist/css/user-profile.bundle.css" %}
 
@@ -7,6 +7,3 @@
     window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
 {% endset %}
 {% includeJs token first %}
-{% block main %}
-<div id="userProfile"></div>
-{% endblock %}
