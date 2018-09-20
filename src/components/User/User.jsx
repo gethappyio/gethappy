@@ -17,7 +17,7 @@ class User extends Component {
                 <LevelButtons>
                     <LevelButton href="/user/profile">profile</LevelButton>
                     <LevelButton href="/user/orders">order history</LevelButton>
-                    <LevelButton>addresses</LevelButton>
+                    <LevelButton href="/user/addresses">addresses</LevelButton>
                 </LevelButtons>
                 <div className="user-help__wrapper">
                     <img className="user-help__cartoon" src={imgCartoon}/>

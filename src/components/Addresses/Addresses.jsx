@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
-import Page from "../Page/Page";
+import PageNavigationBar from "../Page/PageNavigationBar";
 import AddressCard from "../AddressCard/AddressCard";
+import { Link } from "react-router-dom";
+import "./styles/addresses.scss";
 
 class Addresses extends Component {
     constructor(props) {
@@ -43,9 +45,16 @@ class Addresses extends Component {
     render() {
         const addresses = this.getOutput(); 
         return (
-            <Page>
-                {addresses}
-            </Page>
+            <PageNavigationBar title="Addresses" href="/user">
+                <div className="base__pad">
+                    <div class="addresses__main">
+                        <Link to="/user/addresses/edit">
+                            Add new address
+                        </Link>
+                    </div>
+                    {addresses}
+                </div>
+            </PageNavigationBar>
         );
     }
 }

@@ -1,0 +1,12 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.address-card {
+    margin-bottom: 40px;
+
+    &__line {
+        font-family: "Akkurat-mono", monospace, sans-serif;
+        margin: 0;
+    }
+}
