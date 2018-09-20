@@ -5,6 +5,7 @@ import axios from "axios";
 import qs from "qs";
 import { InputText } from "../Form/Form";
 import Select from "react-select";
+import PageNavigationBar from "../Page/PageNavigationBar"
 
 import "../Form/styles/form.scss";
 
@@ -47,6 +48,8 @@ class AddressForm extends Component {
         const addressData = this.state.address;
 
         return (
+            <PageNavigationBar title="Address" to="/user/addresses">
+                <div className="base__pad">
             <Formik 
                 initialValues={{
                     firstName: this.state.address.firstName,
@@ -158,6 +161,8 @@ class AddressForm extends Component {
                     </form>
                 )}
             />
+                </div>
+            </PageNavigationBar>
         );
     }
 
