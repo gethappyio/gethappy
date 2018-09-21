@@ -1,0 +1,66 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.featured-experience { 
+
+    &__top {
+        @include size(100%, auto);
+        position: relative;
+    }
+
+    &__image {
+        @include size(100%, auto);
+        display: block;
+    }
+
+    &__title-wrapper {
+        @include size(100%);
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        left: 0;
+        position: absolute;
+        top: 0;
+    }
+
+    &__title {
+        @include type(54px);
+        color: color("brand-secondary");
+        font-weight: 600;
+    }
+
+    &__bottom {
+        overflow: initial;
+        position: relative;
+        top: -20px;
+    }
+
+    &__bottom-inner {
+        background-color: color("brand-secondary");
+        box-shadow: -5px 5px #9B9B9B;
+        padding: 20px;
+    }
+
+    &__description {
+        @include type(20px);
+        border-bottom: 1px solid #979797;
+        margin: 0 0 20px 0;
+        padding-bottom: 20px;
+        text-align: center;
+        text-transform: uppercase;
+
+        &-top, 
+        &-bottom {
+            display: block;
+        }
+
+        &-top {
+            @include text-stroke(1px, color("brand-secondary"), black);
+        }
+    }
+
+    &__more {
+        text-align: right;
+    }
+}

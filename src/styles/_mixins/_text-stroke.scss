@@ -1,0 +1,21 @@
+/// Get a nice stroke on text
+///
+/// @name Get Text-Stroke
+///
+/// @argument {string} $size
+///   The font size in pixel
+///   example: @include type(20px);
+///
+/// @argument {boolean} $scale
+///   Determines if rem or px is used. 
+///   The default is true.
+///   example: @include type(20px, false);
+///
+
+@mixin text-stroke($thickness, $color, $outlinecolor) {
+    -moz-text-stroke-color: $outlinecolor;
+    -webkit-text-stroke-color: $outlinecolor;
+    -moz-text-stroke-width: $thickness;
+    -webkit-text-stroke-width: $thickness;
+    color: $color;
+}
