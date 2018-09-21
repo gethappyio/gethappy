@@ -5,7 +5,7 @@ import Experience from "../Experience/Experience";
 import User from "../User/User";
 import About from "../About/About";
 import Login from "../Login/Login";
-import FeaturedExperience from "../FeaturedExperience/FeaturedExperience";
+import FeaturedExperiences from "../FeaturedExperience/FeaturedExperiences";
 import { AuthConsumer } from '../AuthContext/AuthContext';
 
 class App extends Component {
@@ -23,7 +23,7 @@ class App extends Component {
             <Switch>
                 <Route exact path='/' render={(props) => (
                     <Page>
-                        <FeaturedExperience />
+                        <FeaturedExperiences />
                     </Page>
                 )}/>
                 <Route exact path='/about' component={About} />
