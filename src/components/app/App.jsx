@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import { Switch, Route, Link, Redirect} from "react-router-dom";
 import Page from "../Page/Page";
 import Experience from "../Experience/Experience";
-import ContactForm from "../ContactForm/ContatForm";
 import User from "../User/User";
 import About from "../About/About";
 import Login from "../Login/Login";
-import Nav from "../Nav/Nav";
+import FeaturedExperiences from "../FeaturedExperience/FeaturedExperiences";
 import { AuthConsumer } from '../AuthContext/AuthContext';
 
 class App extends Component {
@@ -25,9 +23,7 @@ class App extends Component {
             <Switch>
                 <Route exact path='/' render={(props) => (
                     <Page>
-                        <Nav />
-                        <h1>Home Page</h1>
-                        <ContactForm />
+                        <FeaturedExperiences />
                     </Page>
                 )}/>
                 <Route exact path='/about' component={About} />

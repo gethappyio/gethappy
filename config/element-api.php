@@ -9,10 +9,19 @@ return [
                 "elementType" => Product::class,
                 "criteria" => ["type" => "experience"],
                 "transformer" => function(Product $product) {
+
+                    foreach ($product->experienceFeaturedImage as $image) {
+                        $featuredImage = $image->url;
+                    }
+
                     return [
+                        "featuredImage" => $featuredImage,
                         "id" => $product->id,
                         "title" => $product->title,
                         "slug" => $product->slug,
+                        "uri" => $product->uri,
+                        "descTop" => $product->experienceFeaturedDescriptionTop,
+                        "descBottom" => $product->experienceFeaturedDescriptionBottom,
                         "tiers" => $product->variants
                     ];
                 }
@@ -24,8 +33,18 @@ return [
                 "criteria" => ["type" => "experience", "slug" => $slug],
                 "one" => true,
                 "transformer" => function(Product $product) {
+
+                    foreach ($product->experienceFeaturedImage as $image) {
+                        $featuredImage = $image->url;
+                    }
                     return [
-                        "product" => $product,
+                        "test" => $product,
+                        "product" => [
+                            "featuredImage" => $featuredImage,
+                            "slub" => $product->slug,
+                            "title" => $product->title,
+                            "uri" => $product->uri
+                        ],
                         "tiers" => $product->variants
                     ];
                 }
