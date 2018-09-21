@@ -19,6 +19,9 @@ return [
                         "id" => $product->id,
                         "title" => $product->title,
                         "slug" => $product->slug,
+                        "uri" => $product->uri,
+                        "descTop" => $product->experienceFeaturedDescriptionTop,
+                        "descBottom" => $product->experienceFeaturedDescriptionBottom,
                         "tiers" => $product->variants
                     ];
                 }
