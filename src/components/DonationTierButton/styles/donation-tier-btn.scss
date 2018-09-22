@@ -2,8 +2,8 @@
     &__submit {
         outline: none;
         border: none;
-        display: block;
-        width: 100%;
+        max-width: 275px;
         padding: 0;
+        width: 100%;
     }
 }

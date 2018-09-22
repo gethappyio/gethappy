@@ -39,7 +39,9 @@ class Experience extends Component {
         <Page>
             <Nav />
             <h1>{this.state.title}</h1>
+            <div className="section__wrapper">
             {donations}
+            </div>
         </Page>
     );
   }
