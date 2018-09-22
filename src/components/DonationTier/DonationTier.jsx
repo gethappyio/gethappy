@@ -15,7 +15,7 @@ class DonationTier extends Component {
         <div>
             {this.data.title}
             {this.data.sku}
-            <DonationTierButton purchaseableId={this.data.id}/>
+            <DonationTierButton purchaseableId={this.data.id} price={this.data.price}/>
         </div>
       );
   }
