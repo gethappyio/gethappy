@@ -1,0 +1,31 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.donation-tier {
+    border-bottom: 1px solid #979797;
+    padding: 60px 0;
+    text-align: center;
+
+    &__description {
+        @include type(14px);
+        font-family: "Akkurat-mono", monospace, sans-serif;
+    }
+
+    &__entries-wrapper {
+        font-weight: 600;
+        margin: 0;
+    }
+
+    &__entries {
+        @include type(60px);
+        line-height: 1;
+        display: block;
+    }
+
+    &__entries-label {
+        @include type(14px);
+        display: block;
+        text-transform: uppercase;
+    }
+}

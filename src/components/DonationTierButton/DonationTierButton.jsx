@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import BtnPrimary from "../BtnPrimary/BtnPrimary";
+import "./styles/donation-tier-btn.scss";
 
 class DonationTierButton extends Component {
   constructor(props) {
@@ -16,7 +18,9 @@ class DonationTierButton extends Component {
             <input type="hidden" name="CRAFT_CSRF_TOKEN" value={window.csrfTokenValue}></input>
             <input type="hidden" name="qty" value="1" />
             <input type="hidden" name="purchasableId" value={this.props.purchaseableId}></input>
-            <input type="submit" value="Donate" />
+            <button type="submit" className="donation-tier-btn__submit">
+                <BtnPrimary>Donate ${parseFloat(this.props.price).toFixed(0)}</BtnPrimary>
+            </button>
         </form>
       );
   }
