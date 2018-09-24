@@ -10,7 +10,8 @@ module.exports = {
         "login": __dirname + '/src/login.js',
         "user-orders": __dirname + '/src/user-orders.js',
         "user-addresses": __dirname + '/src/user-addresses.js',
-        "user-profile": __dirname + '/src/user-profile.js'
+        "user-profile": __dirname + '/src/user-profile.js',
+        "checkout-login": __dirname + '/src/checkout-login.js',
     },
     module: {
         rules: [
