@@ -3,10 +3,10 @@ import { Formik, Field } from "formik";
 import axios from "axios";
 import qs from "qs";
 import { InputText } from "../Form/Form";
-import PageNavigationBar from "../Page/PageNavigationBar";
+import Page from "../Page/Page";
+import NavigationBar from "../NavigationBar/NavigationBar";
 
 import "../Form/styles/form.scss";
-import Page from "../Page/Page";
 
 class ProfileForm extends Component {
 
@@ -45,7 +45,9 @@ class ProfileForm extends Component {
     
     render() {
         return (
-            <PageNavigationBar title="Profile" href="/user">
+            <Page navigation={
+                <NavigationBar title="Profile" href="/user" />
+            }>
             <Formik 
                 enableReinitialize={true}
                 onSubmit={(values) => {
@@ -103,7 +105,7 @@ class ProfileForm extends Component {
                     </form>
                 )}
             />
-            </PageNavigationBar>
+            </Page>
         );
     }
 
