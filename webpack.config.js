@@ -12,6 +12,7 @@ module.exports = {
         "user-addresses": __dirname + '/src/user-addresses.js',
         "user-profile": __dirname + '/src/user-profile.js',
         "checkout-login": __dirname + '/src/checkout-login.js',
+        "checkout": __dirname + '/src/checkout.js'
     },
     module: {
         rules: [

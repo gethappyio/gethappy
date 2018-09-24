@@ -1,0 +1,8 @@
+{% extends "_layouts/react" %}
+{% includeJsFile "/dist/js/checkout.bundle.js" %}
+{% includeCssFile "/dist/css/checkout.bundle.css" %}
+
+{% set token %}
+    window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
+{% endset %}
+{% includeJs token first %}
