@@ -5,6 +5,10 @@
         overflow: hidden;
     }
 
+    &__collapse {
+        @include grid-responsive-collapse();
+    }
+
     &__content {
         margin-bottom: 20px;
     }
