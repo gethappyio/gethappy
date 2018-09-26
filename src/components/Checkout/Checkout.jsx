@@ -4,6 +4,7 @@ import qs from "qs";
 import Page from "../Page/Page";
 import CheckoutBar from "./CheckoutBar";
 import Cart from "./Cart";
+import AddressCard from "../AddressCard/AddressCard";
 
 class Checkout extends Component {
 
@@ -11,7 +12,8 @@ class Checkout extends Component {
         super();
 
         this.state = {
-            cart: ""
+            cart: "",
+            shippingAddress: ""
         }
     }
     
@@ -23,7 +25,10 @@ class Checkout extends Component {
         }))
         .then(function (response) {
             const checkoutData = response.data.cart;
-            self.setState({cart: checkoutData.lineItems});
+            self.setState({
+                cart: checkoutData.lineItems,
+                shippingAddress: checkoutData.shippingAddress
+            });
         })
         .catch(function (error) {
             console.log(error);
@@ -36,6 +41,7 @@ class Checkout extends Component {
             <Page navigation={<CheckoutBar title="Checkout" />}>
                 Checkout
                 <Cart data={this.state.cart}/>
+                <AddressCard address={this.state.shippingAddress} />
             </Page>
         );
     }

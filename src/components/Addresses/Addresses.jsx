@@ -37,7 +37,7 @@ class Addresses extends Component {
 
     getOutput() {
         if(this.state.addresses) {
-            return this.state.addresses.map((address) => <AddressCard address={address} summary="false" />);
+            return this.state.addresses.map((address) => <AddressCard address={address} editable="true" />);
         } else {
             return "";
         }
