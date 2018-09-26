@@ -11,13 +11,10 @@ class AddressCard extends Component {
         const address = this.props.address;
         return (
             <div className="address-card">
-                <p className="address-card__line">{address.firstName}</p>
-                <p className="address-card__line">{address.lastName}</p>
+                <p className="address-card__line">{address.firstName} {address.lastName}</p>
                 <p className="address-card__line">{address.address1}</p>
                 <p className="address-card__line">{address.address2}</p>
-                <p className="address-card__line">{address.countryText}</p>
-                <p className="address-card__line">{address.zipCode}</p>
-                <p className="address-card__line">{address.phone}</p>
+                <p className="address-card__line">{address.countryText}, {address.zipCode}</p>
                 <Link to={"/user/addresses/edit/" + address.id}>Edit</Link>
             </div>
         );
