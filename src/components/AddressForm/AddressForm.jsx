@@ -16,8 +16,10 @@ class AddressForm extends Component {
         super(props);
 
         this.state = {
-            address: ""
+            address: "",
+            model: "address"
         }
+
 
         this.id = props.match.params.id;
     }
@@ -44,56 +46,48 @@ class AddressForm extends Component {
         }
         
     }
+
+    onSubmit(values) {
+        let payload = {};
+        payload["action"] = 'commerce/customer-addresses/save';
+        payload["CRAFT_CSRF_TOKEN"] = window.csrfTokenValue;
+        payload[this.state.model] = values[this.state.model];
+
+        axios.post('/', qs.stringify(payload))
+        .then(function (json) {
+            let response = json.data;
+            if(response.success == true) {
+                console.log('success');
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
     
     render() {
         const addressData = this.state.address;
+        const model = this.state.model;
+
 
         return (
             <Page navigation={ <NavigationBar title="Address" to="/user/addresses" /> }>
                 <div className="base__pad">
             <Formik 
                 initialValues={{
-                    firstName: this.state.address.firstName,
-                    lastName: this.state.address.lastName,
-                    address1: this.state.address.address1,
-                    address2: this.state.address.address2,
-                    city: this.state.address.city,
-                    zipCode: this.state.address.zipCode,
-                    phone: this.state.address.phone,
-                    countryId: 198
-                }}
-                onSubmit={(values) => {
-                    console.log(values);
-                    let addressObj = { 
-                        firstName: values.firstName,
-                        lastName: values.lastName,
-                        address1: values.address1,
-                        address2: values.address2,
-                        city: values.city,
-                        zipCode: values.zipCode,
-                        phone: values.phone,
-                        countryId: values.countryId
-                    };
-
-                    if(addressData.id) {
-                        addressObj.id = addressData.id
+                    [model]: {
+                        id: this.state.address.id,
+                        firstName: this.state.address.firstName,
+                        lastName: this.state.address.lastName,
+                        address1: this.state.address.address1,
+                        address2: this.state.address.address2,
+                        city: this.state.address.city,
+                        zipCode: this.state.address.zipCode,
+                        phone: this.state.address.phone,
+                        countryId: 198
                     }
-
-                    axios.post('/', qs.stringify({
-                        action: 'commerce/customer-addresses/save',
-                        CRAFT_CSRF_TOKEN: window.csrfTokenValue,
-                        address: addressObj
-                    }))
-                    .then(function (json) {
-                        let response = json.data;
-                        if(response.success == true) {
-                            console.log('success');
-                        }
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
                 }}
+                onSubmit={this.onSubmit.bind(this)}
                 enableReinitialize={true}
                 validateOnBlur={false}
                 render={({
@@ -107,17 +101,18 @@ class AddressForm extends Component {
                         <div className="form__collapse">
                             <input type="hidden" name="CRAFT_CSRF_TOKEN" value={values.CRAFT_CSRF_TOKEN} />
                             <input type="hidden" name="action" value={values.action} />
+                            <input type="hidden" name="id" value={values[model].id} />
                             <Field component={InputText} 
                                    className="form-field__col-xs-12" 
                                    type="text" 
-                                   name="firstName" 
+                                   name={ model + '[firstName]'}
                                    placeholder="Firstname" 
-                                   value={values.firstName}/>
+                                   value={values[model].firstName}/>
                             <Field component={InputText} 
                                    className="form-field__col-xs-12" 
-                                   type="text" name="lastName" 
+                                   type="text" name={ model + '[lastName]'} 
                                    placeholder="Lastname" 
-                                   value={values.lastName}/>
+                                   value={values[model].lastName}/>
                             <div className="form-field__wrapper form-field__col-xs-12">
                             <Select id="country"
                                     options={addressData.countries}
@@ -127,33 +122,33 @@ class AddressForm extends Component {
                             <Field component={InputText} 
                                    className="form-field__col-xs-12" 
                                    type="text" 
-                                   name="address1" 
+                                   name={ model + '[address1]'} 
                                    placeholder="Address 1"
-                                   value={values.address1}/>
+                                   value={values[model].address1}/>
                             <Field component={InputText} 
                                    className="form-field__col-xs-12" 
                                    type="text" 
-                                   name="address2"
+                                   name={ model + '[address2]'}
                                    placeholder="Address 2" 
-                                   value={values.address2}/>
+                                   value={values[model].address2}/>
                             <Field component={InputText} 
                                    className="form-field__col-xs-12" 
                                    type="text" 
-                                   name="city"
+                                   name={ model + '[city]'}
                                    placeholder="City" 
-                                   value={values.city}/>
+                                   value={values[model].city}/>
                             <Field component={InputText} 
                                    className="form-field__col-xs-12" 
                                    type="text" 
-                                   name="zipCode"
+                                   name={ model + '[zipCode]'}
                                    placeholder="Zip Code" 
-                                   value={values.zipCode}/>
+                                   value={values[model].zipCode}/>
                             <Field component={InputText} 
                                    className="form-field__col-xs-12" 
                                    type="text" 
-                                   name="phone"
+                                   name={ model + '[phone]'}
                                    placeholder="Phone" 
-                                   value={values.phone}/>
+                                   value={values[model].phone}/>
                             
                             <div className="form-field__wrapper form-field__col-xs-12">
                                 <button type="submit">Submit</button>
