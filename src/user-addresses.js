@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Addresses from "./components/Addresses/Addresses";
-import AddressForm from "./components/AddressForm/AddressForm";
+import AddressFormContainer from "./components/AddressForm/AddressFormContainer";
 import { BrowserRouter, Switch, Route} from "react-router-dom";
 
 import "normalize.css";
@@ -11,8 +11,8 @@ ReactDOM.render(
     <BrowserRouter>
         <Switch>
             <Route exact path='/user/addresses' component={Addresses} />
-            <Route exact path='/user/addresses/edit' component={AddressForm} />
-            <Route exact path='/user/addresses/edit/:id' component={AddressForm} />
+            <Route exact path='/user/addresses/edit' component={AddressFormContainer} />
+            <Route exact path='/user/addresses/edit/:id' component={AddressFormContainer} />
         </Switch>
     </BrowserRouter>, 
     document.getElementById("app"));
