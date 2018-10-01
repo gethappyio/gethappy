@@ -17,6 +17,10 @@ class Addresses extends Component {
     }
 
     componentDidMount() {
+        this.getAddresses();
+    }
+
+    getAddresses() {
         let self = this;
         axios.post('/',  qs.stringify({
             action: '/gethappy/customer-addresses/retrieve',
@@ -32,12 +36,11 @@ class Addresses extends Component {
         .catch(function (error) {
             console.log(error);
         });
-    
     }
 
     getOutput() {
         if(this.state.addresses) {
-            return this.state.addresses.map((address) => <AddressCard address={address} editable="true" />);
+            return this.state.addresses.map((address) => <AddressCard address={address} editable="true" retrieveCallback={this.getAddresses.bind(this)} />);
         } else {
             return "";
         }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import DeleteButton from "./DeleteButton";
 import "./styles/address-card.scss";
 
 class AddressCard extends Component {
@@ -11,7 +12,10 @@ class AddressCard extends Component {
         const address = this.props.address;
 
         let editable = this.props && this.props.editable ?
-        <Link to={"/user/addresses/edit/" + address.id}>Edit</Link>
+        <div>
+            <Link to={"/user/addresses/edit/" + address.id}>Edit</Link>
+            <DeleteButton id={address.id} callback={this.props.retrieveCallback} />
+        </div>
          : <span></span>;
 
         return (
