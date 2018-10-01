@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
+import { Link } from "react-router-dom";
 import Page from "../Page/Page";
 import CheckoutBar from "./CheckoutBar";
 import Cart from "./Cart";
@@ -39,8 +40,8 @@ class Checkout extends Component {
     render() {
         return (
             <Page navigation={<CheckoutBar title="Checkout" />}>
-                Checkout
                 <Cart data={this.state.cart}/>
+                <Link to="/checkout/new-address">New shipping address</Link>
                 <AddressCard address={this.state.shippingAddress} />
             </Page>
         );
