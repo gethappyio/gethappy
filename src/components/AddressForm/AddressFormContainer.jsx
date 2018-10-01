@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Formik, Field } from "formik";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 import qs from "qs";
 import Page from "../Page/Page"
@@ -13,7 +14,8 @@ class AddressFormContainer extends Component {
 
         this.state = {
             address: "",
-            model: "address"
+            model: "address",
+            redirect: false
         }
 
     }
@@ -42,6 +44,7 @@ class AddressFormContainer extends Component {
     }
 
     onSubmit(values) {
+        let self = this;
         let payload = {};
         payload["action"] = 'commerce/customer-addresses/save';
         payload["CRAFT_CSRF_TOKEN"] = window.csrfTokenValue;
@@ -51,7 +54,9 @@ class AddressFormContainer extends Component {
         .then(function (json) {
             let response = json.data;
             if(response.success == true) {
-                console.log('success');
+               self.setState({
+                   redirect: true
+               });
             }
         })
         .catch(function (error) {
@@ -61,6 +66,11 @@ class AddressFormContainer extends Component {
 
 
     render() {
+
+        if(this.state.redirect) {
+            return <Redirect to="/user/addresses" />;
+        }
+
         const addressData = this.state.address;
         const model = this.state.model;
         return (
