@@ -1,3 +1,7 @@
+{% if not currentUser %}
+    {% redirect 'checkout/login' %}
+{% endif %}
+
 {% extends "_layouts/react" %}
 {% includeJsFile "/dist/js/checkout.bundle.js" %}
 {% includeCssFile "/dist/css/checkout.bundle.css" %}

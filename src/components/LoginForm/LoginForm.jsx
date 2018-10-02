@@ -12,6 +12,10 @@ class LoginForm extends Component {
     }
     
     render() {
+        let checkoutRedirect = window.checkoutRedirect ?
+        <input type="hidden" name="redirect" value={window.checkoutRedirect} />
+        : "";
+
         return (
             <Formik 
                 validationSchema={Yup.object().shape({
@@ -41,6 +45,7 @@ class LoginForm extends Component {
                         <div className="form__collapse">
                             <input type="hidden" name="CRAFT_CSRF_TOKEN" value={values.CRAFT_CSRF_TOKEN} />
                             <input type="hidden" name="action" value={values.action} />
+                            {checkoutRedirect}
                             <Field component={InputText} className="form-field__col-xs-12" onChange={handleChange} type="text" name="loginName" placeholder="Username" value={values.loginName}/>
                             <Field component={InputText} className="form-field__col-xs-12" type="password" name="password" placeholder="Password" value={values.password}/>
                             <div className="form-field__wrapper form-field__col-xs-12">
