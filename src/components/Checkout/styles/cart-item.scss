@@ -1,0 +1,28 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.cart-item {
+    background-color: color("brand-secondary");
+    padding: 20px 0;
+
+    &__placeholder {
+        @include size(100%, 200px);
+        background-color: white;
+    }
+
+    &__description {
+        font-family: "Akkurat-mono", monospace, sans-serif;
+    }
+
+    &__entries,
+    &__price {
+        font-family: "Akkurat-mono", monospace, sans-serif;
+        font-weight: bold;
+    }
+
+    &__price {
+        text-align: right;
+    }
+    
+}

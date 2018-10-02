@@ -13,7 +13,7 @@ class DonationTierButton extends Component {
   render(props) {
       return (
         <form method="POST">
-            <input type="hidden" name="action" value="commerce/cart/update-cart"></input>
+            <input type="hidden" name="action" value="gethappy/cart/update-cart"></input>
             <input type="hidden" name="redirect" value={window.donateRedirect}/>
             <input type="hidden" name="CRAFT_CSRF_TOKEN" value={window.csrfTokenValue}></input>
             <input type="hidden" name="qty" value="1" />

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
-import PageNavigationBar from "../Page/PageNavigationBar";
+import Page from "../Page/Page";
+import NavigationBar from "../NavigationBar/NavigationBar";
 import AddressCard from "../AddressCard/AddressCard";
 import { Link } from "react-router-dom";
 import "./styles/addresses.scss";
@@ -16,6 +17,10 @@ class Addresses extends Component {
     }
 
     componentDidMount() {
+        this.getAddresses();
+    }
+
+    getAddresses() {
         let self = this;
         axios.post('/',  qs.stringify({
             action: '/gethappy/customer-addresses/retrieve',
@@ -31,12 +36,11 @@ class Addresses extends Component {
         .catch(function (error) {
             console.log(error);
         });
-    
     }
 
     getOutput() {
         if(this.state.addresses) {
-            return this.state.addresses.map((address) => <AddressCard address={address} />);
+            return this.state.addresses.map((address) => <AddressCard address={address} editable="true" retrieveCallback={this.getAddresses.bind(this)} />);
         } else {
             return "";
         }
@@ -45,7 +49,7 @@ class Addresses extends Component {
     render() {
         const addresses = this.getOutput(); 
         return (
-            <PageNavigationBar title="Addresses" href="/user">
+            <Page navigation={ <NavigationBar title="Addresses" href="/user" /> }>
                 <div className="base__pad">
                     <div class="addresses__main">
                         <Link to="/user/addresses/edit">
@@ -54,7 +58,7 @@ class Addresses extends Component {
                     </div>
                     {addresses}
                 </div>
-            </PageNavigationBar>
+            </Page>
         );
     }
 }

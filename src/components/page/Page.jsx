@@ -14,9 +14,16 @@ class Page extends Component {
       }
     
       render() {
+
+        let nav = this.props.navigation;
+
+        if(!nav) {
+            nav = <Header />;
+        }
+
         return (
             <main className="base__expand base__withNav">
-                <Header />
+                {nav}
                 <div class="base__expand base__scroll">
                     {this.props.children}
                     <Footer />

@@ -1,0 +1,22 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.checkout-bar{
+    
+    &__wrapper {
+        @include size(100%, 50px);
+        border-bottom: 1px solid #979797;
+        position: absolute;
+        top: 0;
+    }
+
+    &__wrapper-inner {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    
+}

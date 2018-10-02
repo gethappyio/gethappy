@@ -1,0 +1,19 @@
+{% if not currentUser %}
+    {% redirect 'checkout/login' %}
+{% endif %}
+
+{% extends "_layouts/react" %}
+{% includeJsFile "/dist/js/checkout.bundle.js" %}
+{% includeCssFile "/dist/css/checkout.bundle.css" %}
+
+{% if cart is not defined %}
+    {% set cart = craft.commerce.carts.cart %}
+{% endif %}
+{% set orderRedirect =  '/shop/customer/order?number='~cart.number  %}
+
+{% set token %}
+    window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
+    window.cancelRedirect = "{{ '/shop/checkout/payment' | hash }}";
+    window.orderRedirect = "{{ orderRedirect | hash }}";
+{% endset %}
+{% includeJs token first %}

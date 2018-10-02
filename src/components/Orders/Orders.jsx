@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
-import PageNavigationBar from "../Page/PageNavigationBar";
+import Page from "../Page/Page";
+import NavigationBar from "../NavigationBar/NavigationBar";
 import OrderItem from "./OrderItem";
 
 class Orders extends Component {
@@ -44,11 +45,13 @@ class Orders extends Component {
     render() {
         const orders = this.getOutput();
         return (
-            <PageNavigationBar title="Orders" href="/user">
+            <Page navigation={
+                <NavigationBar title="Orders" href="/user" />
+            }>
                 <div className="base__pad">
                     {orders}
                 </div>
-            </PageNavigationBar>
+            </Page>
         );
     }
 }
