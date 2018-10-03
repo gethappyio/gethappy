@@ -8,12 +8,6 @@ import NewUserForm from "./components/NewUserForm/NewUserForm";
 import "normalize.css";
 import "./styles/app.scss";
 
-var loginForm = document.getElementById("loginForm");
-loginForm ? ReactDOM.render(<LoginForm />, loginForm) : false;
-
-var newUserForm = document.getElementById("newUserForm");
-newUserForm ? ReactDOM.render(<NewUserForm />, newUserForm) : false;
-
 ReactDOM.render(
     <BrowserRouter>
         <Page>
