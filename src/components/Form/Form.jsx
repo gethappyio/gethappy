@@ -18,13 +18,15 @@ class InputText extends Component {
         
         var classes = classNames({
             "form-field__wrapper": true,
-        });
+        }, inputClasses);
 
-        classes =  inputClasses ? classes + " " + inputClasses : classes;
+        var fieldClasses = classNames("form-text", {
+            "form-error__input": error
+        });
 
         return(
             <div className={classes}>
-                <input {...field} {...props} className="form-text"/>
+                <input {...field} {...props} className={fieldClasses}/>
                 {touch && error && <div className="form-error">{error}</div>}
             </div>
         );
