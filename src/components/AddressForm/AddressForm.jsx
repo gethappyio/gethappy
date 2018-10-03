@@ -3,6 +3,7 @@ import { Formik, Field } from "formik";
 import * as Yup from "yup";
 import { InputText } from "../Form/Form";
 import Select from "react-select";
+import BtnPrimary from "../BtnPrimary/BtnPrimary";
 
 import "../Form/styles/form.scss";
 
@@ -78,7 +79,7 @@ class AddressForm extends Component {
                             value={values[model].phone}/>
                     
                     <div className="form-field__wrapper form-field__col-xs-12">
-                        <button type="submit">Submit</button>
+                        <BtnPrimary className="btn-primary--blue" submit="true">Save</BtnPrimary>
                     </div>
                 </div>
             </form>

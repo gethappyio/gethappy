@@ -76,6 +76,7 @@ class AddressFormContainer extends Component {
         return (
             <Page navigation={ <NavigationBar title="Address" to="/user/addresses" /> }>
                 <div className="base__pad">
+                    <div className="base__narrow base__margin-top">
                     <Formik 
                         initialValues={{
                             [model]: {
@@ -94,6 +95,7 @@ class AddressFormContainer extends Component {
                         enableReinitialize={true}
                         validateOnBlur={false}
                         render={props => ( <AddressForm model={this.state.model} {...props}/> )} />
+                    </div>
                 </div>
             </Page>
         );
