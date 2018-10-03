@@ -50,7 +50,7 @@ class LoginForm extends Component {
                             <Field component={InputText} className="form-field__col-xs-12" onChange={handleChange} type="text" name="loginName" placeholder="Username" value={values.loginName}/>
                             <Field component={InputText} className="form-field__col-xs-12" type="password" name="password" placeholder="Password" value={values.password}/>
                             <div className="form-field__wrapper form-field__col-xs-12">
-                                <BtnPrimary className="btn-primary--blue">Login</BtnPrimary>
+                                <BtnPrimary className="btn-primary--blue" submit="true">Login</BtnPrimary>
                             </div>
                         </div>
                     </form>

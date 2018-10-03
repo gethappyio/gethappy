@@ -47,7 +47,7 @@ class NewUserForm extends Component {
                             <Field component={InputText} className="form-field__col-xs-12" type="email" name="email" placeholder="Email" value={values.email}/>
                             <Field component={InputText} className="form-field__col-xs-12" type="password" name="password" placeholder="Password" value={values.password}/>
                             <div className="form-field__wrapper form-field__col-xs-12">
-                                <BtnPrimary className="btn-primary--blue">Signup</BtnPrimary>
+                                <BtnPrimary className="btn-primary--blue" submit="true">Signup</BtnPrimary>
                             </div>
                         </div>
                     </form>
