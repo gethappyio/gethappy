@@ -19,12 +19,8 @@ ReactDOM.render(
         <Page>
             <div class="base__pad">
                 <div className="base__narrow base__margin-top">
-                    <div className="section__content">
-                        <LoginForm />
-                    </div>
-                    <div className="section__content">
-                        <NewUserForm />
-                    </div>
+                    <LoginForm />
+                    <NewUserForm />
                 </div>
             </div>
         </Page>
