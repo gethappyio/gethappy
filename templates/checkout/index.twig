@@ -1,4 +1,8 @@
-{% if not currentUser %}
+{% if cart is not defined %}
+    {% set cart = craft.commerce.carts.cart %}
+{% endif %}
+
+{% if not currentUser and not cart.email %}
     {% redirect 'checkout/login' %}
 {% endif %}
 

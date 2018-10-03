@@ -15,7 +15,8 @@ class Checkout extends Component {
 
         this.state = {
             cart: "",
-            shippingAddress: ""
+            shippingAddress: "",
+            email: ""
         }
     }
     
@@ -29,7 +30,8 @@ class Checkout extends Component {
             const checkoutData = response.data.cart;
             self.setState({
                 cart: checkoutData.lineItems,
-                shippingAddress: checkoutData.shippingAddress
+                shippingAddress: checkoutData.shippingAddress,
+                email: checkoutData.email
             });
         })
         .catch(function (error) {
@@ -37,13 +39,20 @@ class Checkout extends Component {
         });
     
     }
+    
+    outputAddress(address) {
+        return (
+            <AddressCard address={address} />
+        );
+    }
 
     render() {
+        let addresses = this.state.shippingAddress ? this.outputAddress(this.state.shippingAddress) : "";
         return (
             <Page navigation={<CheckoutBar title="Checkout" />}>
                 <Cart data={this.state.cart}/>
                 <Link to="/checkout/new-address">New shipping address</Link>
-                <AddressCard address={this.state.shippingAddress} />
+                {addresses}
                 <PaymentForm />
             </Page>
         );

@@ -7,50 +7,49 @@ import BtnPrimary from "../BtnPrimary/BtnPrimary";
 import "../Form/styles/form.scss";
 import "../LoginForm/styles/login-form.scss";
 
-class NewUserForm extends Component {
+class GuestForm extends Component {
 
     constructor() {
         super();
     }
-
+    
     render() {
+        let checkoutRedirect = window.checkoutRedirect ?
+        <input type="hidden" name="redirect" value={window.checkoutRedirect} />
+        : "";
+
         return (
             <div className="section__content">
-                <h1 className="login-form__header">Signup</h1>
-                <Formik
+                <h1 className="login-form__header">Guest Checkout</h1>
+                <Formik 
                     validationSchema={Yup.object().shape({
-                        username: Yup.string()
-                        .required('Username is required'),
                         email: Yup.string()
-                        .required('Email is required'),
-                        password: Yup.string()
-                        .required('Password is required')
+                        .required('An email is required')
                     })}
                     initialValues={{
                         CRAFT_CSRF_TOKEN: window.csrfTokenValue,
-                        action: "users/save-user",
-                        username: "",
-                        email: "",
-                        password: ""
+                        action: "commerce/cart/update-cart",
+                        email: ""
                     }}
-                    onSubmit={values => {
+                    onSubmit={() => {
                         this.form.submit();
                     }}
+                    validateOnBlur={false}
                     render={({
                         errors,
                         touched,
                         values,
+                        handleChange,
                         handleSubmit
                     }) => (
                         <form method="post" className="form__wrapper" onSubmit={handleSubmit} ref={  (input) => { this.form = input } }>
                             <div className="form__collapse">
                                 <input type="hidden" name="CRAFT_CSRF_TOKEN" value={values.CRAFT_CSRF_TOKEN} />
                                 <input type="hidden" name="action" value={values.action} />
-                                <Field component={InputText} className="form-field__col-xs-12" type="text" name="username" placeholder="Username" value={values.username}/>
-                                <Field component={InputText} className="form-field__col-xs-12" type="email" name="email" placeholder="Email" value={values.email}/>
-                                <Field component={InputText} className="form-field__col-xs-12" type="password" name="password" placeholder="Password" value={values.password}/>
+                                {checkoutRedirect}
+                                <Field component={InputText} className="form-field__col-xs-12" onChange={handleChange} type="text" name="email" placeholder="Email" value={values.email}/>
                                 <div className="form-field__wrapper form-field__col-xs-12">
-                                    <BtnPrimary className="btn-primary--blue" submit="true">Signup</BtnPrimary>
+                                    <BtnPrimary className="btn-primary--blue" submit="true">Guest Checkout</BtnPrimary>
                                 </div>
                             </div>
                         </form>
@@ -62,4 +61,4 @@ class NewUserForm extends Component {
 
 }
 
-export default NewUserForm;
+export default GuestForm;

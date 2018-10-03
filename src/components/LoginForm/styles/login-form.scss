@@ -1,0 +1,13 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.login-form {
+    &__header {
+        @include type(20px);
+        font-family: "Akkurat-mono", monospace, sans-serif;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
