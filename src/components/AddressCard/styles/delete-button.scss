@@ -1,0 +1,13 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.delete-button {
+    &__btn {
+        background: none;
+        border: 0;
+        color: #ec8181;
+        cursor: pointer;
+        outline: 0;
+    }
+}

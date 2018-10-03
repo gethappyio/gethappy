@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
+import "./styles/delete-button.scss";
 
 class DeleteButton extends Component {
     constructor(props) {
@@ -25,7 +26,7 @@ class DeleteButton extends Component {
     render() {
      
         return (
-           <button onClick={() => this.deleteAddress(this.props.id)}>delete</button>
+           <button className="delete-button__btn" onClick={() => this.deleteAddress(this.props.id)}>Delete</button>
         );
     }
 }
