@@ -3,7 +3,7 @@
 @import "gh-utilities";
 
 .btn-primary {
-    @include type(20px);
+    @include type(16px);
     background-color: color("brand-secondary");
     border-radius: 26px;
     box-shadow: 0 2px 4px #9B9B9B;
@@ -12,4 +12,9 @@
     padding: 10px;
     text-transform: uppercase;
     text-align: center;
+
+    &--blue {
+        color: color("brand-secondary");
+        background-color: color("brand-primary");
+    }
 }

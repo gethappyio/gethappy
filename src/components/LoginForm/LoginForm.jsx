@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Formik, Field } from "formik";
 import * as Yup from "yup";
 import { InputText } from "../Form/Form";
+import BtnPrimary from "../BtnPrimary/BtnPrimary";
 
 import "../Form/styles/form.scss";
 
@@ -49,7 +50,7 @@ class LoginForm extends Component {
                             <Field component={InputText} className="form-field__col-xs-12" onChange={handleChange} type="text" name="loginName" placeholder="Username" value={values.loginName}/>
                             <Field component={InputText} className="form-field__col-xs-12" type="password" name="password" placeholder="Password" value={values.password}/>
                             <div className="form-field__wrapper form-field__col-xs-12">
-                                <button type="submit">Submit</button>
+                                <BtnPrimary className="btn-primary--blue">Login</BtnPrimary>
                             </div>
                         </div>
                     </form>
