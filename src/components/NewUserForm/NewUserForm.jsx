@@ -5,6 +5,7 @@ import { InputText } from "../Form/Form";
 import BtnPrimary from "../BtnPrimary/BtnPrimary";
 
 import "../Form/styles/form.scss";
+import "../LoginForm/styles/login-form.scss";
 
 class NewUserForm extends Component {
 
@@ -15,6 +16,7 @@ class NewUserForm extends Component {
     render() {
         return (
             <div className="section__content">
+                <h1 className="login-form__header">Signup</h1>
                 <Formik
                     validationSchema={Yup.object().shape({
                         username: Yup.string()
