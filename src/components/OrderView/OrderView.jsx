@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
+import BtnPrimary from "../BtnPrimary/BtnPrimary";
 import Page from "../Page/Page";
 import NavigationBar from "../NavigationBar/NavigationBar";
 import LineItem from "./LineItem";
@@ -144,7 +145,10 @@ class OrderView extends Component {
                     {items}
                     {address}
                     {payment}
-                    <a href={order.receipt}>Receipt</a>
+                    
+                    <a className="order-view__receipt" href={order.receipt}>
+                        <BtnPrimary className="btn-primary--blue">Receipt</BtnPrimary>
+                    </a>
                 </div>
             </Page>
         );

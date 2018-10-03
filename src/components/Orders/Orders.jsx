@@ -49,7 +49,9 @@ class Orders extends Component {
                 <NavigationBar title="Orders" href="/user" />
             }>
                 <div className="base__pad">
-                    {orders}
+                    <div className="base__narrow base__margin-top">
+                        {orders}
+                    </div>
                 </div>
             </Page>
         );
