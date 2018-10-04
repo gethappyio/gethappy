@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Formik, Field } from "formik";
-import * as Yup from "yup";
 import { InputText } from "../Form/Form";
 import Select from "react-select";
 import BtnPrimary from "../BtnPrimary/BtnPrimary";
@@ -30,53 +29,53 @@ class AddressForm extends Component {
                 <div className="form__collapse">
                     <input type="hidden" name="CRAFT_CSRF_TOKEN" value={values.CRAFT_CSRF_TOKEN} />
                     <input type="hidden" name="action" value={values.action} />
-                    <input type="hidden" name="id" value={values[model].id} />
+                    <input type="hidden" name="id" value={values.id} />
                     <Field component={InputText} 
                             className="form-field__col-xs-12" 
                             type="text" 
-                            name={ model + '[firstName]'}
+                            name="firstName"
                             placeholder="Firstname" 
-                            value={values[model].firstName}/>
+                            value={values.firstName}/>
                     <Field component={InputText} 
                             className="form-field__col-xs-12" 
-                            type="text" name={ model + '[lastName]'} 
+                            type="text" name="lastName"
                             placeholder="Lastname" 
-                            value={values[model].lastName}/>
+                            value={values.lastName}/>
                     <div className="form-field__wrapper form-field__col-xs-12">
                     <Select id="country"
-                            defaultValue={values[model].countryId}
+                            defaultValue={values.countryId}
                             />
                     </div>
                     <Field component={InputText} 
                             className="form-field__col-xs-12" 
                             type="text" 
-                            name={ model + '[address1]'} 
+                            name="address1" 
                             placeholder="Address 1"
-                            value={values[model].address1}/>
+                            value={values.address1}/>
                     <Field component={InputText} 
                             className="form-field__col-xs-12" 
                             type="text" 
-                            name={ model + '[address2]'}
+                            name="address2"
                             placeholder="Address 2" 
-                            value={values[model].address2}/>
+                            value={values.address2}/>
                     <Field component={InputText} 
                             className="form-field__col-xs-12" 
                             type="text" 
-                            name={ model + '[city]'}
+                            name="city"
                             placeholder="City" 
-                            value={values[model].city}/>
+                            value={values.city}/>
                     <Field component={InputText} 
                             className="form-field__col-xs-12" 
                             type="text" 
-                            name={ model + '[zipCode]'}
+                            name="zipCode"
                             placeholder="Zip Code" 
-                            value={values[model].zipCode}/>
+                            value={values.zipCode}/>
                     <Field component={InputText} 
                             className="form-field__col-xs-12" 
                             type="text" 
-                            name={ model + '[phone]'}
+                            name="phone"
                             placeholder="Phone" 
-                            value={values[model].phone}/>
+                            value={values.phone}/>
                     
                     <div className="form-field__wrapper form-field__col-xs-12">
                         <BtnPrimary className="btn-primary--blue" submit="true">Save</BtnPrimary>

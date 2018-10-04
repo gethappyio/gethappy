@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Formik, Field } from "formik";
 import { Redirect } from "react-router-dom";
+import * as Yup from "yup";
 import axios from "axios";
 import qs from "qs";
 import Page from "../Page/Page"
@@ -48,7 +49,7 @@ class AddressFormContainer extends Component {
         let payload = {};
         payload["action"] = 'commerce/customer-addresses/save';
         payload["CRAFT_CSRF_TOKEN"] = window.csrfTokenValue;
-        payload[this.state.model] = values[this.state.model];
+        payload[this.state.model] = values;
 
         axios.post('/', qs.stringify(payload))
         .then(function (json) {
@@ -78,18 +79,31 @@ class AddressFormContainer extends Component {
                 <div className="base__pad">
                     <div className="base__narrow base__margin-top">
                     <Formik 
+                        validationSchema={Yup.object().shape({
+                            firstName: Yup.string()
+                            .required('First name is required'),
+                            lastName: Yup.string()
+                            .required('Last name is required'),
+                            address1: Yup.string()
+                            .required('Address1 is required'),
+                            city: Yup.string()
+                            .required('City is required'),
+                            zipCode: Yup.string()
+                            .required('zipCode is required'),
+                            phone: Yup.string()
+                            .required('Phone is required')
+                        })}
+
                         initialValues={{
-                            [model]: {
-                                id: this.state.address.id,
-                                firstName: this.state.address.firstName,
-                                lastName: this.state.address.lastName,
-                                address1: this.state.address.address1,
-                                address2: this.state.address.address2,
-                                city: this.state.address.city,
-                                zipCode: this.state.address.zipCode,
-                                phone: this.state.address.phone,
-                                countryId: 198
-                            }
+                            id: this.state.address.id,
+                            firstName: this.state.address.firstName,
+                            lastName: this.state.address.lastName,
+                            address1: this.state.address.address1,
+                            address2: this.state.address.address2,
+                            city: this.state.address.city,
+                            zipCode: this.state.address.zipCode,
+                            phone: this.state.address.phone,
+                            countryId: 198
                         }}
                         onSubmit={this.onSubmit.bind(this)}
                         enableReinitialize={true}
