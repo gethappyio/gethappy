@@ -26,8 +26,8 @@ class User extends Component {
                 </div>
                 <LevelButtons>
                     <LevelButton to="/contact">contact us</LevelButton>
-                    <LevelButton>faq</LevelButton>
-                    <LevelButton>terms and conditions</LevelButton>
+                    <LevelButton to="/faq">faq</LevelButton>
+                    <LevelButton to="/terms">terms and conditions</LevelButton>
                 </LevelButtons>  
             </Page>
         );
