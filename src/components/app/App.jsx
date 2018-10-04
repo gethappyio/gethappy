@@ -9,6 +9,7 @@ import Faq from "../Faq/Faq";
 import TermsAndConditions from "../TermsAndConditions/TermsAndConditions";
 import Login from "../Login/Login";
 import FeaturedExperiences from "../FeaturedExperience/FeaturedExperiences";
+import NewsletterSignUp from "../NewsletterSignUp/NewsletterSignUp";
 import { AuthConsumer } from '../AuthContext/AuthContext';
 
 class App extends Component {
@@ -27,6 +28,7 @@ class App extends Component {
                 <Route exact path='/' render={(props) => (
                     <Page>
                         <FeaturedExperiences />
+                        <NewsletterSignUp />
                     </Page>
                 )}/>
                 <Route exact path='/about' component={About} />
