@@ -25,9 +25,9 @@ class User extends Component {
                     <p className="user-help__sub">We’re here to answer any questions you may have.</p>
                 </div>
                 <LevelButtons>
-                    <LevelButton>contact us</LevelButton>
-                    <LevelButton>faq</LevelButton>
-                    <LevelButton>terms and conditions</LevelButton>
+                    <LevelButton to="/contact">contact us</LevelButton>
+                    <LevelButton to="/faq">faq</LevelButton>
+                    <LevelButton to="/terms">terms and conditions</LevelButton>
                 </LevelButtons>  
             </Page>
         );

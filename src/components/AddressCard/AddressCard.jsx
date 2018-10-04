@@ -13,7 +13,7 @@ class AddressCard extends Component {
 
         let editable = this.props && this.props.editable ?
         <div>
-            <Link to={"/user/addresses/edit/" + address.id}>Edit</Link>
+            <Link className="address-card__edit" to={"/user/addresses/edit/" + address.id}>Edit</Link>
             <DeleteButton id={address.id} callback={this.props.retrieveCallback} />
         </div>
          : <span></span>;

@@ -4,6 +4,7 @@ import qs from "qs";
 import Page from "../Page/Page";
 import NavigationBar from "../NavigationBar/NavigationBar";
 import AddressCard from "../AddressCard/AddressCard";
+import BtnPrimary from "../BtnPrimary/BtnPrimary";
 import { Link } from "react-router-dom";
 import "./styles/addresses.scss";
 
@@ -51,12 +52,14 @@ class Addresses extends Component {
         return (
             <Page navigation={ <NavigationBar title="Addresses" href="/user" /> }>
                 <div className="base__pad">
-                    <div class="addresses__main">
-                        <Link to="/user/addresses/edit">
-                            Add new address
-                        </Link>
+                    <div className="base__narrow base__margin-top">
+                        <div class="addresses__main">
+                            <Link to="/user/addresses/edit">
+                                <BtnPrimary className="btn-primary--blue">Add new address</BtnPrimary>
+                            </Link>
+                        </div>
+                        {addresses}
                     </div>
-                    {addresses}
                 </div>
             </Page>
         );

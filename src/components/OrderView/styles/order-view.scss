@@ -30,4 +30,12 @@
     &__module {
         text-align: left;
     }
+
+    &__receipt {
+        display: inline-block;
+        margin: 20px 0;
+        max-width: 414px;
+        text-decoration: none;
+        width: 100%;
+    }
 }

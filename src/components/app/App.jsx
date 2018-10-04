@@ -4,6 +4,9 @@ import Page from "../Page/Page";
 import Experience from "../Experience/Experience";
 import User from "../User/User";
 import About from "../About/About";
+import Contact from "../Contact/Contact";
+import Faq from "../Faq/Faq";
+import TermsAndConditions from "../TermsAndConditions/TermsAndConditions";
 import Login from "../Login/Login";
 import FeaturedExperiences from "../FeaturedExperience/FeaturedExperiences";
 import { AuthConsumer } from '../AuthContext/AuthContext';
@@ -36,6 +39,9 @@ class App extends Component {
                     </AuthConsumer>
                 }/>
                 <Route exact path='/user' component={User}/>
+                <Route exact path='/contact' component={Contact} />
+                <Route exact path='/faq' component={Faq} />
+                <Route exact path='/terms' component={TermsAndConditions} />
             </Switch>
         );
       }

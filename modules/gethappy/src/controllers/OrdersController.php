@@ -110,6 +110,8 @@ class OrdersController extends Controller
         $shippingId = $order["shippingAddressId"];
         if($shippingId) {
             $address = $addressesService->getAddressById($shippingId);
+        } else {
+            $address = "";
         }
         return $this->asJson(['success' => true, 'order' => $cleanedOrder, 'totals' => $cleanedTotals, 'address' => $address]);
     }

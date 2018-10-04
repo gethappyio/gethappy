@@ -9,4 +9,9 @@
         font-family: "Akkurat-mono", monospace, sans-serif;
         margin: 0;
     }
+
+    &__edit {
+        color: color("brand-primary");
+        text-decoration: none;
+    }
 }
