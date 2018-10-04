@@ -10,7 +10,7 @@ class LevelButton extends Component {
     }
 
     buildLink() {
-        const {href, link, children} = this.props;
+        const {href, to, children} = this.props;
 
         if(href) {
             return (
@@ -18,9 +18,9 @@ class LevelButton extends Component {
                     {children}
                 </a>
             );
-        } else if (link) {
+        } else if (to) {
             return (
-                <Link to={link} className="level-button">
+                <Link to={to} className="level-button">
                     {children}
                 </Link>
             );
