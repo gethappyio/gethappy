@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Formik, Field } from "formik";
 import axios from "axios";
 import qs from "qs";
+import * as Yup from "yup";
 import { InputText } from "../Form/Form";
 import BtnPrimary from "../BtnPrimary/BtnPrimary";
 import Page from "../Page/Page";
@@ -53,6 +54,12 @@ class ProfileForm extends Component {
                     <div className="base__narrow base__margin-top">
                     <div className="section__content">
                         <Formik 
+                            validationSchema={Yup.object().shape({
+                                firstName: Yup.string()
+                                .required('First name is required'),
+                                lastName: Yup.string()
+                                .required('Last name is required')
+                            })}
                             enableReinitialize={true}
                             onSubmit={(values) => {
 
