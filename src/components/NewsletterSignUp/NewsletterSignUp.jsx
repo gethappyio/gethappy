@@ -17,7 +17,7 @@ class NewsletterSignUp extends Component {
     return (
         <div className="newsletter__wrapper">
             <div className="section__wrapper">
-                <div className="section__col-xs-12">
+                <div className="section__col-xs-12 newsletter__border">
                     <h2 className="newsletter__header">More experiences coming soon</h2>
                     <p className="newsletter__statement">Sign up to get the latest news</p>
                 </div>
@@ -25,6 +25,7 @@ class NewsletterSignUp extends Component {
             <Formik 
                     validationSchema={Yup.object().shape({
                         email: Yup.string()
+                        .email('Requires a valid email')
                         .required('Email is required')
                     })}
                     initialValues={{
@@ -48,7 +49,9 @@ class NewsletterSignUp extends Component {
                                     type="text" 
                                     name="email" 
                                     placeholder="Email" 
-                                    value={values.email}/>
+                                    value={values.email}
+                                    helper={this.state.helper}
+                                    insetSubmit="Ok"/>
                         </form>
                     )}
                 />

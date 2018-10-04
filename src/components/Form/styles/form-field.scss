@@ -6,5 +6,10 @@
     @include col-selectors();
     &__wrapper {
         margin-bottom: 16px;
+        text-align: left;
+    }
+
+    &__inner {
+        position: relative;
     }
 }

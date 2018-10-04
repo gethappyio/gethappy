@@ -1,0 +1,13 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.form-helper {
+    @include type(14px, false);
+    color: #57b366;
+    margin-top: 10px;
+
+    &__success {
+        border-color: #57b366;
+    }
+}
