@@ -1,0 +1,26 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.newsletter {
+    &__wrapper {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    &__border {
+        border-top: 1px solid #979797;
+    }
+
+    &__header {
+        @include type(20px);
+        font-weight: bold;
+        margin-top: 40px;
+        text-transform: uppercase;
+    }
+
+    &__statement {
+        @include type(14px);
+        font-family: "Akkurat-mono", monospace, sans-serif;
+    }
+}
