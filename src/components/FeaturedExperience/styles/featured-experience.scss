@@ -32,7 +32,7 @@
 
     &__bottom {
         color: black;
-        overflow: initial;
+        overflow: initial !important;
         position: relative;
         top: -20px;
     }
