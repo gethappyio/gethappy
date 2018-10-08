@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Formik, Field } from "formik";
+import axios from "axios";
+import qs from "qs";
 import * as Yup from "yup";
 import { InputText } from "../Form/Form";
 import "./styles/newsletter.scss";
@@ -9,9 +11,39 @@ class NewsletterSignUp extends Component {
     super(props);
 
     this.state = {
-      title: ""
+      title: "",
+      helper: ""
     };
   }
+
+  onSubmit(values, {resetForm}) {
+    let self = this;
+    let payload = {};
+    payload["action"] = 'mailchimp-subscribe/list/subscribe';
+    payload["CRAFT_CSRF_TOKEN"] = window.csrfTokenValue;
+    payload["email"] = values["email"];
+
+    axios.post('/', qs.stringify(payload))
+    .then(function (json) {
+        let response = json.data;
+        if(response.success == true) {
+            self.setState({
+                helper: response.message
+            });
+            resetForm({});
+        }
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+}
+
+onBlur() {
+    console.log("blur");
+    this.setState({
+        helper: ""
+    });
+}
 
   render() {
     return (
@@ -31,9 +63,7 @@ class NewsletterSignUp extends Component {
                     initialValues={{
                         email: ""
                     }}
-                    onSubmit={() => {
-                        this.form.submit();
-                    }}
+                    onSubmit={this.onSubmit.bind(this)}
                     validateOnBlur={false}
                     render={({
                         errors,
@@ -46,10 +76,11 @@ class NewsletterSignUp extends Component {
                             <Field component={InputText} 
                                     className="form-field__col-xs-12" 
                                     onChange={handleChange} 
+                                    onBlur={this.onBlur.bind(this)}
                                     type="text" 
                                     name="email" 
                                     placeholder="Email" 
-                                    value={values.email}
+                                    value={values.email || ""}
                                     helper={this.state.helper}
                                     insetSubmit="Ok"/>
                         </form>
