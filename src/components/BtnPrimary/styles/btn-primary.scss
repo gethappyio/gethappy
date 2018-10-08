@@ -13,11 +13,19 @@
     font-weight: 600;
     outline: 0;
     padding: 10px;
+    text-decoration: none;
     text-transform: uppercase;
     text-align: center;
 
     &--blue {
         color: color("brand-secondary");
         background-color: color("brand-primary");
+    }
+
+    &--blue-outline {
+        color: color("brand-primary");
+        background-color: transparent;
+        border: 1px solid color("brand-primary");
+        box-shadow: none;
     }
 }

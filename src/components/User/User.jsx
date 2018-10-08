@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Page from "../Page/Page";
+import UserSignin from "./UserSignin";
 import { LevelButton, LevelButtons } from "../LevelButton/LevelButton";
 import imgCartoon from "../../assets/images/cartoon-dude.png";
 import "./styles/user-help.scss";
@@ -14,6 +15,7 @@ class User extends Component {
     render() {
         return (
             <Page>
+                <UserSignin />
                 <LevelButtons>
                     <LevelButton href="/user/profile">profile</LevelButton>
                     <LevelButton href="/user/orders">order history</LevelButton>
