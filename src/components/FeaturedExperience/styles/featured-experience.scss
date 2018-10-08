@@ -32,7 +32,7 @@
 
     &__bottom {
         color: black;
-        overflow: initial;
+        overflow: initial !important;
         position: relative;
         top: -20px;
     }
@@ -59,6 +59,10 @@
         &-top {
             @include text-stroke(1px, color("brand-secondary"), black);
         }
+    }
+
+    &__days {
+        text-align: left;
     }
 
     &__more {

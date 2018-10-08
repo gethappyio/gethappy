@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import FeaturedExperience from "./FeaturedExperience";
+import "./styles/featured-experiences.scss";
 
 class FeaturedExperiences extends Component {
   constructor(props) {
@@ -30,6 +31,11 @@ class FeaturedExperiences extends Component {
     ) : <span></span>;
     return (
         <div className="featured-experiences">
+            <div className="section__wrapper">
+                <div className="section__col-xs-12">
+                    <h2 className="featured-experiences__header">awesome experiences</h2>
+                </div>
+            </div> 
             {experiences}
         </div>
     );
