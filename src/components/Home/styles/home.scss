@@ -1,0 +1,9 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.home {
+    &__imgwide {
+        @include size(100%, auto);
+    }
+}
