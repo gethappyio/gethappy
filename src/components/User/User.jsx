@@ -14,7 +14,7 @@ class User extends Component {
 
     render() {
         return (
-            <Page>
+            <Page className="base__abs app__slide">
                 <UserSignin />
                 <LevelButtons>
                     <LevelButton href="/user/profile">profile</LevelButton>

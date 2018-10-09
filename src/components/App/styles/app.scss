@@ -1,0 +1,43 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.app__slide{ 
+    transition: transform .2s ease;
+
+    &--right {
+        &-enter {
+            transform: translate(-100%, 0);
+        }
+
+        &-enter-active {
+            transform: translate(0%, 0);
+        }
+
+        &-exit {
+            transform: translate(0, 0);
+        }
+
+        &-exit-active {
+            transform: translate(100%, 0);
+        }
+    }
+
+    &--left {
+        &-enter {
+            transform: translate(100%, 0);
+        }
+
+        &-enter-active {
+            transform: translate(0%, 0);
+        }
+
+        &-exit {
+            transform: translate(0, 0);
+        }
+
+        &-exit-active {
+            transform: translate(-100%, 0);
+        }
+    }
+}

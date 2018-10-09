@@ -3,6 +3,12 @@
         @include size(100%);    
     }
 
+    &__abs {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
     &__narrow {
         margin: 0 auto;
         max-width: 414px;

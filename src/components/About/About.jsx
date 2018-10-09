@@ -15,7 +15,7 @@ class About extends Component {
     
       render() {
         return (
-            <Page>
+            <Page className="base__abs app__slide">
                 <div className="section__wrapper">
                     <div className="about__section section__col-xs-12">
                         <img className="about__cartoon-head" src={imgCartoon} />
