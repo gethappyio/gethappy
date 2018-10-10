@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Page from "../Page/Page";
+import Header from "../Header/Header";
 import imgCartoon from "../../assets/images/cartoon-dude.png";
 import "./styles/about.scss";
 
@@ -15,7 +16,9 @@ class About extends Component {
     
       render() {
         return (
-            <Page>
+            <Page className="base__abs app__slide" navigation={
+                <Header returnType="logo" returnUrl="/" title="About" direction="left" />
+            }>
                 <div className="section__wrapper">
                     <div className="about__section section__col-xs-12">
                         <img className="about__cartoon-head" src={imgCartoon} />

@@ -14,7 +14,7 @@ class Home extends Component {
 
     render() {
         return (
-            <Page>
+            <Page className="base__abs app__slide">
                 <FeaturedExperiences />
                 <NewsletterSignUp />
                 <img className="home__imgwide" src={imgPlaceholder} />

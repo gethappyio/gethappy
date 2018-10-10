@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Page from "../Page/Page";
 import UserSignin from "./UserSignin";
+import Header from "../Header/Header";
 import { LevelButton, LevelButtons } from "../LevelButton/LevelButton";
 import imgCartoon from "../../assets/images/cartoon-dude.png";
 import "./styles/user-help.scss";
@@ -14,7 +15,9 @@ class User extends Component {
 
     render() {
         return (
-            <Page>
+            <Page className="base__abs app__slide" navigation={
+                <Header returnType="logo" returnUrl="/" title="User" direction="right" />
+            }>
                 <UserSignin />
                 <LevelButtons>
                     <LevelButton href="/user/profile">profile</LevelButton>
