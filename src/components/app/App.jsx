@@ -20,33 +20,20 @@ class App extends Component {
         this.state = {
           title: ""
         };
-
-        this.currentPath = this.props.location.pathname; 
       }
     
       render() {
           let {location} = this.props;
-          let path = location.pathname;
-          var direction = "";
-    
-          if(this.currentPath == "/about") {
-            direction = "right";
-          } if(this.currentPath == "/user") {
-            direction = "left";
-          } if(this.currentPath == "/" && path == "/about") {  
-            direction = "left";
-          } if(this.currentPath == "/" && path == "/user") {  
-            direction = "right";
-          } 
-
-          this.currentPath = path;
 
         return (
             <TransitionGroup 
                 className="base__expand"
                 childFactory={child => React.cloneElement(
                     child,
-                    {classNames: "app__slide--" + direction, timeout: 200}
+                    {
+                        classNames: location.state && location.state.slide ? "app__slide--" + location.state.slide : "", 
+                        timeout: location.state && location.state.timeout ? location.state.timeout : 0
+                    }
                   )}>
                 <CSSTransition
                     key={location.key}>
