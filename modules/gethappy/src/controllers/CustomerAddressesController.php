@@ -52,6 +52,7 @@ class CustomerAddressesController extends Controller
     {
         $this->requirePostRequest();
         $addressesService = Plugin::getInstance()->getAddresses();
+        $countriesService = Plugin::getInstance()->getCountries();
 
         $id = Craft::$app->getRequest()->getRequiredBodyParam('id');
 
@@ -71,7 +72,23 @@ class CustomerAddressesController extends Controller
             }
         }
 
-        return $this->asJson(['success' => true, 'address' => $address]);
-        
+        $countries = $countriesService->getAllCountriesAsList();
+
+        return $this->asJson(['success' => true, 'address' => $address, 'countries' => $countries]);
+    }
+
+    /**
+     * Retrieve countries available to ship to
+     * 
+     * @return Response
+     * @throws Exception
+     * @throws HttpException
+     */
+    public function actionGetCountries()
+    {
+        $countriesService = Plugin::getInstance()->getCountries();
+        $countries = $countriesService->getAllCountriesAsList();
+
+        return $this->asJson(['success' => true, 'countries' => $countries]);   
     }
 }

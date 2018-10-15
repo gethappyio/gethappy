@@ -10,6 +10,12 @@ class AddressForm extends Component {
 
     constructor(props) {
         super(props);
+
+        let { values } = this.props;
+    }
+
+    handleChange(selectedOption) {
+        this.setState({ selectedOption });
     }
     
     render() {
@@ -21,8 +27,13 @@ class AddressForm extends Component {
             handleChange,
             handleSubmit
         } = this.props;
-
+        
+        let selectedOption = this.state && this.state.selectedOption ? this.state.selectedOption : { value: values.countryId, label: values.countryText};
         const model = this.props.model;
+        const options = [];
+        Object.keys(values.countries).map((countryId) => 
+            options.push({value: countryId, label: values.countries[countryId]})
+        );
 
         return (
             <form method="post" className="form__wrapper" onSubmit={handleSubmit} ref={  (input) => { this.form = input } }>
@@ -43,7 +54,9 @@ class AddressForm extends Component {
                             value={values.lastName}/>
                     <div className="form-field__wrapper form-field__col-xs-12">
                     <Select id="country"
-                            defaultValue={values.countryId}
+                            value={selectedOption}
+                            onChange={this.handleChange.bind(this)}
+                            options={options}
                             />
                     </div>
                     <Field component={InputText} 
