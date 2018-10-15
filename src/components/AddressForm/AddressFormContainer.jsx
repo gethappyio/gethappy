@@ -15,6 +15,7 @@ class AddressFormContainer extends Component {
 
         this.state = {
             address: "",
+            countries: "",
             model: "address",
             redirect: false
         }
@@ -32,9 +33,26 @@ class AddressFormContainer extends Component {
             }))
             .then(function (response) {
                var address = response.data.address;
-    
+               var countries = response.data.countries;
+                
                self.setState({
-                    address: address
+                    address: address,
+                    countries: countries
+               });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });    
+        } else {
+            axios.post('/',  qs.stringify({
+                action: '/gethappy/customer-addresses/get-countries',
+                CRAFT_CSRF_TOKEN: window.csrfTokenValue
+            }))
+            .then(function (response) {
+               var countries = response.data.countries;
+                
+               self.setState({
+                    countries: countries
                });
             })
             .catch(function (error) {
@@ -103,7 +121,9 @@ class AddressFormContainer extends Component {
                             city: this.state.address.city,
                             zipCode: this.state.address.zipCode,
                             phone: this.state.address.phone,
-                            countryId: 198
+                            countryId: this.state.address.countryId,
+                            countryText: this.state.address.countryText,
+                            countries: this.state.countries
                         }}
                         onSubmit={this.onSubmit.bind(this)}
                         enableReinitialize={true}
