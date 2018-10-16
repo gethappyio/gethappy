@@ -68,6 +68,7 @@ class AddressFormContainer extends Component {
         payload["action"] = 'commerce/customer-addresses/save';
         payload["CRAFT_CSRF_TOKEN"] = window.csrfTokenValue;
         payload[this.state.model] = values;
+        console.log(values);
 
         axios.post('/', qs.stringify(payload))
         .then(function (json) {

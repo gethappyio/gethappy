@@ -15,7 +15,9 @@ class AddressForm extends Component {
     }
 
     handleChange(selectedOption) {
+        let {setFieldValue} = this.props;
         this.setState({ selectedOption });
+        setFieldValue("countryId", selectedOption.value);
     }
     
     render() {
@@ -54,6 +56,7 @@ class AddressForm extends Component {
                             value={values.lastName}/>
                     <div className="form-field__wrapper form-field__col-xs-12">
                     <Select id="country"
+                            name="countryId"
                             value={selectedOption}
                             onChange={this.handleChange.bind(this)}
                             options={options}
