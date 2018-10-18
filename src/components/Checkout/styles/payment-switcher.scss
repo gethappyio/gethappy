@@ -1,0 +1,52 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.payment-switcher{
+
+    &__content {
+        margin-left: 30px;
+    }
+
+    &__radio {
+        display: none;
+    }
+
+    &__label {
+        display: block;
+        padding: 10px 0;
+    }
+
+    &__label-inner {
+        position: relative;
+        &::before {
+            @include size(20px);
+            border-radius: 50%;
+            border: 1px solid #cccccc;
+            content: "";
+            left: 0;
+            position: absolute;
+        }
+
+        &::after {
+            @include size(16px);
+            border-radius: 50%;
+            content: "";
+            left: 3px;
+            position: absolute;
+            top: 3px;
+            
+        }
+    }
+
+    &__radio:checked + &__label {
+        .payment-switcher__label-inner {
+            &::before {
+                border: 1px solid color("brand-primary");
+            }
+            &::after {
+                background-color: color("brand-primary");    
+            }
+        }
+    }
+}
