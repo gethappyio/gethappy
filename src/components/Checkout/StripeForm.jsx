@@ -24,12 +24,25 @@ class StripeForm extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            errors: undefined
+        };
+
         this.submit = this.submit.bind(this);
+        this.errors = {};
     }
 
-    onChangeFor({error}) {
-        console.log(error);
+    onChangeFor(e) {
+        let type =  e.elementType;
+        let error = e.error;
+
+        if(type in this.errors && !error) {
+            delete this.errors[type];
+        } else if(error) {
+            this.errors[type] = error;
+        }
+
+        this.setState({errors: this.errors});
     }
 
     submit(ev) {
@@ -57,22 +70,28 @@ class StripeForm extends Component {
     }
 
     render() {
-
         return (
                 <div className="form__wrapper">
                     <div className="form-field__wrapper form-field__col-xs-12 card-field">
-                        <CardNumberElement onChange={this.onChangeFor} {...createOptions(this.props.border)} />
+                        <CardNumberElement onChange={this.onChangeFor.bind(this)} {...createOptions(this.props.border)} />
                     </div>
                     <div className="form-field__wrapper form-field__col-xs-6 card-field">
-                        <CardExpiryElement onChange={this.onChangeFor} {...createOptions(this.props.border)} />
+                        <CardExpiryElement onChange={this.onChangeFor.bind(this)} {...createOptions(this.props.border)} />
                     </div>
                     <div className="form-field__wrapper form-field__col-xs-6 card-field">
-                        <CardCVCElement onChange={this.onChangeFor} {...createOptions(this.props.border)} />
+                        <CardCVCElement onChange={this.onChangeFor.bind(this)} {...createOptions(this.props.border)} />
                     </div>
                     <div className="form-field__wrapper form-field__col-xs-12">
                         <BtnPrimary className="btn-primary--blue" submit="true" onClick={this.submit}>Pay</BtnPrimary>
                     </div>
+                    <div className="form-field__wrapper form-field__col-xs-12">
+                        {this.state && this.state.errors ? Object.keys(this.state.errors).map( (key) => {
+                            let error = this.state.errors[key];
+                            return <p>{error.message}</p>
+                        }) : ''}
+                    </div>
                 </div>
+
         );
     }
 
