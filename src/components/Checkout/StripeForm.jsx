@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
+import BtnPrimary from "../BtnPrimary/BtnPrimary";
 import {CardNumberElement, CardExpiryElement, CardCVCElement, injectStripe} from "react-stripe-elements";
 import "../Form/styles/form.scss";
 import "./styles/card-field.scss";
-import { Placeholder } from "react-select/lib/animated";
 
 const createOptions = (border) => {
     return {
@@ -69,7 +69,9 @@ class StripeForm extends Component {
                     <div className="form-field__wrapper form-field__col-xs-6 card-field">
                         <CardCVCElement onChange={this.onChangeFor} {...createOptions(this.props.border)} />
                     </div>
-                    <button type="submit" onClick={this.submit}>Pay</button>
+                    <div className="form-field__wrapper form-field__col-xs-12">
+                        <BtnPrimary className="btn-primary--blue" submit="true" onClick={this.submit}>Pay</BtnPrimary>
+                    </div>
                 </div>
         );
     }

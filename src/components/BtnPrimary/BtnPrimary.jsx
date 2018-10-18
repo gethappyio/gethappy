@@ -11,17 +11,17 @@ class BtnPrimary extends Component {
   }
 
     outputBtn() {
-        let {className} = this.props;
+        let {submit, className, ...rest} = this.props;
         let btnClasses = classNames("btn-primary", className);
-        if(this.props.submit) {
+        if(submit) {
             return (
-                <button type="submit" className={btnClasses}>
+                <button type="submit" className={btnClasses} {...rest}>
                     {this.props.children}
                 </button>
             );
         } else {
             return (
-                <div className={btnClasses}>
+                <div className={btnClasses} {...rest}>
                     {this.props.children}
                 </div>
             );
