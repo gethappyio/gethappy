@@ -3,12 +3,18 @@ import axios from "axios";
 import qs from "qs";
 import {CardNumberElement, CardExpiryElement, CardCVCElement, injectStripe} from "react-stripe-elements";
 import "../Form/styles/form.scss";
+import "./styles/card-field.scss";
+import { Placeholder } from "react-select/lib/animated";
 
 const createOptions = (border) => {
     return {
       style: {
         base: {
-          fontSize: "16px"
+          fontSize: "16px",
+          lineHeight: "1.5",
+          "::placeholder": {
+            color: "#cccccc"
+          }
         }
       },
     };
@@ -19,10 +25,14 @@ class StripeForm extends Component {
     constructor(props) {
         super(props);
         this.state = {};
-        this.submit = this.onSubmit.bind(this);
+        this.submit = this.submit.bind(this);
     }
 
-    onSubmit(ev) {
+    onChangeFor({error}) {
+        console.log(error);
+    }
+
+    submit(ev) {
         let {stripe} = this.props;
 
         stripe.createToken({name: "Name"})
@@ -50,14 +60,14 @@ class StripeForm extends Component {
 
         return (
                 <div className="form__wrapper">
-                    <div className="form-field__col-xs-12">
-                        <CardNumberElement {...createOptions(this.props.border)} />
+                    <div className="form-field__wrapper form-field__col-xs-12 card-field">
+                        <CardNumberElement onChange={this.onChangeFor} {...createOptions(this.props.border)} />
                     </div>
-                    <div className="form-field__col-xs-6">
-                        <CardExpiryElement />
+                    <div className="form-field__wrapper form-field__col-xs-6 card-field">
+                        <CardExpiryElement onChange={this.onChangeFor} {...createOptions(this.props.border)} />
                     </div>
-                    <div className="form-field__col-xs-6">
-                        <CardCVCElement />
+                    <div className="form-field__wrapper form-field__col-xs-6 card-field">
+                        <CardCVCElement onChange={this.onChangeFor} {...createOptions(this.props.border)} />
                     </div>
                     <button type="submit" onClick={this.submit}>Pay</button>
                 </div>
