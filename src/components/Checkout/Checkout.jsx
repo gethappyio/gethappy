@@ -38,19 +38,6 @@ class Checkout extends Component {
         .catch(function (error) {
             console.log(error);
         });
-
-        axios.post('/',  qs.stringify({
-            action: '/commerce/cart/update-cart',
-            CRAFT_CSRF_TOKEN: window.csrfTokenValue,
-            gatewayId: 2
-        }))
-        .then(function (response) {
-    
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-    
     }
     
     outputAddress(address) {
