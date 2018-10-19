@@ -5,7 +5,8 @@
     "craftcms/commerce": "2.0.0-beta.11",
     "craftcms/element-api": "2.5.4",
     "aelvan/mailchimp-subscribe": "v2.0.2",
-    "craftcms/commerce-stripe": "1.0.7"
+    "craftcms/commerce-stripe": "1.0.7",
+    "craftcms/commerce-paypal": "^1.0"
   },
   "autoload": {
     "psr-4": {
