@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
-import qs from "qs";
 import "./styles/payment-switcher.scss";
 
 class PaymentSwitcher extends Component {
@@ -8,40 +6,27 @@ class PaymentSwitcher extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            type: "1"
+            type: "3"
         };
 
         this.handleChange = this.handleChange.bind(this);
+        
     }
 
     componentDidMount() {
-        this.setPaymentMethod(this.state.type);
+        this.props.onChangeCallback(this.state.type);
     }
 
     handleChange(event) {
+        this.props.onChangeCallback(event.target.value);
         this.setState({type: event.target.value});
-        this.setPaymentMethod(event.target.value);
-    }
-
-    setPaymentMethod(id) {
-        axios.post('/',  qs.stringify({
-            action: '/commerce/cart/update-cart',
-            CRAFT_CSRF_TOKEN: window.csrfTokenValue,
-            gatewayId: id
-        }))
-        .then(function (response) {
-    
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
     }
 
     render() {
         return (
             <div className="payment-switcher__container">
                 <div className="payment-switcher__option">
-                    <input id="payment-switcher__paypal" className="payment-switcher__radio" onChange={this.handleChange} checked={this.state.type === "1"} type="radio" value="1" name="type"/>
+                    <input id="payment-switcher__paypal" className="payment-switcher__radio" onChange={this.handleChange} checked={this.state.type === "3"} type="radio" value="3" name="type"/>
                     <label for="payment-switcher__paypal" className="payment-switcher__label">
                         <div className="payment-switcher__label-inner">
                             <div className="payment-switcher__content">
