@@ -6,7 +6,8 @@ import Page from "../Page/Page";
 import CheckoutBar from "./CheckoutBar";
 import Cart from "./Cart";
 import AddressCard from "../AddressCard/AddressCard";
-import PaymentForm from "./PaymentForm";
+import CheckoutPayment from "../CheckoutPayment/CheckoutPayment";
+
 
 class Checkout extends Component {
 
@@ -37,7 +38,6 @@ class Checkout extends Component {
         .catch(function (error) {
             console.log(error);
         });
-    
     }
     
     outputAddress(address) {
@@ -53,7 +53,7 @@ class Checkout extends Component {
                 <Cart data={this.state.cart}/>
                 <Link to="/checkout/new-address">New shipping address</Link>
                 {addresses}
-                <PaymentForm />
+                <CheckoutPayment />
             </Page>
         );
     }

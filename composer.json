@@ -1,9 +1,11 @@
 {
   "require": {
-    "craftcms/cms": "^3.0.0",
+    "craftcms/cms": "^3.0.27.1",
     "vlucas/phpdotenv": "^2.4.0",
-    "craftcms/commerce": "2.0.0-beta.7",
-    "craftcms/element-api": "2.5.4"
+    "craftcms/commerce": "2.0.0-beta.11",
+    "craftcms/element-api": "2.5.4",
+    "aelvan/mailchimp-subscribe": "v2.0.2",
+    "craftcms/commerce-stripe": "1.0.7"
   },
   "autoload": {
     "psr-4": {
