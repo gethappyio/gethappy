@@ -8,6 +8,7 @@
 
 {% extends "_layouts/react" %}
 {% includeJsFile "https://js.stripe.com/v3/" %}
+{% includeJsFile "https://www.paypalobjects.com/api/checkout.js" %}
 {% includeJsFile "/dist/js/checkout.bundle.js" %}
 {% includeCssFile "/dist/css/checkout.bundle.css" %}
 
@@ -20,5 +21,6 @@
     window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
     window.cancelRedirect = "{{ '/shop/checkout/payment' | hash }}";
     window.orderRedirect = "{{ orderRedirect | hash }}";
+    window.actionUrl = "{{ actionUrl('commerce/payments/pay') }}";
 {% endset %}
 {% includeJs token first %}

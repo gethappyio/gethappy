@@ -6,8 +6,8 @@ import Page from "../Page/Page";
 import CheckoutBar from "./CheckoutBar";
 import Cart from "./Cart";
 import AddressCard from "../AddressCard/AddressCard";
-import PaymentSwitcher from "./PaymentSwitcher";
-import StripeFormContainer from "./StripeFormContainer";
+import CheckoutPayment from "../CheckoutPayment/CheckoutPayment";
+
 
 class Checkout extends Component {
 
@@ -53,12 +53,7 @@ class Checkout extends Component {
                 <Cart data={this.state.cart}/>
                 <Link to="/checkout/new-address">New shipping address</Link>
                 {addresses}
-                <div className="section__wrapper">
-                    <div className="section__col-xs-12">
-                        <PaymentSwitcher />
-                    </div>
-                </div>
-                <StripeFormContainer />
+                <CheckoutPayment />
             </Page>
         );
     }
