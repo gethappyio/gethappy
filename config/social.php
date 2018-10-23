@@ -7,6 +7,8 @@ return array(
                 'id' => '{{ profile.getId() }}',
                 'email' => '{{ profile.getEmail() }}',
                 'username' => '{{ profile.getEmail() }}',
+                'firstName' => '{{ profile.getFirstName() }}',
+                'lastName' => '{{ profile.getLastName() }}',
             ],
         ]
     ]
