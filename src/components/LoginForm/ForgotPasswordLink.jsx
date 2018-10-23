@@ -7,9 +7,17 @@ class ForgotPasswordLink extends Component {
 
 
   render() {
+      let from;
+      if (this.props.from == "/checkout/login") {
+        from = "checkout";
+      } else {
+        from = "login";
+      }
+      
+      let url = "/forgotpassword?redirect=" + from;
     return (
         <div>
-            <a href="/forgotpassword">Forgot password?</a>
+            <a href={url}>Forgot password?</a>
         </div>
     );
   }

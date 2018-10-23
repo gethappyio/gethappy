@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Formik, Field } from "formik";
+import { withRouter } from "react-router-dom";
 import * as Yup from "yup";
 import { InputText } from "../Form/Form";
 import BtnPrimary from "../BtnPrimary/BtnPrimary";
@@ -18,7 +19,7 @@ class LoginForm extends Component {
         let checkoutRedirect = window.checkoutRedirect ?
         <input type="hidden" name="redirect" value={window.checkoutRedirect} />
         : "";
-
+        
         return (
             <div className="section__content">
                 <h1 className="login-form__header">Login</h1>
@@ -60,11 +61,11 @@ class LoginForm extends Component {
                         </form>
                     )}
                 />
-                <ForgotPasswordLink />
+                <ForgotPasswordLink from={this.props.location.pathname}/>
             </div>
         );
     }
 
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);

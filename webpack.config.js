@@ -8,6 +8,7 @@ module.exports = {
         "ajax": __dirname + '/src/ajax.js',
         "shop": __dirname + '/src/shop.js',
         "login": __dirname + '/src/login.js',
+        "forgotpassword": __dirname + '/src/forgotpassword.js',
         "user-orders": __dirname + '/src/user-orders.js',
         "user-addresses": __dirname + '/src/user-addresses.js',
         "user-profile": __dirname + '/src/user-profile.js',
