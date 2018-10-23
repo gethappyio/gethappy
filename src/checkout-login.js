@@ -5,6 +5,7 @@ import Page from "./components/Page/Page";
 import CheckoutBar from "./components/Checkout/CheckoutBar";
 import LoginForm from "./components/LoginForm/LoginForm";
 import GuestForm from "./components/GuestForm/GuestForm";
+import FacebookLogin from "./components/FacebookLogin/FacebookLogin";
 
 import "normalize.css";
 import "./styles/app.scss";
@@ -15,6 +16,7 @@ ReactDOM.render(
             <div class="base__pad">
                 <div className="base__narrow base__margin-top">
                     <LoginForm />
+                    <FacebookLogin />
                     <GuestForm />
                 </div>
             </div>
