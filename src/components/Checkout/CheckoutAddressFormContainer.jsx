@@ -13,10 +13,31 @@ class CheckoutAddressFormContainer extends Component {
 
         this.state = {
             address: "",
+            countries: "",
             model: "address",
             redirect: false
         }
 
+    }
+
+    componentDidMount() {
+        let self = this;
+
+        axios.post('/',  qs.stringify({
+            action: '/gethappy/customer-addresses/get-countries',
+            CRAFT_CSRF_TOKEN: window.csrfTokenValue
+        }))
+        .then(function (response) {
+            var countries = response.data.countries;
+            
+            self.setState({
+                countries: countries
+            });
+        })
+        .catch(function (error) {
+            console.log(error);
+        });    
+        
     }
 
     onSubmit(values) {
@@ -24,7 +45,7 @@ class CheckoutAddressFormContainer extends Component {
         let payload = {};
         payload["action"] = 'commerce/customer-addresses/save';
         payload["CRAFT_CSRF_TOKEN"] = window.csrfTokenValue;
-        payload[this.state.model] = values[this.state.model];
+        payload[this.state.model] = values;
 
         axios.post('/', qs.stringify(payload))
         .then(function (json) {
@@ -53,17 +74,17 @@ class CheckoutAddressFormContainer extends Component {
                 <div className="base__pad">
                     <Formik 
                         initialValues={{
-                            [model]: {
-                                id: this.state.address.id,
-                                firstName: this.state.address.firstName,
-                                lastName: this.state.address.lastName,
-                                address1: this.state.address.address1,
-                                address2: this.state.address.address2,
-                                city: this.state.address.city,
-                                zipCode: this.state.address.zipCode,
-                                phone: this.state.address.phone,
-                                countryId: 198
-                            }
+                            id: this.state.address.id,
+                            firstName: this.state.address.firstName,
+                            lastName: this.state.address.lastName,
+                            address1: this.state.address.address1,
+                            address2: this.state.address.address2,
+                            city: this.state.address.city,
+                            zipCode: this.state.address.zipCode,
+                            phone: this.state.address.phone,
+                            countryId: this.state.address.countryId,
+                            countryText: this.state.address.countryText,
+                            countries: this.state.countries
                         }}
                         onSubmit={this.onSubmit.bind(this)}
                         enableReinitialize={true}
