@@ -24,7 +24,7 @@ class Checkout extends Component {
     componentDidMount() {
         let self = this;
         axios.post('/',  qs.stringify({
-            action: '/commerce/cart/get-cart',
+            action: '/gethappy/cart/get-cart',
             CRAFT_CSRF_TOKEN: window.csrfTokenValue
         }))
         .then(function (response) {

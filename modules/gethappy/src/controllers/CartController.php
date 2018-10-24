@@ -22,6 +22,14 @@ use yii\web\Response;
  */
 class CartController extends Commerce_CartController
 {
+    // Properties
+    // =========================================================================
+
+    /**
+     * @var Order The cart element
+     */
+    private $_cart;
+
     // Public Methods
     // =========================================================================
 
@@ -34,5 +42,13 @@ class CartController extends Commerce_CartController
         $cartsService->forgetCart();
 
         Commerce_CartController::actionUpdateCart();
+    }
+
+    public function actionGetCart()
+    {   
+        $this->requireAcceptsJson();
+        $this->_cart = Plugin::getInstance()->getCarts()->getCart();
+
+        return $this->asJson(["cart" => $this->cartArray($this->_cart)]);
     }
 }
