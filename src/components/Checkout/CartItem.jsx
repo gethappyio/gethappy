@@ -18,7 +18,7 @@ class CartItem extends Component {
                     <div className="cart-item__placeholder"></div>
                 </div>
                 <div className="section__col-xs-8">
-                    <div className="section__content">{product.title}</div>
+                    <div className="section__content"><h2 className="cart-item__title">{product.title}</h2></div>
                     <div className="section__content cart-item__description">{variant.tierDescription}</div>
                     <div className="section__wrapper">
                         <div className="section__collapse">

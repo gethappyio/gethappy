@@ -3,7 +3,7 @@
 @import "gh-utilities";
 
 .cart-item {
-    background-color: color("brand-secondary");
+    background-color: color("grey");
     padding: 20px 0;
 
     &__placeholder {
@@ -12,17 +12,24 @@
     }
 
     &__description {
+        @include type(14px);
         font-family: "Akkurat-mono", monospace, sans-serif;
     }
 
     &__entries,
     &__price {
-        font-family: "Akkurat-mono", monospace, sans-serif;
+        @include type(14px);
         font-weight: bold;
     }
 
     &__price {
         text-align: right;
+    }
+
+    &__title {
+        @include type(16px);
+        font-weight: 600;
+        margin: 0 0 40px;
     }
     
 }
