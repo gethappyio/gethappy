@@ -19,5 +19,16 @@
  */
 
 return [
-
+    'about' => ['template' => 'index'],
+    'checkout' => ['template' => 'checkout/index'],
+    'checkout/login' => ['template' => 'checkout/login'],
+    'contact' => ['template' => 'index'],
+    'faq' => ['template' => 'index'],
+    'terms' => ['template' => 'index'],
+    'user' => ['template' => 'index'],
+    'user/addresses' => ['template' => 'user/addresses/index'],
+    'user/addresses/<url:(.*)>' => ['template' => 'user/addresses/index'],
+    'user/profile' => ['template' => 'user/profile/index'],
+    'user/orders' => ['template' => 'user/orders/index'],
+    'user/orders/view/<url:(.*)>' => ['template' => 'user/orders/index']
 ];
