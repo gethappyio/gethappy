@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Page from "../Page/Page";
 import CheckoutBar from "./CheckoutBar";
 import Cart from "./Cart";
+import CheckoutAddress from "./CheckoutAddress";
 import AddressCard from "../AddressCard/AddressCard";
 import CheckoutPayment from "../CheckoutPayment/CheckoutPayment";
 
@@ -51,8 +52,7 @@ class Checkout extends Component {
         return (
             <Page navigation={<CheckoutBar title="Checkout" />}>
                 <Cart data={this.state.cart}/>
-                <Link to="/checkout/new-address">New shipping address</Link>
-                {addresses}
+                <CheckoutAddress data={this.state.shippingAddress}/>                
                 <CheckoutPayment />
             </Page>
         );

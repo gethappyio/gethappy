@@ -20,7 +20,7 @@
         @include type(14px);
     }
 
-    &__item {
+    &__item:not(:last-child) {
         margin: 20px 0;
     }
 

@@ -1,0 +1,33 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.checkout-address {
+    &__container {
+        margin: 40px 0;
+    }
+
+    &__inner {
+        border-bottom: 1px solid color("brand-primary");
+        border-top: 1px solid color("brand-primary");
+        padding: 20px 0;
+    }
+
+    &__title {
+        @include type(14px);
+        color: color("brand-primary");
+        margin-top: 0;
+        text-transform: uppercase;
+    }
+
+    &__empty {
+        @include type(14px);
+        color: #90140A;
+    }
+}
+
+.checkout-address__container {
+    .address-card {
+        margin: 0;
+    }
+}
