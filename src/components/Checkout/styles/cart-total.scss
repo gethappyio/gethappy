@@ -1,0 +1,35 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.cart-total {
+
+    &__container {
+        margin: 40px 0;
+    }
+
+    &__title {
+        @include type(14px);
+        color: color("brand-primary");
+        font-size: 600;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    &__items {
+        @include type(14px);
+    }
+
+    &__item {
+        margin: 20px 0;
+    }
+
+    &__item-value {
+        text-align: right;
+    }
+
+    &__item--total {
+        @include type(16px);
+        font-weight: 600;
+    }
+}

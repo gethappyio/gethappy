@@ -30,7 +30,7 @@ class Checkout extends Component {
         .then(function (response) {
             const checkoutData = response.data.cart;
             self.setState({
-                cart: checkoutData.lineItems,
+                cart: checkoutData,
                 shippingAddress: checkoutData.shippingAddress,
                 email: checkoutData.email
             });
