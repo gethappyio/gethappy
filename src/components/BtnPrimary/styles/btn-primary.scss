@@ -5,10 +5,10 @@
 .btn-primary {
     @include type(16px);
     @include size(100%, auto);
-    background-color: color("brand-secondary");
+    background-color: color("vibrant-blue");
     border: 0;
-    border-radius: 26px;
-    box-shadow: 0 2px 4px #9B9B9B;
+    border-radius: 10px;
+    color: white;
     cursor: pointer;
     font-weight: 600;
     outline: 0;
@@ -17,15 +17,14 @@
     text-transform: uppercase;
     text-align: center;
 
-    &--blue {
-        color: color("brand-secondary");
-        background-color: color("brand-primary");
+    &--vibrant-blue {
+        color: white;
+        background-color: color("vibrant-blue");
     }
 
-    &--blue-outline {
-        color: color("brand-primary");
+    &--vibrant-blue-outline {
+        color: color("vibrant-blue");
         background-color: transparent;
-        border: 1px solid color("brand-primary");
-        box-shadow: none;
+        border: 5px solid color("vibrant-blue");
     }
 }
