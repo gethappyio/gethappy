@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CartItem from "./CartItem";
+import CartTotal from "./CartTotal";
 
 class Cart extends Component {
 
@@ -8,13 +9,16 @@ class Cart extends Component {
     }
 
     render() {
-        const items = this.props.data;
+        const cart = this.props.data;
+        const items = cart.lineItems;
+        
 
         return (
             <div>
-                {Object.keys(items).map((key) => 
+                {items ? Object.keys(items).map((key) => 
                     <CartItem data={items[key]} />
-                )}
+                ) : ""}
+                <CartTotal data={cart}/>
             </div>
         );
     }

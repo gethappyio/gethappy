@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Page from "../Page/Page";
 import CheckoutBar from "./CheckoutBar";
 import Cart from "./Cart";
+import CheckoutAddress from "./CheckoutAddress";
 import AddressCard from "../AddressCard/AddressCard";
 import CheckoutPayment from "../CheckoutPayment/CheckoutPayment";
 
@@ -24,13 +25,13 @@ class Checkout extends Component {
     componentDidMount() {
         let self = this;
         axios.post('/',  qs.stringify({
-            action: '/commerce/cart/get-cart',
+            action: '/gethappy/cart/get-cart',
             CRAFT_CSRF_TOKEN: window.csrfTokenValue
         }))
         .then(function (response) {
             const checkoutData = response.data.cart;
             self.setState({
-                cart: checkoutData.lineItems,
+                cart: checkoutData,
                 shippingAddress: checkoutData.shippingAddress,
                 email: checkoutData.email
             });
@@ -49,10 +50,9 @@ class Checkout extends Component {
     render() {
         let addresses = this.state.shippingAddress ? this.outputAddress(this.state.shippingAddress) : "";
         return (
-            <Page navigation={<CheckoutBar title="Checkout" />}>
+            <Page navigation={<CheckoutBar title="Checkout" />} footer="false">
                 <Cart data={this.state.cart}/>
-                <Link to="/checkout/new-address">New shipping address</Link>
-                {addresses}
+                <CheckoutAddress data={this.state.shippingAddress}/>                
                 <CheckoutPayment />
             </Page>
         );

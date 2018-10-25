@@ -21,9 +21,16 @@ class Page extends Component {
         }, className);
 
         let nav = this.props.navigation;
+        let footer = this.props.footer;
 
         if(!nav) {
             nav = <Header />;
+        }
+
+        if(footer === "false") {
+            footer = "";
+        } else {
+            footer = <Footer />
         }
 
         return (
@@ -31,7 +38,7 @@ class Page extends Component {
                 {nav}
                 <div class="base__expand base__scroll">
                     {this.props.children}
-                    <Footer />
+                    {footer}
                 </div>
             </main>
         );

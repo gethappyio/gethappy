@@ -9,6 +9,7 @@ import cardVisa from "./assets/visa.svg";
 import cardMaster from "./assets/mastercard.svg";
 import cardAmex from "./assets/amex.svg";
 import "../Form/styles/form.scss";
+import "./styles/card.scss";
 import "./styles/card-field.scss";
 
 const createOptions = (border) => {
@@ -32,12 +33,22 @@ class StripeForm extends Component {
         this.state = {
             errors: undefined,
             showBottom: false,
-            brand: cardPlaceholder
+            brand: cardPlaceholder,
+            fullName: ""
         };
 
+        this.customInputChange = this.onCustomInputChange.bind(this);
         this.submit = this.submit.bind(this);
         this.errors = {};
         this.cardFilled = false;
+    }
+
+    onCustomInputChange(e) {
+        let value = e.target.value;
+        let name = e.target.name;
+
+        this.setState({[name]: value});
+
     }
 
     onChangeFor(e) {
@@ -84,8 +95,9 @@ class StripeForm extends Component {
 
     submit(ev) {
         let {stripe} = this.props;
+        let name = this.state.fullName;
 
-        stripe.createToken({name: "Name"})
+        stripe.createToken({name: name})
         .then(({token}) => {
             console.log('Received Stripe token:', token);
 
@@ -111,34 +123,40 @@ class StripeForm extends Component {
             "card-field__bottom-container--active": this.state.showBottom
         });
         return (
-                <div className="form__wrapper">
-                    <div className="form-field__wrapper form-field__col-xs-12 card-field card-field__number">
-                        <img className="card-field__brand" src={this.state.brand} />
-                        <CardNumberElement 
-                            onBlur={this.onBlur.bind(this)} 
-                            onFocus={this.onFocus.bind(this)} 
-                            onChange={this.onChangeFor.bind(this)} 
-                            {...createOptions(this.props.border)} />
-                    </div>
-                    <div className={bottomClasses}>
-                        <div className="form__collapse">
-                            <div className="form-field__wrapper form-field__col-xs-6 card-field">
-                                <CardExpiryElement onChange={this.onChangeFor.bind(this)} {...createOptions(this.props.border)} />
-                            </div>
-                            <div className="form-field__wrapper form-field__col-xs-6 card-field">
-                                <CardCVCElement onChange={this.onChangeFor.bind(this)} {...createOptions(this.props.border)} />
+                <div className="card__container">
+                    <div className="form__wrapper card__inner">
+                        <div className="form-field__wrapper form-field__col-xs-12 card-field">
+                            <input name="fullName" placeholder="Full name" onChange={this.customInputChange} className="card-field__custom" />
+                        </div>
+                        <div className="form-field__wrapper form-field__col-xs-12 card-field card-field__number">
+                            <img className="card-field__brand" src={this.state.brand} />
+                            <CardNumberElement 
+                                onBlur={this.onBlur.bind(this)} 
+                                onFocus={this.onFocus.bind(this)} 
+                                onChange={this.onChangeFor.bind(this)} 
+                                {...createOptions(this.props.border)} />
+                        </div>
+                        <div className={bottomClasses}>
+                            <div className="form__collapse">
+                                <div className="form-field__wrapper form-field__col-xs-6 card-field">
+                                    <CardExpiryElement onChange={this.onChangeFor.bind(this)} {...createOptions(this.props.border)} />
+                                </div>
+                                <div className="form-field__wrapper form-field__col-xs-6 card-field">
+                                    <CardCVCElement onChange={this.onChangeFor.bind(this)} {...createOptions(this.props.border)} />
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div className="form-field__wrapper form-field__col-xs-12">
-                        <BtnPrimary className="btn-primary--blue" submit="true" onClick={this.submit}>Pay</BtnPrimary>
-                    </div>
-                    <div className="form-field__wrapper form-field__col-xs-12">
-                        {this.state && this.state.errors ? Object.keys(this.state.errors).map( (key) => {
-                            let error = this.state.errors[key];
-                            return <p>{error.message}</p>
-                        }) : ''}
+                    <div className="form__wrapper">
+                        <div className="form-field__wrapper form-field__col-xs-12">
+                            <BtnPrimary className="btn-primary--blue" submit="true" onClick={this.submit}>Pay</BtnPrimary>
+                        </div>
+                        <div className="form-field__wrapper form-field__col-xs-12">
+                            {this.state && this.state.errors ? Object.keys(this.state.errors).map( (key) => {
+                                let error = this.state.errors[key];
+                                return <p>{error.message}</p>
+                            }) : ''}
+                        </div>
                     </div>
                 </div>
 

@@ -1,0 +1,14 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.card {
+    &__container {
+        background-color: color("grey");
+        overflow: hidden;
+    }
+
+    &__inner {
+        margin: 20px 0;
+    }
+}

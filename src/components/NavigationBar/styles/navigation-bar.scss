@@ -5,7 +5,7 @@
 .navigation-bar{
     
     &__wrapper {
-        @include size(100%, 50px);
+        @include size(100%, 60px);
         position: absolute;
         top: 0;
     }

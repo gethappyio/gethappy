@@ -5,6 +5,8 @@ import PaymentSwitcher from "./PaymentSwitcher";
 import StripeFormContainer from "./StripeFormContainer";
 import PaypalForm from "./PaypalForm";
 
+import "./styles/checkout-payment.scss";
+
 class CheckoutPayment extends Component {
 
     constructor(props) {
@@ -34,11 +36,11 @@ class CheckoutPayment extends Component {
     }
 
     render() {
-        console.log(this.state);
         return (
             <div>
                 <div className="section__wrapper">
                     <div className="section__col-xs-12">
+                        <h2 className="checkout-payment__title">Payment method</h2>
                         <PaymentSwitcher onChangeCallback={this.onPaymentSelection}/>
                     </div>
                 </div>
