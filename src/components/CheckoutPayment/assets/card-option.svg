@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="41px" height="29px" viewBox="0 0 41 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>cc-icon-f504381903496fda5cbfd450450a162c</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Enter-Info" transform="translate(-95.000000, -1095.000000)">
+            <g id="cc-icon-f504381903496fda5cbfd450450a162c" transform="translate(95.000000, 1095.000000)">
+                <path d="M38.6605864,29 L2.41176459,29 C1.07978379,29 1.63120603e-16,27.9180215 0,26.5833333 L0,2.41666667 C-1.63120603e-16,1.08197852 1.07978379,2.45178235e-16 2.41176459,0 L38.7088217,0 C39.9934888,0.0644435058 41.0016069,1.1277774 40.9999981,2.41666667 L40.9999981,26.5833333 C41.0005851,27.8902136 39.9642288,28.9607937 38.6605864,29 Z" id="Shape" fill="#5FA2F1" fill-rule="nonzero"></path>
+                <path d="M4,17 L9,17" id="Shape" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"></path>
+                <path d="M14,17 L24,17" id="Shape" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"></path>
+                <rect id="Rectangle-path" fill="#4A4A4A" fill-rule="nonzero" x="0" y="6" width="41" height="6"></rect>
+                <rect id="Rectangle-path" fill="#FFFFFF" fill-rule="nonzero" x="31" y="19" width="7" height="7" rx="1.22"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./styles/payment-switcher.scss";
+import paypalIcon from "./assets/paypal-option.svg";
+import cardIcon from "./assets/card-option.svg";
 
 class PaymentSwitcher extends Component {
 
@@ -30,7 +32,8 @@ class PaymentSwitcher extends Component {
                     <label for="payment-switcher__paypal" className="payment-switcher__label">
                         <div className="payment-switcher__label-inner">
                             <div className="payment-switcher__content">
-                                Paypal
+                                <img src={paypalIcon} />
+                                <p className="payment-switcher__caption">Checkout with Paypal</p>
                             </div>
                         </div>
                     </label>
@@ -40,8 +43,8 @@ class PaymentSwitcher extends Component {
                     <label for="payment-switcher__credit" className="payment-switcher__label">
                         <div className="payment-switcher__label-inner">
                             <div className="payment-switcher__content">
-                                <p>Credit Card</p>
-                                <p>Checkout with your credit card</p>
+                                <img src={cardIcon} />
+                                <p className="payment-switcher__caption">Pay with credit card</p>
                             </div>  
                         </div>
                     </label>

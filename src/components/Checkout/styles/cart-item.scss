@@ -12,13 +12,11 @@
     }
 
     &__description {
-        @include type(14px);
         font-family: "Akkurat-mono", monospace, sans-serif;
     }
 
     &__entries,
     &__price {
-        @include type(14px);
         font-weight: bold;
     }
 

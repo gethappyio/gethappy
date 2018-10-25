@@ -5,7 +5,7 @@
 .payment-switcher{
 
     &__content {
-        margin-left: 30px;
+        margin-left: 40px;
     }
 
     &__radio {
@@ -14,7 +14,12 @@
 
     &__label {
         display: block;
-        padding: 10px 0;
+        padding: 20px 0;
+    }
+
+    &__caption {
+        color: color("brand-primary");
+        margin: 0;
     }
 
     &__label-inner {
