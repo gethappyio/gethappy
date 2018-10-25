@@ -50,7 +50,7 @@ class Checkout extends Component {
     render() {
         let addresses = this.state.shippingAddress ? this.outputAddress(this.state.shippingAddress) : "";
         return (
-            <Page navigation={<CheckoutBar title="Checkout" />}>
+            <Page navigation={<CheckoutBar title="Checkout" />} footer="false">
                 <Cart data={this.state.cart}/>
                 <CheckoutAddress data={this.state.shippingAddress}/>                
                 <CheckoutPayment />
