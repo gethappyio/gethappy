@@ -26,9 +26,7 @@ class User extends Component {
                     <LevelButton href="/user/addresses" className="user__icon user__icon--address">Edit Address</LevelButton>
                 </LevelButtons>
                 <div className="user-help__wrapper">
-                    <img className="user-help__cartoon" src={imgCartoon}/>
-                    <h5 className="user-help__question">How can we help?</h5>
-                    <p className="user-help__sub">We’re here to answer any questions you may have.</p>
+                    <h2 className="user-help__question">How can we help?</h2>
                 </div>
                 <LevelButtons>
                     <LevelButton to="/contact" className="user__icon user__icon--contact">Contact Us</LevelButton>
