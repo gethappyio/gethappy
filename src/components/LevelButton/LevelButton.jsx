@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import classNames from 'classnames/bind';
 import { Link } from "react-router-dom";
 import "./styles/level-button.scss";
 
@@ -10,23 +11,24 @@ class LevelButton extends Component {
     }
 
     buildLink() {
-        const {href, to, children} = this.props;
+        const {href, to, children, className} = this.props;
+        let classes = classNames("level-button", className);
 
         if(href) {
             return (
-                <a href={href} className="level-button">
+                <a href={href} className={classes}>
                     {children}
                 </a>
             );
         } else if (to) {
             return (
-                <Link to={to} className="level-button">
+                <Link to={to} className={classes}>
                     {children}
                 </Link>
             );
         } else {
             return (
-                <div className="level-button">{children}</div>
+                <div className={classes}>{children}</div>
             );
         }
         

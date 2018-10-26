@@ -3,10 +3,10 @@
 @import "gh-utilities";
 
 .level-button {
-    @include type(14px);
+    @include type(18px);
     color: color("brand-primary");
     display: block;
-    font-family: "Akkurat-mono", monospace, sans-serif;
+    font-weight: 500;
     padding: 10px 20px;
     position: relative;
     text-decoration: none;

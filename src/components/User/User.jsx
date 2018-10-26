@@ -4,6 +4,7 @@ import UserSignin from "./UserSignin";
 import Header from "../Header/Header";
 import { LevelButton, LevelButtons } from "../LevelButton/LevelButton";
 import imgCartoon from "../../assets/images/cartoon-dude.png";
+import "./styles/user.scss";
 import "./styles/user-help.scss";
 
 class User extends Component {
@@ -20,9 +21,9 @@ class User extends Component {
             }>
                 <UserSignin />
                 <LevelButtons>
-                    <LevelButton href="/user/profile">profile</LevelButton>
-                    <LevelButton href="/user/orders">order history</LevelButton>
-                    <LevelButton href="/user/addresses">addresses</LevelButton>
+                    <LevelButton href="/user/profile" className="user__icon user__icon--profile">Edit Account</LevelButton>
+                    <LevelButton href="/user/orders" className="user__icon user__icon--history">Order History</LevelButton>
+                    <LevelButton href="/user/addresses" className="user__icon user__icon--address">Edit Address</LevelButton>
                 </LevelButtons>
                 <div className="user-help__wrapper">
                     <img className="user-help__cartoon" src={imgCartoon}/>
@@ -30,9 +31,8 @@ class User extends Component {
                     <p className="user-help__sub">We’re here to answer any questions you may have.</p>
                 </div>
                 <LevelButtons>
-                    <LevelButton to="/contact">contact us</LevelButton>
-                    <LevelButton to="/faq">faq</LevelButton>
-                    <LevelButton to="/terms">terms and conditions</LevelButton>
+                    <LevelButton to="/contact" className="user__icon user__icon--contact">Contact Us</LevelButton>
+                    <LevelButton to="/terms" className="user__icon user__icon--terms">Terms & Conditions</LevelButton>
                 </LevelButtons>  
             </Page>
         );
