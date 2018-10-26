@@ -3,6 +3,17 @@
 @import "gh-utilities";
 
 .user {
+
+    &__logout {
+        background-color: color("grey");
+        color: color("brand-primary");
+        display: block;
+        font-weight: 500;
+        padding: 20px 0;
+        text-align: center;
+        text-decoration: none;
+    }
+
     &__icon {
         padding: 10px 20px 10px 50px !important;
 

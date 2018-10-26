@@ -15,11 +15,12 @@ class User extends Component {
     }
 
     render() {
+        let loggedIn = window.loggedIn;
         return (
             <Page className="base__abs app__slide" navigation={
                 <Header returnType="logo" returnUrl="/" title="User" direction="right" />
             }>
-                <UserSignin />
+                {!loggedIn ? <UserSignin /> : ""}
                 <LevelButtons>
                     <LevelButton href="/user/profile" className="user__icon user__icon--profile">Edit Account</LevelButton>
                     <LevelButton href="/user/orders" className="user__icon user__icon--history">Order History</LevelButton>
@@ -31,7 +32,8 @@ class User extends Component {
                 <LevelButtons>
                     <LevelButton to="/contact" className="user__icon user__icon--contact">Contact Us</LevelButton>
                     <LevelButton to="/terms" className="user__icon user__icon--terms">Terms & Conditions</LevelButton>
-                </LevelButtons>  
+                </LevelButtons> 
+                {loggedIn ? <a className="user__logout" href="/logout">Logout</a> : ""} 
             </Page>
         );
     }
