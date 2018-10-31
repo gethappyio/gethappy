@@ -4,5 +4,6 @@
 {% set token %}
     window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
     window.donateRedirect = "{{ '/checkout'|hash }}";
+    window.loggedIn = {{ currentUser ? "true" : "false" }};
 {% endset %}
 {% includeJs token first %}

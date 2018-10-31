@@ -4,6 +4,7 @@ import UserSignin from "./UserSignin";
 import Header from "../Header/Header";
 import { LevelButton, LevelButtons } from "../LevelButton/LevelButton";
 import imgCartoon from "../../assets/images/cartoon-dude.png";
+import "./styles/user.scss";
 import "./styles/user-help.scss";
 
 class User extends Component {
@@ -14,26 +15,25 @@ class User extends Component {
     }
 
     render() {
+        let loggedIn = window.loggedIn;
         return (
             <Page className="base__abs app__slide" navigation={
                 <Header returnType="logo" returnUrl="/" title="User" direction="right" />
             }>
-                <UserSignin />
+                {!loggedIn ? <UserSignin /> : ""}
                 <LevelButtons>
-                    <LevelButton href="/user/profile">profile</LevelButton>
-                    <LevelButton href="/user/orders">order history</LevelButton>
-                    <LevelButton href="/user/addresses">addresses</LevelButton>
+                    <LevelButton href="/user/profile" className="user__icon user__icon--profile">Edit Account</LevelButton>
+                    <LevelButton href="/user/orders" className="user__icon user__icon--history">Order History</LevelButton>
+                    <LevelButton href="/user/addresses" className="user__icon user__icon--address">Edit Address</LevelButton>
                 </LevelButtons>
                 <div className="user-help__wrapper">
-                    <img className="user-help__cartoon" src={imgCartoon}/>
-                    <h5 className="user-help__question">How can we help?</h5>
-                    <p className="user-help__sub">We’re here to answer any questions you may have.</p>
+                    <h2 className="user-help__question">How can we help?</h2>
                 </div>
                 <LevelButtons>
-                    <LevelButton to="/contact">contact us</LevelButton>
-                    <LevelButton to="/faq">faq</LevelButton>
-                    <LevelButton to="/terms">terms and conditions</LevelButton>
-                </LevelButtons>  
+                    <LevelButton to="/contact" className="user__icon user__icon--contact">Contact Us</LevelButton>
+                    <LevelButton to="/terms" className="user__icon user__icon--terms">Terms & Conditions</LevelButton>
+                </LevelButtons> 
+                {loggedIn ? <a className="user__logout" href="/logout">Logout</a> : ""} 
             </Page>
         );
     }

@@ -4,11 +4,9 @@
 
 .user-help {
     &__wrapper {
-        @include size(50%, auto);
+        background-color: color("grey");
         color: color("brand-primary");
-        margin: 20px auto;
-        max-width: 200px;
-        text-align: center;
+        overflow: hidden;
     }
 
     &__cartoon {
@@ -18,7 +16,7 @@
     &__question {
         @include type(16px);
         font-weight: 600;
-        margin: 20px 0;
+        margin: 40px 0 40px 10%;
         text-transform: uppercase;
     }
 
