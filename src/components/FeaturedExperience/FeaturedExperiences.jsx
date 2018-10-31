@@ -14,6 +14,7 @@ class FeaturedExperiences extends Component {
 
   componentDidMount() {
     let self = this;
+    
     axios.get('/experiences.json')
     .then(function (response) {
         var experiences = response.data.data;

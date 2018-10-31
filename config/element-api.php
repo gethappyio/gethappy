@@ -20,8 +20,7 @@ return [
                         "title" => $product->title,
                         "slug" => $product->slug,
                         "uri" => $product->uri,
-                        "descTop" => $product->experienceFeaturedDescriptionTop,
-                        "descBottom" => $product->experienceFeaturedDescriptionBottom,
+                        "desc" => $product->experienceFeaturedDescription,
                         "tiers" => $product->variants
                     ];
                 }
