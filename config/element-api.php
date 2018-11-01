@@ -9,12 +9,16 @@ return [
                 "elementType" => Product::class,
                 "criteria" => ["type" => "experience"],
                 "transformer" => function(Product $product) {
-
                     foreach ($product->experienceFeaturedImage as $image) {
                         $featuredImage = $image->url;
                     }
 
+                    $currentDate = new DateTime("NOW");
+                    $endDate = $product->experienceEndDate;
+                    $diffDays = $currentDate->diff($endDate)->days;
+
                     return [
+                        "days" => $diffDays,
                         "featuredImage" => $featuredImage,
                         "id" => $product->id,
                         "title" => $product->title,
