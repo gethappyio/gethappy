@@ -5,8 +5,34 @@
 .featured-experience { 
 
     &__top {
-        @include size(100%, auto);
+        @include size(80%, auto);
+        margin: 0 auto;
         position: relative;
+    }
+
+    &__days {
+        @include size(90px);
+        background-color: color("brand-primary");
+        border-radius: 50%;
+        color: color("brand-secondary");
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        left: -20px;
+        position: absolute;
+        text-align: center;
+        top: -20px;
+
+        &--number {
+            @include type(42px);
+            font-weight: 600;
+            line-height: 0.8;
+        }
+
+        &--left {
+            @include type(16px);
+            font-weight: 500;
+        }
     }
 
     &__image {
@@ -26,43 +52,28 @@
 
     &__title {
         @include type(54px);
-        color: color("brand-secondary");
-        font-weight: 600;
+        color: color("brand-primary");
+        font-family: "Rustico", monospace, sans-serif;
+        margin: 20px 0;
+    }
+
+    &__link {
+        display: block;
+        margin-top: 20px;
+        text-decoration: none;
     }
 
     &__bottom {
         color: black;
         overflow: initial !important;
         position: relative;
-        top: -20px;
-    }
-
-    &__bottom-inner {
-        background-color: color("brand-secondary");
-        box-shadow: -5px 5px #9B9B9B;
-        padding: 20px;
     }
 
     &__description {
-        @include type(20px);
-        border-bottom: 1px solid #979797;
-        margin: 0 0 20px 0;
-        padding-bottom: 20px;
+        @include type(16px);
+        color: color("brand-primary");
+        font-family: "Akkurat-mono", monospace, sans-serif;
         text-align: center;
-        text-transform: uppercase;
-
-        &-top, 
-        &-bottom {
-            display: block;
-        }
-
-        &-top {
-            @include text-stroke(1px, color("brand-secondary"), black);
-        }
-    }
-
-    &__days {
-        text-align: left;
     }
 
     &__more {

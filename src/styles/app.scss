@@ -66,6 +66,15 @@
   font-weight: 400;
 }
 
+@include font-face(
+  "Rustico",
+  "../assets/fonts/rustico-regular-webfont",
+  ( "eot", "ttf", "woff2", "woff", "svg")
+) {
+  font-style: normal;
+  font-weight: 400;
+}
+
 * {
     box-sizing: border-box;
 }
