@@ -7,7 +7,10 @@ return [
         "experiences.json" => function() {
             return [
                 "elementType" => Product::class,
-                "criteria" => ["type" => "experience"],
+                "criteria" => [
+                    "type"    => "experience",
+                    "orderBy" => "id asc"
+                ],
                 "transformer" => function(Product $product) {
                     foreach ($product->experienceFeaturedImage as $image) {
                         $featuredImage = $image->url;
