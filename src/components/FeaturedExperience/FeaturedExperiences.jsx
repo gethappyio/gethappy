@@ -34,7 +34,12 @@ class FeaturedExperiences extends Component {
         <div className="featured-experiences">
             <div className="section__wrapper">
                 <div className="section__col-xs-12">
-                    <h2 className="featured-experiences__header">awesome experiences</h2>
+                    <div className="featured-experiences__header-top">Check Out Our</div>
+                    <h2 className="featured-experiences__header">
+                        <span className="featured-experiences__header--word">awesome</span>
+                        <span className="featured-experiences__line"></span>
+                        <span className="featured-experiences__header--word">experiences</span>
+                    </h2>
                 </div>
             </div> 
             {experiences}
