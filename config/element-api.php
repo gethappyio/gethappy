@@ -1,9 +1,31 @@
 <?php
 
 use craft\commerce\elements\Product;
+use craft\elements\GlobalSet;
 
 return [
     "endpoints" => [
+        "homeslider.json" => function() {
+            return [
+                "elementType" => GlobalSet::class,
+                "criteria" => [
+                    "handle"    => "homeSlider"
+                ],
+                "transformer" => function(GlobalSet $globalset) {
+                    $blocks = [];
+                    foreach ($globalset->homeSlides as $block) {
+                        $newBlock = [];
+                        foreach ($block->image as $image) {
+                            $imageUrl = $image->url;
+                        }
+                        $newBlock['image'] = $imageUrl;
+                        $newBlock['slideLink'] = $block->slideLink;
+                        $blocks[] = $newBlock;
+                    }
+                    return $blocks;
+                }
+            ];
+        },
         "experiences.json" => function() {
             return [
                 "elementType" => Product::class,
