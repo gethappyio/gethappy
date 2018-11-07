@@ -1,0 +1,49 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.how-works {
+
+    &__title {
+        @include type(28px);
+        color: color("brand-primary");
+        font-weight: bold;
+        margin: 10px 0;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    &__line {
+        @include size(100%, 10px);
+        background: url("../assets/gethappy-line.svg") no-repeat center center;
+        background-size: auto 100%;
+    }
+
+    &__items {
+        margin: 20px 0;
+    }
+
+    &__item {
+        text-align: center;
+    }
+
+    &__item-icon {
+        height: 40px;
+
+        &--img {
+            width: 40px;
+        }
+
+        &--hand {
+            width: 30px;
+        }
+    }
+
+    &__item-text {
+        @include type(12px);
+        font-weight: bold;
+        margin: 20px 0 0;
+        text-transform: uppercase;
+
+    }
+}

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Page from "../Page/Page";
 import DonationTier from "../DonationTier/DonationTier";
+import HowWorks from "../HowWorks/HowWorks";
 import "./styles/experience.scss";
 
 class Experience extends Component {
@@ -50,7 +51,10 @@ class Experience extends Component {
                     <p className="experience__description">
                         {product.desc}
                     </p>
-                </div>      
+                </div>   
+            </div>
+            <HowWorks />   
+            <div className="section__wrapper">
                 {donations}
             </div>
         </Page>
