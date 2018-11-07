@@ -1,0 +1,57 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.experience {
+    &__title {
+        @include type(54px);
+        color: color("brand-primary");
+        font-family: "Rustico", monospace, sans-serif;
+        font-weight: normal;
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    &__top {
+        @include size(80%, auto);
+        margin: 20px auto;
+        position: relative;
+    }
+
+    &__days {
+        @include size(90px);
+        background-color: color("brand-primary");
+        border-radius: 50%;
+        color: color("brand-secondary");
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        left: -20px;
+        position: absolute;
+        text-align: center;
+        top: -20px;
+
+        &--number {
+            @include type(42px);
+            font-weight: 600;
+            line-height: 0.8;
+        }
+
+        &--left {
+            @include type(16px);
+            font-weight: 500;
+        }
+    }
+
+    &__image {
+        @include size(100%, auto);
+        display: block;
+    }
+
+    &__description {
+        @include type(16px);
+        color: color("brand-primary");
+        font-family: "Akkurat-mono", monospace, sans-serif;
+        text-align: center;
+    }
+}

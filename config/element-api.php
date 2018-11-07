@@ -68,12 +68,18 @@ return [
                     foreach ($product->experienceFeaturedImage as $image) {
                         $featuredImage = $image->url;
                     }
+
+                    $currentDate = new DateTime("NOW");
+                    $endDate = $product->experienceEndDate;
+                    $diffDays = $currentDate->diff($endDate)->days;
                     return [
                         "test" => $product,
                         "product" => [
+                            "days" => $diffDays,
                             "featuredImage" => $featuredImage,
                             "slub" => $product->slug,
                             "title" => $product->title,
+                            "desc" => $product->experienceFeaturedDescription,
                             "uri" => $product->uri
                         ],
                         "tiers" => $product->variants
