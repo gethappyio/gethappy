@@ -11,6 +11,7 @@ return [
                 "criteria" => [
                     "handle"    => "homeSlider"
                 ],
+                "one" => true,
                 "transformer" => function(GlobalSet $globalset) {
                     $blocks = [];
                     foreach ($globalset->homeSlides as $block) {
@@ -22,7 +23,9 @@ return [
                         $newBlock['slideLink'] = $block->slideLink;
                         $blocks[] = $newBlock;
                     }
-                    return $blocks;
+                    return [
+                        "slides" => $blocks
+                    ];
                 }
             ];
         },

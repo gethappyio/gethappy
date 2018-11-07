@@ -17,7 +17,7 @@ class Page extends Component {
         let {className} = this.props;
         let classes = classNames({
             "base__expand": true,
-            "base__withNav": true
+            "base__withNav": this.props.transparentNav ? false : true
         }, className);
 
         let nav = this.props.navigation;
