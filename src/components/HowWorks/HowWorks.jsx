@@ -45,6 +45,7 @@ class HowWorks extends Component {
                                 Help great causes!
                             </h4>
                     </div>
+                    
                 </div>
            </div>
         );

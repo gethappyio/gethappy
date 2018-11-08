@@ -1,0 +1,33 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.experience-share {
+    &__line {
+        @include size(100%, 10px);
+        background: url("../assets/gethappy-line.svg") no-repeat center center;
+        background-size: auto 100%;
+    }
+
+    &__title {
+        @include type(24px);
+        color: color("brand-primary");
+        font-family: "Rustico", monospace, sans-serif;
+        font-weight: normal;
+        margin: 0;
+        padding:0 20px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    &__inner {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+    }
+
+    &__icon {
+        margin: 0 10px;
+    }
+}

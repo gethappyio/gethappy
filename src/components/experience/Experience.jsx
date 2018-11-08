@@ -3,6 +3,7 @@ import axios from "axios";
 import Page from "../Page/Page";
 import DonationTier from "../DonationTier/DonationTier";
 import HowWorks from "../HowWorks/HowWorks";
+import ExperienceShare from "./ExperienceShare";
 import "./styles/experience.scss";
 
 class Experience extends Component {
@@ -54,6 +55,7 @@ class Experience extends Component {
                 </div>   
             </div>
             <HowWorks />   
+            <ExperienceShare />
             <div className="section__wrapper">
                 {donations}
             </div>
