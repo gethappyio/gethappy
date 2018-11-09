@@ -72,8 +72,30 @@ return [
                     $currentDate = new DateTime("NOW");
                     $endDate = $product->experienceEndDate;
                     $diffDays = $currentDate->diff($endDate)->days;
+
+                    $blocks = [];
+                    foreach ($product->experienceLayoutBuilder as $block) {
+                        $newBlock = [];
+                        $newBlock["handle"] = $block->type->name;
+
+                        switch ($block->type->name) {
+                            case "Text":
+                                $newBlock["block"]["header"] = $block->header;
+                                $newBlock["block"]["body"] = $block->body;
+                            break;
+
+                            case "Image":
+                                foreach ($block->image as $image) {
+                                    $imageUrl = $image->url;
+                                }
+                                $newBlock["block"]["image"] = $imageUrl;
+                            break;
+                        }
+
+                        $blocks[] = $newBlock;
+                    }
                     return [
-                        "test" => $product,
+                        "layout" => $blocks,
                         "product" => [
                             "days" => $diffDays,
                             "featuredImage" => $featuredImage,

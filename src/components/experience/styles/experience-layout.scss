@@ -1,0 +1,33 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.experience-layout {
+    &__text {
+        &-wrapper {
+            color: color("brand-primary");
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        &-header {
+            @include type(28px);
+            font-weight: 600;
+            margin: 0 0 10px;
+            text-transform: uppercase;
+        }
+
+        &-body {
+            margin-bottom: 0;
+        }
+    }
+
+    &__image {
+        @include size(100%, auto);
+        display: block;
+        
+        &-wrapper {
+            margin: 20px 0;
+        }
+    }
+}

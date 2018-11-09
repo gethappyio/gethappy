@@ -4,12 +4,14 @@ import Page from "../Page/Page";
 import DonationTier from "../DonationTier/DonationTier";
 import HowWorks from "../HowWorks/HowWorks";
 import ExperienceShare from "./ExperienceShare";
+import { Text, Image } from "./ExperienceLayout";
 import "./styles/experience.scss";
 
 class Experience extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      layout: "",
       product: "",
       tiers: {}
     };
@@ -23,15 +25,33 @@ class Experience extends Component {
     .then(function (response) {
         var product = response.data.product;
         var tiers = response.data.tiers;
+        var layout = response.data.layout;
         self.setState({product: product});
         self.setState({tiers: tiers});
+        self.setState({layout: layout});
     })
     .catch(function (error) {
         console.log(error);
     });
   }
 
+  buildLayoutBlock(block) {
+    console.log(block);
+    switch(block.handle) {
+        case "Text":
+            return <Text data={block.block} />;
+        break;
+
+        case "Image":
+            return <Image data={block.block} />;
+        break;
+
+    }
+
+  }
+
   render() {
+    let layout = this.state && this.state.layout.length > 0 ? this.state.layout.map( block => this.buildLayoutBlock(block)) : "";
     let product = this.state.product;
     let donations = this.state && this.state.tiers.length > 0 ?
     this.state.tiers.map(tier =>
@@ -56,6 +76,7 @@ class Experience extends Component {
             </div>
             <HowWorks />   
             <ExperienceShare />
+            {layout}
             <div className="section__wrapper">
                 {donations}
             </div>
