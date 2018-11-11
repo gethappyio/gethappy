@@ -94,6 +94,40 @@ return [
 
                         $blocks[] = $newBlock;
                     }
+
+                    // Free Gifts
+                    $variantsArray = [];
+
+                    foreach($product->variants as $variant) {
+                        $variantObject = [];
+                        
+                        if(count($variant->tierGift) > 0) {
+                            $gift = $variant->tierGift->first();
+
+                            foreach ($gift->giftImage as $image) {
+                                $giftImage = $image->url;
+                            }
+
+                            $giftObject = [
+                                "title" => $gift->title,
+                                "image" => $giftImage,
+                                "stock" => $gift->totalStock
+                            ];
+
+
+                            $variantObject["tierGift"] = $giftObject;
+                        }
+
+                        $variantObject["price"] = $variant->price;
+                        $variantObject["tierDescription"] = $variant->tierDescription;
+                        $variantObject["tierEntries"] = $variant->tierEntries;
+                        $variantObject["tierTitle"] = $variant->tierTitle;
+                        $variantObject["title"] = $variant->title;
+                        $variantObject["id"] = $variant->id;
+
+                        $variantsArray[] = $variantObject; 
+                    }
+                    
                     return [
                         "layout" => $blocks,
                         "product" => [
@@ -104,7 +138,7 @@ return [
                             "desc" => $product->experienceFeaturedDescription,
                             "uri" => $product->uri
                         ],
-                        "tiers" => $product->variants
+                        "tiers" => $variantsArray
                     ];
                 }
             ];

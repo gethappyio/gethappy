@@ -41,4 +41,17 @@
         display: block;
         text-transform: uppercase;
     }
+
+    &__gift-image {
+        @include size(100%, auto);
+        display: block;
+        margin: 20px 0;
+    }
+
+    &__gift-left {
+        @include type(12px);
+        color: grey;
+        font-family: "Akkurat-mono", monospace, sans-serif;
+        margin: 20px 0;
+    }
 }
