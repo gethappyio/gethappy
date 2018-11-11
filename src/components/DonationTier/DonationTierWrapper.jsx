@@ -13,6 +13,7 @@ class DonationTierWrapper extends Component {
   render() {
       return (
         <div className="section__wrapper donation-tier__wrapper">
+            <h2 className="donation-tier__main-title">Campaign Perks</h2>
             {this.props.children}
         </div>
       );

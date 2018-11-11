@@ -15,6 +15,15 @@
         background: color("grey");
     }
 
+    &__main-title {
+        @include type(28px);
+        color: color("brand-primary");
+        font-weight: 600;
+        margin: 40px 0;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
     &__title {
         @include type(16px);
         color: color("vibrant-blue");
