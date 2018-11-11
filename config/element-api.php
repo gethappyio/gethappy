@@ -65,11 +65,18 @@ return [
                 "one" => true,
                 "transformer" => function(Product $product) {
 
-                    foreach ($product->experienceVideoThumbnail as $thumbnail) {
-                        $featuredVideoThumbnail = $thumbnail->url;
+                    $featuredVideoThumbnail = null;
+                    if ($product->experienceVideoThumbnail) {
+                        foreach ($product->experienceVideoThumbnail as $thumbnail) {
+                            $featuredVideoThumbnail = $thumbnail->url;
+                        }
                     }
-                    foreach ($product->experienceVideo as $video) {
-                        $featuredVideo = $video->url;
+                    
+                    $featuredVideo = null;
+                    if ($product->experienceVideo) {
+                        foreach ($product->experienceVideo as $video) {
+                            $featuredVideo = $video->url;
+                        }
                     }
 
                     foreach ($product->experienceFeaturedImage as $image) {
