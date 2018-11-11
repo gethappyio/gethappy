@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Page from "../Page/Page";
+import DonationTierWrapper from "../DonationTier/DonationTierWrapper";
 import DonationTier from "../DonationTier/DonationTier";
 import HowWorks from "../HowWorks/HowWorks";
 import ExperienceShare from "./ExperienceShare";
@@ -77,9 +78,9 @@ class Experience extends Component {
             <HowWorks />   
             <ExperienceShare />
             {layout}
-            <div className="section__wrapper">
+            <DonationTierWrapper>
                 {donations}
-            </div>
+            </DonationTierWrapper>
         </Page>
     );
   }
