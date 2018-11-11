@@ -5,6 +5,7 @@ import DonationTierWrapper from "../DonationTier/DonationTierWrapper";
 import DonationTier from "../DonationTier/DonationTier";
 import HowWorks from "../HowWorks/HowWorks";
 import ExperienceShare from "./ExperienceShare";
+import ExperienceVideo from "./ExperienceVideo";
 import { Text, Image } from "./ExperienceLayout";
 import "./styles/experience.scss";
 
@@ -60,6 +61,7 @@ class Experience extends Component {
     ) : <span></span>;
     return (
         <Page footer="false">
+            <ExperienceVideo src={product.featuredVideo} poster={product.featuredVideoThumbnail} />
             <div className="section__wrapper">
                 <div className="section__col-xs-12">
                     <h1 className="experience__title">{product.title}</h1>

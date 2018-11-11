@@ -65,6 +65,13 @@ return [
                 "one" => true,
                 "transformer" => function(Product $product) {
 
+                    foreach ($product->experienceVideoThumbnail as $thumbnail) {
+                        $featuredVideoThumbnail = $thumbnail->url;
+                    }
+                    foreach ($product->experienceVideo as $video) {
+                        $featuredVideo = $video->url;
+                    }
+
                     foreach ($product->experienceFeaturedImage as $image) {
                         $featuredImage = $image->url;
                     }
@@ -132,6 +139,8 @@ return [
                         "layout" => $blocks,
                         "product" => [
                             "days" => $diffDays,
+                            "featuredVideoThumbnail" => $featuredVideoThumbnail,
+                            "featuredVideo" => $featuredVideo,
                             "featuredImage" => $featuredImage,
                             "slub" => $product->slug,
                             "title" => $product->title,

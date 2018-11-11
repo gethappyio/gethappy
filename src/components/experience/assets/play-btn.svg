@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="129px" height="129px" viewBox="0 0 129 129" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 6</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0 129 0 129 128.999948 0 128.999948"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="experiencepage-copy" transform="translate(-134.000000, -269.000000)">
+            <g id="Group-6" transform="translate(134.000000, 269.000000)">
+                <path d="M47,82.5283294 L47,42.9661973 C47,39.9990374 50.080597,38.0209308 52.6477612,39.5045107 L88.0746269,59.2855768 C90.641791,60.7691567 90.641791,64.2308433 88.0746269,65.7144232 L52.6477612,85.4954893 C50.080597,86.9790692 47,85.0009626 47,82.0338027 L47,82.5283294 Z" id="Fill-1" fill="#FFFF00"></path>
+                <g id="Group-5">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-4"></g>
+                    <path d="M64.5,11.3519484 C35.088,11.3519484 11.352,35.0879484 11.352,64.4999484 C11.352,93.9119484 35.088,117.647948 64.5,117.647948 C94.428,117.647948 117.648,94.4279484 117.648,64.4999484 C117.648,35.0879484 93.912,11.3519484 64.5,11.3519484 M64.5,-5.16e-05 C100.104,-5.16e-05 129,28.8959484 129,64.4999484 C129,100.103948 100.104,128.999948 64.5,128.999948 C28.896,128.999948 0,100.103948 0,64.4999484 C0,28.8959484 28.896,-5.16e-05 64.5,-5.16e-05" id="Fill-3" fill="#FFFF00" mask="url(#mask-2)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
