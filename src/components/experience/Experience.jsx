@@ -59,7 +59,7 @@ class Experience extends Component {
         <DonationTier tierData={tier}/>
     ) : <span></span>;
     return (
-        <Page>
+        <Page footer="false">
             <div className="section__wrapper">
                 <div className="section__col-xs-12">
                     <h1 className="experience__title">{product.title}</h1>
