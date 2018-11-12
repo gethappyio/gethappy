@@ -21,6 +21,7 @@
 return [
     'about' => ['template' => 'index'],
     'checkout' => ['template' => 'checkout/index'],
+    'checkout/success' => ['template' => 'checkout/index'],
     'checkout/login' => ['template' => 'checkout/login'],
     'contact' => ['template' => 'index'],
     'faq' => ['template' => 'index'],

@@ -1,0 +1,59 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.success {
+    &__wrapper {
+        @include size(100%);
+        align-items: center;
+        background-color: color("grey");
+        background-image: url("../assets/placeholder.png");
+        background-repeat: no-repeat;
+        background-position: top right;
+        background-size: 70% auto;
+        color: color("brand-primary");
+        display: flex;
+        justify-content: center;
+        position: relative;
+        text-align: center;
+        
+    }
+
+    &__checkmark {
+        display: block;
+        margin: 0 auto 40px;
+        position: relative;
+        width: 150px;
+    }
+
+    &__header {
+        @include type(54px);
+        margin: 20px 0;
+    }
+
+    &__sub {
+        @include type(20px);
+    }
+
+    &__continue {
+        @include type(20px);
+        @include size(100%, auto);
+        font-weight: 500;
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+    }
+
+    &__continue-text {
+        color: color("brand-primary");
+        margin-bottom: 0;
+        text-decoration: none;
+    }
+
+    &__line {
+        @include size(250px, 10px);
+        background: url("../assets/gethappy-line.svg") no-repeat center center;
+        background-size: auto 100%;
+        margin: 0 auto;
+    }
+}
