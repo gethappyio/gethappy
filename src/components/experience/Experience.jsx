@@ -62,7 +62,7 @@ class Experience extends Component {
         <DonationTier tierData={tier}/>
     ) : <span></span>;
     return (
-        <Page footer="false">
+        <Page footer="false" noNav="true" transparentNav="true">
             <Link to="/"><div className="experience__close"><img className="experience__close-x" src={close} /></div></Link>
 
             {product.featuredVideo ? <ExperienceVideo src={product.featuredVideo} poster={product.featuredVideoThumbnail} /> : ""}
