@@ -13,7 +13,7 @@ class StripeFormContainer extends Component {
         return (
             <StripeProvider apiKey="pk_test_4ShmpSjoZ0tn9cIY0i8Er3Me">
                 <Elements>
-                    <StripeForm />
+                    <StripeForm loadingCallback={this.props.loadingCallback} />
                 </Elements>
             </StripeProvider>
         );

@@ -97,6 +97,8 @@ class StripeForm extends Component {
         let {stripe} = this.props;
         let name = this.state.fullName;
 
+        this.props.loadingCallback(true);
+
         stripe.createToken({name: name})
         .then(({token}) => {
             console.log('Received Stripe token:', token);
@@ -110,6 +112,7 @@ class StripeForm extends Component {
                 token: token.id
             }));
         }).then((response) => {
+            this.props.loadingCallback(false);
             console.log(response);
         })
         .catch((e) => {

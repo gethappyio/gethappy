@@ -45,7 +45,7 @@ class CheckoutPayment extends Component {
                     </div>
                 </div>
                 {this.state && this.state.type == "3" ? <PaypalForm /> : ""}
-                {this.state && this.state.type == "2" ? <StripeFormContainer /> : ""}
+                {this.state && this.state.type == "2" ? <StripeFormContainer loadingCallback={this.props.loadingCallback}/> : ""}
             </div>
         );
     }
