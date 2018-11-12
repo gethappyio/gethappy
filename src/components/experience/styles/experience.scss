@@ -54,4 +54,24 @@
         font-family: "Akkurat-mono", monospace, sans-serif;
         text-align: center;
     }
+    
+    &__close {
+        @include size(30px);
+        border-radius: 50%;
+        background: white;
+        box-shadow: 1px 1px 5px grey;
+        position: fixed;
+        bottom: 10%;
+        right: 20px;
+        cursor: pointer;
+        z-index: 999;
+    }
+
+    &__close-x {
+        @include size(60%);
+        margin: 0 auto;
+        position: relative;
+        display: block;
+        top: 6px;
+    }
 }

@@ -28,23 +28,4 @@
         @include size(100%, auto);
         display: block;
     }
-
-    &__close {
-        @include size(30px);
-        border-radius: 50%;
-        background: white;
-        box-shadow: 1px 1px 5px grey;
-        position: absolute;
-        bottom: -12px;
-        right: 20px;
-        cursor: pointer;
-    }
-
-    &__close-x {
-        @include size(60%);
-        margin: 0 auto;
-        position: relative;
-        display: block;
-        top: 6px;
-    }
 }

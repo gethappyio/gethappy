@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Page from "../Page/Page";
 import DonationTierWrapper from "../DonationTier/DonationTierWrapper";
@@ -7,6 +8,7 @@ import HowWorks from "../HowWorks/HowWorks";
 import ExperienceShare from "./ExperienceShare";
 import ExperienceVideo from "./ExperienceVideo";
 import { Text, Image } from "./ExperienceLayout";
+import close from "./assets/close.svg";
 import "./styles/experience.scss";
 
 class Experience extends Component {
@@ -61,6 +63,8 @@ class Experience extends Component {
     ) : <span></span>;
     return (
         <Page footer="false">
+            <Link to="/"><div className="experience__close"><img className="experience__close-x" src={close} /></div></Link>
+
             {product.featuredVideo ? <ExperienceVideo src={product.featuredVideo} poster={product.featuredVideoThumbnail} /> : ""}
             <div className="section__wrapper">
                 <div className="section__col-xs-12">
