@@ -3,12 +3,38 @@
 @import "gh-utilities";
 
 .donation-tier {
-    border-bottom: 1px solid #979797;
-    padding: 60px 0;
+    background: white;
+    padding: 20px 10px;
     text-align: center;
+
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    &__wrapper {
+        background: color("grey");
+    }
+
+    &__main-title {
+        @include type(28px);
+        color: color("brand-primary");
+        font-weight: 600;
+        margin: 40px 0;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    &__title {
+        @include type(16px);
+        color: color("vibrant-blue");
+        font-family: "Rustico", monospace, sans-serif;
+        font-weight: normal;
+        margin: 0 0 10px;
+    }
 
     &__description {
         @include type(14px);
+        color: color("brand-primary");
         font-family: "Akkurat-mono", monospace, sans-serif;
     }
 
@@ -18,14 +44,23 @@
     }
 
     &__entries {
-        @include type(60px);
+        @include type(18px);
+        color: color("brand-primary");
         line-height: 1;
         display: block;
+        text-transform: uppercase;
     }
 
-    &__entries-label {
-        @include type(14px);
+    &__gift-image {
+        @include size(100%, auto);
         display: block;
-        text-transform: uppercase;
+        margin: 20px 0;
+    }
+
+    &__gift-left {
+        @include type(12px);
+        color: grey;
+        font-family: "Akkurat-mono", monospace, sans-serif;
+        margin: 20px 0;
     }
 }

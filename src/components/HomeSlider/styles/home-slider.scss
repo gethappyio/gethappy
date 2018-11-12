@@ -1,0 +1,16 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.home-slider {
+    &__slide,
+    &__slide-link,
+    &__slide-image {
+        @include size(100%, auto);
+    }
+
+    &__slide-link,
+    &__slide-image {
+        display: block;
+    }
+}

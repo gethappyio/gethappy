@@ -6,6 +6,7 @@
     @include size(100%, 60px);
     position: absolute;
     top: 0;
+    z-index: 999;
 }
 
 .header__container-inner {

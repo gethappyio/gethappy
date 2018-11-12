@@ -2,12 +2,19 @@
 @import "neat";
 @import "gh-utilities";
 
-.featured-experience { 
-    margin: 80px 0;
+.experience {
+    &__title {
+        @include type(54px);
+        color: color("brand-primary");
+        font-family: "Rustico", monospace, sans-serif;
+        font-weight: normal;
+        margin: 20px 0;
+        text-align: center;
+    }
 
     &__top {
         @include size(80%, auto);
-        margin: 0 auto;
+        margin: 20px auto;
         position: relative;
     }
 
@@ -41,44 +48,30 @@
         display: block;
     }
 
-    &__title-wrapper {
-        @include size(100%);
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        left: 0;
-        position: absolute;
-        top: 0;
-    }
-
-    &__title {
-        @include type(54px);
-        color: color("brand-primary");
-        font-family: "Rustico", monospace, sans-serif;
-        font-weight: normal;
-        margin: 20px 0;
-    }
-
-    &__link {
-        display: block;
-        margin-top: 20px;
-        text-decoration: none;
-    }
-
-    &__bottom {
-        color: black;
-        overflow: initial !important;
-        position: relative;
-    }
-
     &__description {
         @include type(16px);
         color: color("brand-primary");
         font-family: "Akkurat-mono", monospace, sans-serif;
         text-align: center;
     }
+    
+    &__close {
+        @include size(30px);
+        border-radius: 50%;
+        background: white;
+        box-shadow: 1px 1px 5px grey;
+        position: fixed;
+        bottom: 10%;
+        right: 20px;
+        cursor: pointer;
+        z-index: 999;
+    }
 
-    &__more {
-        text-align: right;
+    &__close-x {
+        @include size(60%);
+        margin: 0 auto;
+        position: relative;
+        display: block;
+        top: 6px;
     }
 }
