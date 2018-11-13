@@ -1,0 +1,31 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.experience-video {
+
+    &__wrapper {
+        position: relative;
+    }
+
+    &__play-container {
+        @include size(100%);
+        position: absolute;
+        align-items: center;
+        display: flex;
+    }
+
+    &__play {
+        @include size(80px);
+        margin: 0 auto;
+    }
+
+    &__tag {
+        @include size(100%, auto);
+    }
+
+    &__thumb {
+        @include size(100%, auto);
+        display: block;
+    }
+}
