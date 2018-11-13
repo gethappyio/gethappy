@@ -6,15 +6,16 @@
     {% redirect 'checkout/login' %}
 {% endif %}
 
+{% if cart.lineItems|length == 0 %}
+    {% redirect '/' %}
+{% endif %}
+
 {% extends "_layouts/react" %}
 {% includeJsFile "https://js.stripe.com/v3/" %}
 {% includeJsFile "https://www.paypalobjects.com/api/checkout.js" %}
 {% includeJsFile "/dist/js/checkout.bundle.js" %}
 {% includeCssFile "/dist/css/checkout.bundle.css" %}
 
-{% if cart is not defined %}
-    {% set cart = craft.commerce.carts.cart %}
-{% endif %}
 {% set orderRedirect =  '/shop/customer/order?number='~cart.number  %}
 
 {% set token %}

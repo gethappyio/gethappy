@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import axios from "axios";
 import qs from "qs";
 import BtnPrimary from "../BtnPrimary/BtnPrimary";
+import { Redirect } from "react-router-dom";
 import {CardNumberElement, CardExpiryElement, CardCVCElement, injectStripe} from "react-stripe-elements";
 import cardPlaceholder from "./assets/card-placeholder.svg";
 import cardVisa from "./assets/visa.svg";
@@ -34,7 +35,8 @@ class StripeForm extends Component {
             errors: undefined,
             showBottom: false,
             brand: cardPlaceholder,
-            fullName: ""
+            fullName: "",
+            redirect: false
         };
 
         this.customInputChange = this.onCustomInputChange.bind(this);
@@ -94,6 +96,7 @@ class StripeForm extends Component {
     }
 
     submit(ev) {
+        let self = this;
         let {stripe} = this.props;
         let name = this.state.fullName;
 
@@ -112,7 +115,9 @@ class StripeForm extends Component {
                 token: token.id
             }));
         }).then((response) => {
-            this.props.loadingCallback(false);
+            self.setState({
+                redirect: true
+            });
             console.log(response);
         })
         .catch((e) => {
@@ -125,6 +130,11 @@ class StripeForm extends Component {
         let bottomClasses = classNames("form-field__col-xs-12 card-field__bottom-container ", {
             "card-field__bottom-container--active": this.state.showBottom
         });
+
+        if(this.state.redirect) {
+            return <Redirect to="/checkout/success" />
+        }
+        
         return (
                 <div className="card__container">
                     <div className="form__wrapper card__inner">
