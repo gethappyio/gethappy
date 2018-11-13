@@ -17,7 +17,7 @@ class About extends Component {
       render() {
         return (
             <Page className="base__abs app__slide" navigation={
-                <Header returnType="logo" returnUrl="/" title="About" direction="left" />
+                <Header returnType="logo-return" returnUrl="/" title="info-yellow" direction="left" />
             }>
                 <div className="section__wrapper">
                     <div className="about__section section__col-xs-12">

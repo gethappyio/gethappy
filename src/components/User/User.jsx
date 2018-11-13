@@ -18,7 +18,7 @@ class User extends Component {
         let loggedIn = window.loggedIn;
         return (
             <Page className="base__abs app__slide" navigation={
-                <Header returnType="logo" returnUrl="/" title="User" direction="right" />
+                <Header returnType="logo-return" returnUrl="/" title="user-yellow" direction="right" />
             }>
                 {!loggedIn ? <UserSignin /> : ""}
                 <LevelButtons>

@@ -30,7 +30,7 @@ class Header extends Component {
         return (
             <div className="header__container-inner">
                 <div className={"header__icon header__icon--" + type}><Link to={{ pathname: url, state: {slide: "right", timeout:200}}} className="header__icon-link"></Link></div>
-                <div>{title}</div>
+                <div className={"header__icon header__icon--" + title}></div>
                 <div className="header__icon"></div>   
             </div>
         );
@@ -38,7 +38,7 @@ class Header extends Component {
         return (
             <div className="header__container-inner">
                 <div className="header__icon"></div>   
-                <div>{title}</div>
+                <div className={"header__icon header__icon--" + title}></div>
                 <div className={"header__icon header__icon--" + type}><Link to={{ pathname: url, state: {slide: "left", timeout:200}}} className="header__icon-link"></Link></div>
             </div>
         );

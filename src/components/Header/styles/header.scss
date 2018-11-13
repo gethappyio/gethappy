@@ -22,17 +22,32 @@
     border-radius: 50%;
 
     &--info {
-        background: url("../assets/icon-about.svg") center center no-repeat;
+        background: url("../assets/icon-about-blue.svg") center center no-repeat;
+        background-size: 40px;
+    }
+
+    &--info-yellow {
+        background: url("../assets/icon-about-yellow.svg") center center no-repeat;
         background-size: 40px;
     }
 
     &--logo {
-        background: url("../assets/icon-home.svg") center center no-repeat;
+        background: url("../assets/icon-home-yellow.svg") center center no-repeat;
+        background-size: 40px;
+    }
+
+    &--logo-return {
+        background: url("../assets/icon-home-blue.svg") center center no-repeat;
         background-size: 40px;
     }
 
     &--user {
-        background: url("../assets/icon-user.svg") center center no-repeat;
+        background: url("../assets/icon-user-blue.svg") center center no-repeat;
+        background-size: 40px;
+    }
+
+    &--user-yellow {
+        background: url("../assets/icon-user-yellow.svg") center center no-repeat;
         background-size: 40px;
     }
 }
