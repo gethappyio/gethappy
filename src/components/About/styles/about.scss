@@ -3,17 +3,20 @@
 @import "gh-utilities";
 
 .about{ 
-    &__section {
-        padding: 40px 0;
-        text-align: center;
+    &__wrapper {
+        background-color: color("grey");
+    }
 
-        &:not(:first-child) {
-            border-top: 1px solid #979797;
-        }
+    &__first {
+        margin-top: 60px;
+    }
+
+    &__section {
+        text-align: center;
     }
 
     &__title {
-        @include type(36px);
+        @include type(32px);
         color: color("brand-primary");
     }
 
@@ -26,11 +29,18 @@
     &__body {
         @include type(14px);
         font-family: "Akkurat-mono", monospace, sans-serif;
+        margin: 40px 0;
         padding: 0 20px;
     }
 
     &__cartoon-head {
         display: inline-block;
         width: 125px;
+    }
+
+    &__line {
+        @include size(100%, 10px);
+        background: url("../assets/gethappy-line.svg") no-repeat center center;
+        background-size: auto 100%;
     }
 }
