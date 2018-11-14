@@ -11,7 +11,7 @@ import "./styles/app.scss";
 
 ReactDOM.render(
     <BrowserRouter>
-        <Page>
+        <Page footer="false">
             <div class="base__pad">
                 <div className="base__narrow base__margin-top">
                     <LoginForm />

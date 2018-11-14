@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import Page from "../Page/Page";
 import FeaturedExperiences from "../FeaturedExperience/FeaturedExperiences";
-import NewsletterSignUp from "../NewsletterSignUp/NewsletterSignUp";
 import HomeSlider from "../HomeSlider/HomeSlider";
-import imgPlaceholder from "../../assets/images/homepage-placeholder.png";
 import "./styles/home.scss";
 
 class Home extends Component {
@@ -18,8 +16,6 @@ class Home extends Component {
             <Page className="base__abs app__slide" transparentNav="true">
                 <HomeSlider />
                 <FeaturedExperiences />
-                <NewsletterSignUp />
-                <img className="home__imgwide" src={imgPlaceholder} />
             </Page>
         );
     }

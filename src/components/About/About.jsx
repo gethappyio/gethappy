@@ -18,7 +18,7 @@ class About extends Component {
         return (
             <Page className="base__abs app__slide" navigation={
                 <Header returnType="logo-return" returnUrl="/" title="info-yellow" direction="left" />
-            }>
+            } footer="false">
                 <div className="section__wrapper">
                     <div className="about__section section__col-xs-12">
                         <img className="about__cartoon-head" src={imgCartoon} />

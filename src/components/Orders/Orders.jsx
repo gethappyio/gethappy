@@ -47,7 +47,7 @@ class Orders extends Component {
         return (
             <Page navigation={
                 <NavigationBar title="Orders" href="/user" />
-            }>
+            } footer="false">
                 <div className="base__pad">
                     <div className="base__narrow base__margin-top">
                         {orders}
