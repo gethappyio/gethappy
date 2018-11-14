@@ -37,7 +37,7 @@ class ForgotPassword extends Component {
         return (
             <Page navigation={
                 <NavigationBar title="Forgot Password" href={this.state.backUrl} />
-            }>
+            } footer="false">
                 <div className="section__content">
                     
                     <Formik 

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./styles/forgot-password.scss";
 
 class ForgotPasswordLink extends Component {
   constructor(props) {
@@ -16,8 +17,8 @@ class ForgotPasswordLink extends Component {
       
       let url = "/forgotpassword?redirect=" + from;
     return (
-        <div>
-            <a href={url}>Forgot password?</a>
+        <div className="forgot-password__wrapper">
+            Forgot password? <a href={url} className="forgot-password__link">Click here</a>
         </div>
     );
   }

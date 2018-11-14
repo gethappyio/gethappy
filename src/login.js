@@ -15,7 +15,6 @@ ReactDOM.render(
             <div class="base__pad">
                 <div className="base__narrow base__margin-top">
                     <LoginForm />
-                    <FacebookLogin />
                     <NewUserForm />
                 </div>
             </div>
