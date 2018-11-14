@@ -12,5 +12,25 @@
     &__slide-link,
     &__slide-image {
         display: block;
+        position: relative;
+    }
+
+    &__slide-title-container {
+        @include size(100%);
+        align-items: center;
+        display: flex;
+        left: 0;
+        justify-content: center;
+        padding: 0 20px;
+        position: absolute;
+        top: 0;
+    }
+    &__slide-title {
+        @include type(60px);
+        color: color("brand-secondary");
+        font-family: "Rustico", monospace, sans-serif;
+        font-weight: 400;
+        text-align: center;
+        text-transform: uppercase;
     }
 }
