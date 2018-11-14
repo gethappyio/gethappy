@@ -50,7 +50,7 @@ class Addresses extends Component {
     render() {
         const addresses = this.getOutput(); 
         return (
-            <Page navigation={ <NavigationBar title="Addresses" href="/user" /> }>
+            <Page navigation={ <NavigationBar title="Addresses" href="/user" /> } footer="false">
                 <div className="base__pad">
                     <div className="base__narrow base__margin-top">
                         <div class="addresses__main">

@@ -19,7 +19,7 @@ class User extends Component {
         return (
             <Page className="base__abs app__slide" navigation={
                 <Header returnType="logo-return" returnUrl="/" title="user-yellow" direction="right" />
-            }>
+            } footer="false">
                 {!loggedIn ? <UserSignin /> : ""}
                 <LevelButtons>
                     <LevelButton href="/user/profile" className="user__icon user__icon--profile">Edit Account</LevelButton>

@@ -49,7 +49,7 @@ class ProfileForm extends Component {
         return (
             <Page navigation={
                 <NavigationBar title="Profile" href="/user" />
-            }>
+            } footer="false">
                 <div class="base__pad">
                     <div className="base__narrow base__margin-top">
                     <div className="section__content">

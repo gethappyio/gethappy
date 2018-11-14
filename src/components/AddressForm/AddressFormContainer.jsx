@@ -94,7 +94,7 @@ class AddressFormContainer extends Component {
         const addressData = this.state.address;
         const model = this.state.model;
         return (
-            <Page navigation={ <NavigationBar title="Address" to="/user/addresses" /> }>
+            <Page navigation={ <NavigationBar title="Address" to="/user/addresses" /> } footer="false">
                 <div className="base__pad">
                     <div className="base__narrow base__margin-top">
                     <Formik 
