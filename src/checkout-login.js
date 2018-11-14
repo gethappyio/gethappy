@@ -12,7 +12,7 @@ import "./styles/app.scss";
 
 ReactDOM.render(
     <BrowserRouter>
-        <Page navigation={<CheckoutBar title="Checkout" />}>
+        <Page navigation={<CheckoutBar title="Checkout" />} footer="false">
             <div class="base__pad">
                 <div className="base__narrow base__margin-top">
                     <LoginForm />
