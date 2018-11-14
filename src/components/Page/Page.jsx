@@ -16,7 +16,7 @@ class Page extends Component {
       render() {
         let {className} = this.props;
         let classes = classNames({
-            "base__expand": true,
+            "base__expand": false,
             "base__withNav": this.props.transparentNav ? false : true
         }, className);
 
@@ -37,7 +37,7 @@ class Page extends Component {
         return (
             <main className={classes}>
                 {noNav ? " " : nav}
-                <div class="base__expand base__scroll">
+                <div>
                     {this.props.children}
                     {footer}
                 </div>

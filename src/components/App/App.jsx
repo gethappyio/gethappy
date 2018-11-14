@@ -27,7 +27,6 @@ class App extends Component {
 
         return (
             <TransitionGroup 
-                className="base__expand"
                 childFactory={child => React.cloneElement(
                     child,
                     {
