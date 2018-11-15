@@ -18,7 +18,7 @@ class Contact extends Component {
         return (
             <Page navigation={
                 <NavigationBar title="Contact Us" to="/user" />
-            }>
+            } footer="false">
                 <div className="section__wrapper contact__wrapper">
                     <div className="section__col-xs-12">
                         <img className="contact__logo" src={logo}/>
