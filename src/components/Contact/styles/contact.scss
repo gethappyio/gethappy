@@ -3,9 +3,47 @@
 @import "gh-utilities";
 
 .contact{ 
+
+    &__wrapper {
+        text-align: center;
+    }
+
+    &__header{
+        @include type(68px);
+        color: color("brand-primary");
+    }
+
     &__body {
         @include type(14px);
+        color: color("brand-primary");
         font-family: "Akkurat-mono", monospace, sans-serif;
-        padding: 0 20px;
+    }
+
+    &__info {
+        color: color("brand-primary");
+    }
+
+    &__logo {
+        @include size(75px, auto);
+        margin-top: 40px;
+    }
+
+    &__more {
+        color: color("brand-primary");
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    &__more-header {
+        @include type(24px);
+        font-weight: bold;
+        margin: 0;
+    }
+
+    &__more-line {
+        @include size(120px, 10px);
+        background: url("../assets/gethappy-line.svg") no-repeat center center;
+        background-size: auto 100%;
+        margin: 0 auto 20px;
     }
 }
