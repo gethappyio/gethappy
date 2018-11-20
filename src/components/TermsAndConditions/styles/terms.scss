@@ -3,9 +3,14 @@
 @import "gh-utilities";
 
 .terms{ 
+
+    &__heading {
+        color: color("brand-primary");
+    }
+
     &__body {
         @include type(14px);
+        color: color("brand-primary");
         font-family: "Akkurat-mono", monospace, sans-serif;
-        padding: 0 20px;
     }
 }

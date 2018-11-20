@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import iconFb from "./assets/social-fb.svg";
-import iconInsta from "./assets/social-insta.svg";
-import iconTwitter from "./assets/social-twitter.svg";
-import iconYoutube from "./assets/social-youtube.svg";
+import iconFb from "./assets/social-drawn-fb.svg";
+import iconInsta from "./assets/social-drawn-insta.svg";
+import iconTwitter from "./assets/social-drawn-twitter.svg";
+import iconYoutube from "./assets/social-drawn-youtube.svg";
 import "./styles/share.scss";
 
 class Share extends Component {

@@ -24,9 +24,8 @@ class NavigationBar extends Component {
     return (
         <div className="navigation-bar__wrapper">
             <div className="navigation-bar__wrapper-inner">
-                <div className="navigation-bar__element">{back}</div>
-                <div className="navigation-bar__element">{this.props.title}</div>
-                <div className="navigation-bar__element"></div>
+                <div className="navigation-bar__element navigation-bar__back-container">{back}</div>
+                <div className="navigation-bar__element navigation-bar__title">{this.props.title}</div>
             </div>
         </div>
     );
