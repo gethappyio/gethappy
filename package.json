@@ -7,7 +7,7 @@
   },
   "license": "GPL-3.0",
   "scripts": {
-    "prebuild": "del-cli dist -f",
+    "prebuild": "del-cli public/dist -f",
     "build": "webpack"
   },
   "devDependencies": {

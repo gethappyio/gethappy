@@ -1,4 +1,6 @@
 {% extends "_layouts/boilerplate" %}
+{% includeJsFile siteUrl ~ "/dist/js/vendors.bundle.js" first %}
+{% includeCssFile siteUrl ~ "/dist/css/vendors.bundle.css" %}
 {% block app %}
 <div id="app" class="base__expand">
 
