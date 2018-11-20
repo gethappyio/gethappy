@@ -91,6 +91,17 @@ module.exports = {
         path: __dirname + "/public/dist",
         filename: 'js/[name].bundle.js'
     },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendors: {
+                  test: /[\\/]node_modules[\\/]/,
+                  name: "vendors",
+                  chunks: "initial"
+                }
+            }
+        }
+    },
     plugins: [
         new ExtractTextPlugin({
             filename:"css/[name].bundle.css"
