@@ -19,7 +19,7 @@ class OrderItem extends Component {
                         <div className="order-item__number">Order no. {order.id}</div>
                     </div>
                     <div className="section__col-xs-12 section__content order-item__name">
-                        A day with Selena Gomez
+                        {order.lineItem[0].product.title}
                     </div>
                     <div className="section__col-xs-12">
                         Contribution of ${order.itemTotal}

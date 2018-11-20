@@ -30,17 +30,31 @@ class OrdersController extends Controller
     {   
         $customerService = Plugin::getInstance()->getCustomers();
         $ordersService = Plugin::getInstance()->getOrders();
+        $productsService = Plugin::getInstance()->getProducts();
+        $variantsService = Plugin::getInstance()->getVariants();
 
         $currentCustomer = $customerService->getCustomer();
         $orders = $ordersService->getOrdersByCustomer($currentCustomer);
 
         foreach($orders as $num => $order) {
+            $cleanedItems = [];
+            foreach($order["lineItems"] as $index => $item) {
+                $cleanedItem = [];
+                $variant = $variantsService->getVariantById($item["purchasableId"]);
+                $product = $productsService->getProductById($variant["productId"]);
+                $cleanedItem["product"] = $product;
+                $cleanedItem["variant"] = $variant;
+                $cleanedItem["lineItem"] = $item;
+                $cleanedItems[] = $cleanedItem;
+            }
+
             $cleanedOrder = [];
             $cleanedOrder["dateOrdered"] = $order["dateOrdered"];
             $cleanedOrder["dateFormatted"] = $order["dateOrdered"]->format('F d, Y');
             $cleanedOrder["itemTotal"] = $order["itemTotal"];
             $cleanedOrder["number"] = $order["number"];
             $cleanedOrder["id"] = $order["id"];
+            $cleanedOrder["lineItem"] = $cleanedItems;
             $orders[$num] = $cleanedOrder;
         }
 
