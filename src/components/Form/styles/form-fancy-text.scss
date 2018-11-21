@@ -1,0 +1,58 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.form-fancy-text {
+    background: transparent;
+    padding: 10px 20px; 
+
+    &__line--h,
+    &__line--v {
+        position: absolute;
+    }
+
+    &__line--h {
+        @include size(100%, 10px);
+        background: url("../assets/gethappy-line.svg") no-repeat center center;
+        background-size: auto 100%;
+    }
+
+    &__line--v {
+        @include size(45px, 10px);
+        background: url("../assets/gethappy-line.svg") no-repeat center center;
+        background-size: 800px 100%;
+        transform: rotate(90deg);
+    }
+
+    &__line--bottom {
+        bottom: -5px;
+    }
+
+    &__line--top {
+        top: -5px;
+    }
+
+    &__line--left {
+        left: -22px;
+        top: 18px;
+    }
+
+    &__line--right {
+        right: -21px;
+        top: 16px;
+    }
+
+    &__line--middle {
+        right: 20px;
+        top: 16px;
+    }
+
+    &__submit {
+        background-color: color("brand-primary");
+        color: white;
+        font-family: "Brandon-grotesque", arial;
+        font-weight: 600;
+        padding: 0 10px;
+        top: -1px;
+    }
+}

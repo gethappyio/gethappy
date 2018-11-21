@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Share from "../Share/Share";
+import FooterNewsletter from "./FooterNewsletter";
 import imgLogo from "../../assets/icons/logo-full-navy.svg";
 import "./styles/footer.scss";
 
@@ -32,6 +33,7 @@ class Footer extends Component {
             <div className="footer__wrapper section__col-xs-12">
                 <h2 className="footer__title">join our journey</h2>
                 <p className="footer__subtitle">#GETHAPPY</p>
+                <FooterNewsletter />
                 <Share />
                 <div className="footer__logo"><img src={imgLogo} /></div>
                 <div className="footer__copyright">All Rights Reserved 2018</div>
