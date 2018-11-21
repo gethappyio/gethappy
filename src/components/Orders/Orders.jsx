@@ -4,6 +4,8 @@ import qs from "qs";
 import Page from "../Page/Page";
 import NavigationBar from "../NavigationBar/NavigationBar";
 import OrderItem from "./OrderItem";
+import HeaderIcon from "../HeaderIcon/HeaderIcon";
+import iconTime from "./assets/icon-time.svg";
 
 class Orders extends Component {
     constructor(props) {
@@ -49,6 +51,7 @@ class Orders extends Component {
                 <NavigationBar title="Orders" href="/user" />
             } footer="false">
                 <div className="base__pad">
+                    <HeaderIcon icon={iconTime} /> 
                     <div className="base__narrow base__margin-top">
                         {orders}
                     </div>
