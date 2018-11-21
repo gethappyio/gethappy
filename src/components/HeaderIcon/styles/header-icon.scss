@@ -1,0 +1,9 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.header-icon {
+    @include size(80px, auto);
+    display: block;
+    margin: 40px auto;
+}

@@ -7,7 +7,8 @@ import { InputText } from "../Form/Form";
 import BtnPrimary from "../BtnPrimary/BtnPrimary";
 import Page from "../Page/Page";
 import NavigationBar from "../NavigationBar/NavigationBar";
-
+import HeaderIcon from "../HeaderIcon/HeaderIcon";
+import iconProfile from "./assets/icon-person.svg";
 import "../Form/styles/form.scss";
 
 class ProfileForm extends Component {
@@ -48,9 +49,10 @@ class ProfileForm extends Component {
     render() {
         return (
             <Page navigation={
-                <NavigationBar title="Profile" href="/user" />
+                <NavigationBar title="Edit Account" href="/user" />
             } footer="false">
                 <div class="base__pad">
+                    <HeaderIcon icon={iconProfile} /> 
                     <div className="base__narrow base__margin-top">
                     <div className="section__content">
                         <Formik 
