@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import _ from 'lodash';
 import { Switch, Route, Link, Redirect, withRouter} from "react-router-dom";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import axios from "axios";
@@ -39,9 +40,9 @@ class App extends Component {
             experiences = response.data.data;
 
             self.setState({
-                homeData: { slides: slides, experiences: experiences},
-                loading: false
+                homeData: { slides: slides, experiences: experiences}
             });
+            
 
         })
         .catch(function (error) {
@@ -49,11 +50,71 @@ class App extends Component {
         });
     
       }
+
+      siftJson(value,array) {
+        let self = this;
+        if(value) {
+            if(Array.isArray(value)) {
+                value.map(item =>
+                    self.siftJson(item, array)
+                );
+            } else if(typeof value === "object") {
+                Object.keys(value).map(key =>
+                        self.siftJson(value[key], array)
+                    );
+            } else {
+                array.push(value);
+            }
+        }
+      }
+
+      findImages(array) {
+          let tempArray = [];
+          array.map(value => {
+                    if( typeof value === "string" ) {
+                        if (value.indexOf('jpg') > 0) {
+                            tempArray.push(value);
+                        }
+                    }    
+                }
+            );
+
+            return tempArray;
+      }
+
+      preLoadImages(array) {
+        let self = this;
+        let total = array.length;
+        let count = 0;
+        array.map(asset => {
+            let image;
+            image = new Image();
+
+            image.onload = function() {
+                
+                count += 1;
+                if (count == total) {
+                    self.setState({
+                        loading: false
+                    });
+                }
+            }
+
+            image.src = asset;
+        });
+      }
+
     
       render() {
           let {location} = this.props;
           let homeData = this.state && this.state.homeData ? this.state.homeData : false;
+          let testArray = [];
 
+          if(homeData) {
+            this.siftJson(homeData, testArray);
+            this.preLoadImages(this.findImages(testArray));
+          }
+          
         return (
             <TransitionGroup 
                 className="base__expand"

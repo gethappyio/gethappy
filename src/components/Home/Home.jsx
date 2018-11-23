@@ -12,7 +12,6 @@ class Home extends Component {
     }
 
     render() {
-        console.log(this.props.data);
         return (
             <Page className="base__abs app__slide" transparentNav="true">
                 <HomeSlider slides={this.props.data.slides} />

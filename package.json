@@ -42,7 +42,7 @@
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^2.0.0",
     "formik": "^1.1.1",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.11",
     "node-sass": "^4.9.3",
     "normalize.css": "^8.0.0",
     "postcss-loader": "^3.0.0",
