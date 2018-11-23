@@ -61,7 +61,7 @@ class Checkout extends Component {
         let addresses = this.state.shippingAddress ? this.outputAddress(this.state.shippingAddress) : "";
         return (
             <Page navigation={<CheckoutBar title="Checkout" />} footer="false">
-                <Interstitial loading={this.state.loading} />
+                <Interstitial loading={this.state.loading} prompt="prcoessing payment... do not refresh" />
                 <Cart data={this.state.cart}/>
                 <CheckoutAddress data={this.state.shippingAddress}/>                
                 <CheckoutPayment loadingCallback={this.setLoading} />

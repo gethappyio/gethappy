@@ -9,6 +9,7 @@ import Contact from "../Contact/Contact";
 import Faq from "../Faq/Faq";
 import TermsAndConditions from "../TermsAndConditions/TermsAndConditions";
 import Login from "../Login/Login";
+import { Interstitial } from "../Loading/Loading";
 import { AuthConsumer } from '../AuthContext/AuthContext';
 import "./styles/app.scss";
 
@@ -35,6 +36,7 @@ class App extends Component {
                         timeout: location.state && location.state.timeout ? location.state.timeout : 0
                     }
                   )}>
+                  <Interstitial loading={true} prompt="" solid={true}/>
                 <CSSTransition
                     key={location.key}>
                     <Switch location={location}>

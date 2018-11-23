@@ -18,6 +18,10 @@
         justify-content: center;
     }
 
+    &--solid {
+        background: rgba(255,255,255,1);
+    }
+
     &--active {
         display: flex;
     }

@@ -15,13 +15,14 @@ class Interstitial extends Component {
   render() {
     let classes = classNames({
         "loading-interstitial__wrapper": true,
-        "loading-interstitial--active": this.props.loading ? true : false
+        "loading-interstitial--active": this.props.loading ? true : false,
+        "loading-interstitial--solid": this.props.solid ? true : false,
     });
 
     return (
         <div className={classes}>
             <div className="loader">loading...</div>
-            <p className="loading-interstitial__prompt">prcoessing payment... do not refresh</p>
+            <p className="loading-interstitial__prompt">{this.props.prompt}</p>
         </div>
     );
   }
