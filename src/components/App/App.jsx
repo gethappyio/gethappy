@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, Link, Redirect, withRouter} from "react-router-dom";
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import axios from "axios";
 import Home from "../Home/Home";
 import Experience from "../Experience/Experience";
 import User from "../User/User";
@@ -19,12 +20,39 @@ class App extends Component {
         super(props);
     
         this.state = {
-          title: ""
+          title: "",
+          homeData: {},
+          loading: true
         };
+      }
+
+      componentDidMount() {
+        let self = this;
+        var slides, experiences;
+
+        axios.get('/homeslider.json')
+        .then(function (response) {
+            slides = response.data.slides;
+            
+            return axios.get('/experiences.json');
+        }).then(function(response) {
+            experiences = response.data.data;
+
+            self.setState({
+                homeData: { slides: slides, experiences: experiences},
+                loading: false
+            });
+
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    
       }
     
       render() {
           let {location} = this.props;
+          let homeData = this.state && this.state.homeData ? this.state.homeData : false;
 
         return (
             <TransitionGroup 
@@ -36,11 +64,11 @@ class App extends Component {
                         timeout: location.state && location.state.timeout ? location.state.timeout : 0
                     }
                   )}>
-                  <Interstitial loading={true} prompt="" solid={true}/>
+                  <Interstitial loading={this.state.loading} prompt="" solid={true}/>
                 <CSSTransition
                     key={location.key}>
                     <Switch location={location}>
-                        <Route exact path='/' component={Home}/>
+                        <Route exact path='/' render={props => <Home data={homeData} {...props}/>}/>
                         <Route exact path='/about' component={About} />
                         <Route path='/experience/:slug' component={Experience}/> 
                         <Route exact path='/signin' render={ ({location}) =>
