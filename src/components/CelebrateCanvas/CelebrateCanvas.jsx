@@ -107,6 +107,8 @@ class CelebrateCanvas extends Component {
         this.cw = this.canvas.width = this.width;
 
         this.update();
+
+        this.setCelebration();
     }
     
     render() {
