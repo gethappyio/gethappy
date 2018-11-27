@@ -5,6 +5,8 @@
 @import "_layouts/_base";
 @import "_layouts/_section";
 
+@import "_transitions/_transition-fade";
+
 @include font-face(
   "Brandon-grotesque",
   "../assets/fonts/brandon_reg-webfont",

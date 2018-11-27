@@ -1,0 +1,13 @@
+.transition-fade {
+    position: relative;
+    transition: opacity .4s ease;
+    z-index: 1000;
+
+    &-enter {
+        opacity: 0;
+    }
+
+    &-enter-active {
+        opacity: 1;
+    }
+}
