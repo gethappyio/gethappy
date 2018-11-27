@@ -18,7 +18,7 @@ class Checkout extends Component {
 
     render() {
         return (
-            <Page noNav="true" transparentNav="true" footer="false">
+            <Page noNav="true" transparentNav="true" footer="false" className="transition-fade">
                 <CelebrateCanvas />
                 <div className="base__narrow section__wrapper success__wrapper">
                     <div className="section__col-xs-12">
