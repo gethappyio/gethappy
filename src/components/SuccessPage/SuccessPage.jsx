@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Page from "../Page/Page";
+import CelebrateCanvas from "../CelebrateCanvas/CelebrateCanvas";
 import iconCheck from "./assets/checkmark.svg";
 import "./styles/success.scss";
 
@@ -17,6 +18,7 @@ class Checkout extends Component {
     render() {
         return (
             <Page noNav="true" transparentNav="true" footer="false">
+                <CelebrateCanvas />
                 <div className="section__wrapper success__wrapper">
                     <div className="section__col-xs-12">
                         <img className="success__checkmark" src={iconCheck} />
