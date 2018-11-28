@@ -6,6 +6,7 @@
     margin-bottom: 40px;
 
     &__line {
+        @include type(16px);
         font-family: "Akkurat-mono", monospace, sans-serif;
         margin: 0;
     }
