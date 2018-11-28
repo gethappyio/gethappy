@@ -1,4 +1,17 @@
 {% extends "_layouts/react" %}
+
+{% if product is defined and product.title %}
+    {% set title = product.title %}
+{% endif %}
+
+{% if product is defined and product.experienceFeaturedDescription %}
+    {% set description = product.experienceFeaturedDescription %}
+{% endif %}
+
+{% if product is defined and product.experienceFeaturedImage %}
+    {% set image = product.experienceFeaturedImage.first().url %}
+{% endif %}
+
 {% includeJsFile siteUrl ~ "/dist/js/app-react.bundle.js" %}
 {% includeCssFile siteUrl ~ "/dist/css/app-react.bundle.css" %}
 {% set token %}
