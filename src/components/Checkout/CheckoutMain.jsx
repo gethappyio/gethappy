@@ -9,7 +9,7 @@ import Cart from "./Cart";
 import CheckoutAddress from "./CheckoutAddress";
 import AddressCard from "../AddressCard/AddressCard";
 import CheckoutPayment from "../CheckoutPayment/CheckoutPayment";
-
+import "./styles/checkout.scss";
 
 class CheckoutMain extends Component {
 
@@ -63,6 +63,7 @@ class CheckoutMain extends Component {
             <Page navigation={<CheckoutBar title="Checkout" />} footer="false">
                 <Interstitial loading={this.state.loading} />
                 <div className="base__narrow">
+                    <h2 className="checkout__msg">Awesome, almost there!</h2>
                     <Cart data={this.state.cart}/>
                     <CheckoutAddress data={this.state.shippingAddress}/>                
                     <CheckoutPayment loadingCallback={this.setLoading} />

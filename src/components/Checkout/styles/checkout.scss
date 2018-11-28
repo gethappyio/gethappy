@@ -1,0 +1,12 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.checkout {
+
+    &__msg {
+        @include type(36px);
+        color: color("brand-primary");
+        text-align: center;
+    }
+}
