@@ -20,6 +20,15 @@
         margin: 20px 0;
     }
 
+    &__item:last-child {
+        margin-top: 20px;
+    }
+
+    &__divider {
+        @include size(100%, 1px);
+        background: #979797;
+    }
+
     &__item-value {
         text-align: right;
     }

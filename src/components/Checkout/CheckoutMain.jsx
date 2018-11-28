@@ -62,9 +62,11 @@ class CheckoutMain extends Component {
         return (
             <Page navigation={<CheckoutBar title="Checkout" />} footer="false">
                 <Interstitial loading={this.state.loading} />
-                <Cart data={this.state.cart}/>
-                <CheckoutAddress data={this.state.shippingAddress}/>                
-                <CheckoutPayment loadingCallback={this.setLoading} />
+                <div className="base__narrow">
+                    <Cart data={this.state.cart}/>
+                    <CheckoutAddress data={this.state.shippingAddress}/>                
+                    <CheckoutPayment loadingCallback={this.setLoading} />
+                </div>
             </Page>
         );
     }
