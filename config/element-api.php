@@ -2,6 +2,7 @@
 
 use craft\commerce\elements\Product;
 use craft\elements\GlobalSet;
+use craft\helpers\UrlHelper;
 
 return [
     "endpoints" => [
@@ -152,7 +153,8 @@ return [
                             "slub" => $product->slug,
                             "title" => $product->title,
                             "desc" => $product->experienceFeaturedDescription,
-                            "uri" => $product->uri
+                            "uri" => $product->uri,
+                            "url" => UrlHelper::siteUrl() . $product->uri
                         ],
                         "tiers" => $variantsArray
                     ];

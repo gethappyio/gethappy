@@ -82,7 +82,7 @@ class Experience extends Component {
                 </div>   
             </div>
             <HowWorks />   
-            <ExperienceShare />
+            <ExperienceShare quote={product.desc} url={product.url}/>
             {layout}
             <DonationTierWrapper>
                 {donations}
