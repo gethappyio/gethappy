@@ -35,7 +35,8 @@ return [
         // Dev Mode (see https://craftcms.com/support/dev-mode)
         'devMode' => true,
     ],
-
+    'generateTransformsBeforePageLoad' => true,
+    'imageDriver' => 'imagick',
     // Staging environment settings
     'staging' => [
         // Base site URL

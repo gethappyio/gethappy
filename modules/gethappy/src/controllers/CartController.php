@@ -47,8 +47,20 @@ class CartController extends Commerce_CartController
     public function actionGetCart()
     {   
         $this->requireAcceptsJson();
+        $productsService = Plugin::getInstance()->getProducts();
         $this->_cart = Plugin::getInstance()->getCarts()->getCart();
 
-        return $this->asJson(["cart" => $this->cartArray($this->_cart)]);
+        $cart = $this->_cart;
+        $lineItems = $cart["lineItems"];
+        
+        $productId = $lineItems[0]["snapshot"]["product"]["id"];
+        $product = $productsService->getProductById($productId);
+
+        foreach ($product->experienceFeaturedImage as $image) {
+            $featuredImage = $image->getUrl("thumbnail");
+        }
+        $product->experienceFeaturedImage = $featuredImage;
+
+        return $this->asJson(["cart" => $this->cartArray($cart), "product" => $product]);
     }
 }

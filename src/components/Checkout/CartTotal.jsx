@@ -21,6 +21,7 @@ class CartTotal extends Component {
                                     <div className="section__col-xs-6 cart-total__item-value">${cart.itemSubtotal}</div>
                                 </div>
                             </div>
+                            <div className="cart-total__divider"></div>
                             <div className="section__wrapper cart-total__item cart-total__item--total">
                                 <div className="section__collapse">
                                     <div className="section__col-xs-6">Total</div> 

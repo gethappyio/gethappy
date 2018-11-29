@@ -9,7 +9,7 @@ import Cart from "./Cart";
 import CheckoutAddress from "./CheckoutAddress";
 import AddressCard from "../AddressCard/AddressCard";
 import CheckoutPayment from "../CheckoutPayment/CheckoutPayment";
-
+import "./styles/checkout.scss";
 
 class CheckoutMain extends Component {
 
@@ -35,7 +35,7 @@ class CheckoutMain extends Component {
         .then(function (response) {
             const checkoutData = response.data.cart;
             self.setState({
-                cart: checkoutData,
+                cart: response.data,
                 shippingAddress: checkoutData.shippingAddress,
                 email: checkoutData.email
             });
@@ -62,9 +62,12 @@ class CheckoutMain extends Component {
         return (
             <Page navigation={<CheckoutBar title="Checkout" />} footer="false">
                 <Interstitial loading={this.state.loading} />
-                <Cart data={this.state.cart}/>
-                <CheckoutAddress data={this.state.shippingAddress}/>                
-                <CheckoutPayment loadingCallback={this.setLoading} />
+                <div className="base__narrow">
+                    <h2 className="checkout__msg">Awesome, almost there!</h2>
+                    {this.state.cart ? <Cart data={this.state.cart}/> : "" }
+                    <CheckoutAddress data={this.state.shippingAddress}/>                
+                    <CheckoutPayment loadingCallback={this.setLoading} />
+                </div>
             </Page>
         );
     }

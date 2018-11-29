@@ -5,6 +5,7 @@
 .cart-item {
     background-color: color("grey");
     padding: 20px 0;
+    position: relative;
 
     &__placeholder {
         @include size(100%, 200px);
@@ -12,12 +13,18 @@
     }
 
     &__description {
+        @include type(12px);
         font-family: "Akkurat-mono", monospace, sans-serif;
     }
 
     &__entries,
     &__price {
-        font-weight: bold;
+        @include type(12px);
+        font-weight: 600;
+    }
+
+    &__entries {
+        text-align: left;
     }
 
     &__price {
@@ -27,7 +34,37 @@
     &__title {
         @include type(16px);
         font-weight: 600;
-        margin: 0 0 40px;
+        margin: 0;
+        position: absolute;
+        top: 0;
+    }
+
+    &__price {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+    }
+
+    &__right {
+        position: absolute;
+        top: 0;
+        /* right: 0; */
+        height: 100%;
+        left: calc(33%);
+        padding: 20px 0;
+
+        &-inner {
+            align-items: center;
+            display: flex;
+            height: 100%;
+            position: relative;
+        }
+    }
+
+    &__image {
+        @include size(100%, auto);
+        display: block;
+        position: relative;
     }
     
 }
