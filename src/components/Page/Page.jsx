@@ -23,6 +23,7 @@ class Page extends Component {
         let nav = this.props.navigation;
         let footer = this.props.footer;
         let noNav = this.props.noNav;
+        let scrollId = this.props.scrollId;
 
         if(!nav) {
             nav = <Header />;
@@ -37,7 +38,7 @@ class Page extends Component {
         return (
             <main className={classes}>
                 {noNav ? " " : nav}
-                <div class="base__expand base__scroll">
+                <div id={scrollId} class="base__expand base__scroll">
                     {this.props.children}
                     {footer}
                 </div>

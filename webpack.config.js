@@ -86,6 +86,15 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js', '.jsx'],
+        alias: {
+            "TweenLite": __dirname + '/node_modules/gsap/src/minified/TweenLite.min.js',
+            "TweenMax": __dirname + '/node_modules/gsap/src/minified/TweenMax.min.js',
+            "TimelineLite": __dirname + '/node_modules/gsap/src/minified/TimelineLite.min.js',
+            "TimelineMax": __dirname + '/node_modules/gsap/src/minified/TimelineMax.min.js',
+            "ScrollMagic": __dirname + '/node_modules/scrollmagic/scrollmagic/minified/ScrollMagic.min.js',
+            "animation.gsap": __dirname + '/node_modules/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js',
+            "debug.addIndicators": __dirname + '/node_modules/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js'
+        }
     },
     output: {
         path: __dirname + "/public/dist",
