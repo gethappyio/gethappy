@@ -9,14 +9,14 @@ class Cart extends Component {
     }
 
     render() {
-        const cart = this.props.data;
+        const cart = this.props.data.cart;
+        const purchasable = this.props.data.product;
         const items = cart.lineItems;
-        
-
+    
         return (
             <div>
                 {items ? Object.keys(items).map((key) => 
-                    <CartItem data={items[key]} />
+                    <CartItem data={items[key]} purchasable={purchasable} />
                 ) : ""}
                 <CartTotal data={cart}/>
             </div>

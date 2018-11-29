@@ -35,7 +35,7 @@ class CheckoutMain extends Component {
         .then(function (response) {
             const checkoutData = response.data.cart;
             self.setState({
-                cart: checkoutData,
+                cart: response.data,
                 shippingAddress: checkoutData.shippingAddress,
                 email: checkoutData.email
             });
@@ -64,7 +64,7 @@ class CheckoutMain extends Component {
                 <Interstitial loading={this.state.loading} />
                 <div className="base__narrow">
                     <h2 className="checkout__msg">Awesome, almost there!</h2>
-                    <Cart data={this.state.cart}/>
+                    {this.state.cart ? <Cart data={this.state.cart}/> : "" }
                     <CheckoutAddress data={this.state.shippingAddress}/>                
                     <CheckoutPayment loadingCallback={this.setLoading} />
                 </div>
