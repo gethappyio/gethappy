@@ -60,12 +60,17 @@
         border-radius: 50%;
         background: white;
         box-shadow: 1px 1px 5px grey;
-        position: fixed;
-        bottom: 10%;
+        position: absolute;
+        bottom: -15px;
         right: 20px;
         cursor: pointer;
         z-index: 999;
     }
+
+    &__close-fixed {
+        position: fixed;
+        top: 35px;
+    }   
 
     &__close-x {
         @include size(60%);
@@ -73,5 +78,9 @@
         position: relative;
         display: block;
         top: 6px;
+    }
+
+    &__video-wrapper {
+        position: relative;
     }
 }
