@@ -29,7 +29,7 @@ class Header extends Component {
     if(direction == "left") {
         return (
             <div className="header__container-inner">
-                <div className={"header__icon header__icon--" + type}><Link to={{ pathname: url, state: {slide: "right", timeout:200}}} className="header__icon-link"></Link></div>
+                <div className={"header__icon header__icon--" + type}><Link to={{ pathname: url, state: {animate: "app__slide--right", timeout:200}}} className="header__icon-link"></Link></div>
                 <div className={"header__icon header__icon--" + title}></div>
                 <div className="header__icon"></div>   
             </div>
@@ -39,7 +39,7 @@ class Header extends Component {
             <div className="header__container-inner">
                 <div className="header__icon"></div>   
                 <div className={"header__icon header__icon--" + title}></div>
-                <div className={"header__icon header__icon--" + type}><Link to={{ pathname: url, state: {slide: "left", timeout:200}}} className="header__icon-link"></Link></div>
+                <div className={"header__icon header__icon--" + type}><Link to={{ pathname: url, state: {animate: "app__slide--left", timeout:200}}} className="header__icon-link"></Link></div>
             </div>
         );
     }
@@ -49,9 +49,9 @@ class Header extends Component {
   defaultHeader() {
       return (
         <div className="header__container-inner">
-            <div className="header__icon header__icon--user"><Link to={{ pathname: '/user', state: {slide: "right", timeout:200}}} className="header__icon-link"></Link></div>
+            <div className="header__icon header__icon--user"><Link to={{ pathname: '/user', state: {animate: "app__slide--right", timeout:200}}} className="header__icon-link"></Link></div>
             <div className="header__icon header__icon--logo"><Link to='/' className="header__icon-link"></Link></div>
-            <div className="header__icon header__icon--info"><Link to={{ pathname: '/about', state: {slide: "left", timeout:200}}} className="header__icon-link"></Link></div>   
+            <div className="header__icon header__icon--info"><Link to={{ pathname: '/about', state: {animate: "app__slide--left", timeout:200}}} className="header__icon-link"></Link></div>   
         </div>
       );
   }

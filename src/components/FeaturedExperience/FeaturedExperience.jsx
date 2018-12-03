@@ -28,7 +28,7 @@ class FeaturedExperience extends Component {
                             {data.title}
                         </h2>
                         <p className="featured-experience__description">{data.desc}</p>
-                        <Link to={data.uri} className="featured-experience__link">
+                        <Link to={{ pathname: data.uri, state: {animate: "app__swoop--down", timeout:200}}} className="featured-experience__link">
                             <BtnPrimary className="btn-primary--vibrant-blue-outline">Learn more</BtnPrimary>
                         </Link>
                     </div>
