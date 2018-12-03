@@ -41,3 +41,29 @@
         }
     }
 }
+
+.app__swoop {
+    transition: transform .2s ease;
+
+    &--down {
+        &-enter {
+            transform: translate(0%, -100%);
+            z-index: 500;
+        }
+
+        &-enter-active {
+            transform: translate(0%, 0%);
+        }
+    }
+
+    &--up {
+        &-exit {
+            transform: translate(0%, 0%);
+            z-index: 500;
+        }
+
+        &-exit-active {
+            transform: translate(0%, -100%);
+        }
+    }
+}

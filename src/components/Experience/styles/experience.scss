@@ -3,6 +3,11 @@
 @import "gh-utilities";
 
 .experience {
+
+    &__wrapper {
+        background: white;
+    }
+    
     &__title {
         @include type(54px);
         color: color("brand-primary");

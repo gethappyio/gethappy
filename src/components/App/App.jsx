@@ -31,7 +31,7 @@ class App extends Component {
                 childFactory={child => React.cloneElement(
                     child,
                     {
-                        classNames: location.state && location.state.slide ? "app__slide--" + location.state.slide : "", 
+                        classNames: location.state && location.state.animate ? location.state.animate : "", 
                         timeout: location.state && location.state.timeout ? location.state.timeout : 0
                     }
                   )}>
