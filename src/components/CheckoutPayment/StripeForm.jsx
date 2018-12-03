@@ -136,7 +136,7 @@ class StripeForm extends Component {
         }
         
         return (
-                <div className="card__container">
+                <div id="card" className="card__container">
                     <div className="form__wrapper card__inner">
                         <div className="form-field__wrapper form-field__col-xs-12 card-field">
                             <input name="fullName" placeholder="Full name" onChange={this.customInputChange} className="card-field__custom" />

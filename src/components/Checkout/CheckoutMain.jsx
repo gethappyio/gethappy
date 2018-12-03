@@ -60,7 +60,7 @@ class CheckoutMain extends Component {
     render() {
         let addresses = this.state.shippingAddress ? this.outputAddress(this.state.shippingAddress) : "";
         return (
-            <Page navigation={<CheckoutBar title="Checkout" />} footer="false">
+            <Page navigation={<CheckoutBar title="Checkout" />} footer="false" scrollId="scrollWindow">
                 <Interstitial loading={this.state.loading} />
                 <div className="base__narrow">
                     <h2 className="checkout__msg">Awesome, almost there!</h2>

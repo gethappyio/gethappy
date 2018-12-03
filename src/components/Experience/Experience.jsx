@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import ScrollMagic from 'scrollmagic/scrollmagic/minified/ScrollMagic.min';
+import 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min';
 import axios from "axios";
 import Page from "../Page/Page";
 import DonationTierWrapper from "../DonationTier/DonationTierWrapper";
@@ -21,6 +23,7 @@ class Experience extends Component {
     };
 
     this.slug = props.match.params.slug;
+    this.controller  = new ScrollMagic.Controller();
   }
 
   componentDidMount() {
@@ -37,6 +40,11 @@ class Experience extends Component {
     .catch(function (error) {
         console.log(error);
     });
+
+    var scene = new ScrollMagic.Scene({triggerElement:"#experience__close-trigger", offset: -50})
+        .triggerHook("onLeave")
+        .setClassToggle("#closePin","experience__close-fixed")
+        .addTo(self.controller);
   }
 
   buildLayoutBlock(block) {
@@ -63,9 +71,11 @@ class Experience extends Component {
     ) : <span></span>;
     return (
         <Page footer="false" noNav="true" transparentNav="true">
-            <Link to="/"><div className="experience__close"><img className="experience__close-x" src={close} /></div></Link>
-
-            {product.featuredVideo ? <ExperienceVideo src={product.featuredVideo} poster={product.featuredVideoThumbnail} /> : ""}
+            <div className="experience__video-wrapper">
+                {product.featuredVideo ? <ExperienceVideo src={product.featuredVideo} poster={product.featuredVideoThumbnail} /> : ""}
+                <Link to="/"><div id="closePin" className="experience__close"><img className="experience__close-x" src={close} /></div></Link>
+                <div id="experience__close-trigger"></div>
+            </div>
             <div className="section__wrapper">
                 <div className="section__col-xs-12">
                     <h1 className="experience__title">{product.title}</h1>
