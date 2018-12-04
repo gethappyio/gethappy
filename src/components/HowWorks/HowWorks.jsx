@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import "./styles/how-works.scss";
-import iconHand from "./assets/hand.svg";
-import iconFace from "./assets/face.svg";
-import iconHeart from "./assets/heart.svg";
 
 class HowWorks extends Component {
 
@@ -23,7 +20,7 @@ class HowWorks extends Component {
                 <div className="section__wrapper how-works__items">
                     <div className="how-works__item section__col-xs-4">
                             <div className="how-works__item-icon">
-                                <img className="how-works__item-icon--img how-works__item-icon--hand" src={iconHand}/>
+                                <img className="how-works__item-icon--img how-works__item-icon--hand" src={window.cloudfront + "hand.svg"}/>
                             </div>
                             <h4 className="how-works__item-text">
                                 Donate to win
@@ -31,7 +28,7 @@ class HowWorks extends Component {
                     </div>
                     <div className="how-works__item section__col-xs-4">
                             <div className="how-works__item-icon">
-                                <img className="how-works__item-icon--img" src={iconFace}/>
+                                <img className="how-works__item-icon--img" src={window.cloudfront + "face.svg"}/>
                             </div>
                             <h4 className="how-works__item-text">
                                 A winner is drawn
@@ -39,7 +36,7 @@ class HowWorks extends Component {
                     </div>
                     <div className="how-works__item section__col-xs-4">
                             <div className="how-works__item-icon">
-                                <img className="how-works__item-icon--img" src={iconHeart}/>
+                                <img className="how-works__item-icon--img" src={window.cloudfront + "heart.svg"}/>
                             </div>
                             <h4 className="how-works__item-text">
                                 Help great causes!

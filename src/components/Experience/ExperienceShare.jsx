@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
 import "./styles/experience-share.scss";
-import iconLink from "./assets/link.svg";
-import iconFb from "./assets/fb.svg";
-import iconTwitter from "./assets/twitter.svg";
 
 class ExperienceShare extends Component {
 
@@ -26,7 +23,7 @@ class ExperienceShare extends Component {
         if (navigator.share) {
             return (
             <div>
-                <img className="experience-share__icon" onClick={this.nativeShare} src={iconLink} />
+                <img className="experience-share__icon" onClick={this.nativeShare} src={window.cloudfront + "link.svg"} />
             </div>);
         } else {
             return "";
@@ -43,12 +40,12 @@ class ExperienceShare extends Component {
                         {this.navigatorShare()}
                         <div>
                             <FacebookShareButton quote={this.props.quote} url={this.props.url}>
-                                <img className="experience-share__icon" src={iconFb} />
+                                <img className="experience-share__icon" src={window.cloudfront + "fb.svg"} />
                             </FacebookShareButton>
                         </div>
                         <div>
                             <TwitterShareButton title={this.props.quote} url={this.props.url}>
-                                <img className="experience-share__icon" src={iconTwitter} />
+                                <img className="experience-share__icon" src={window.cloudfront + "twitter.svg"} />
                             </TwitterShareButton>
                         </div>
                     </div>

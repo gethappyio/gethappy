@@ -9,7 +9,6 @@ import HowWorks from "../HowWorks/HowWorks";
 import ExperienceShare from "./ExperienceShare";
 import ExperienceVideo from "./ExperienceVideo";
 import { Text, Image } from "./ExperienceLayout";
-import close from "./assets/close.svg";
 import "./styles/experience.scss";
 
 class ExperienceMain extends Component {
@@ -73,7 +72,7 @@ class ExperienceMain extends Component {
             <div>
               <div className="experience__video-wrapper">
                   {product.featuredVideo ? <ExperienceVideo src={product.featuredVideo} poster={product.featuredVideoThumbnail} /> : ""}
-                  <Link to={{ pathname: "/", state: {animate: "app__swoop--up", timeout:200}}}><div id="closePin" className="experience__close"><img className="experience__close-x" src={close} /></div></Link>
+                  <Link to={{ pathname: "/", state: {animate: "app__swoop--up", timeout:200}}}><div id="closePin" className="experience__close"><img className="experience__close-x" src={window.cloudfront + "close.svg"} /></div></Link>
                   <div id="experience__close-trigger"></div>
               </div>
               <div className="section__wrapper">
