@@ -9,7 +9,7 @@
 
 @include font-face(
   "Brandon-grotesque",
-  "../assets/fonts/brandon_reg-webfont",
+  $cloudfront + "fonts/brandon_reg-webfont",
   ( "eot", "ttf", "woff2", "woff", "svg")
 ) {
   font-style: normal;
@@ -18,7 +18,7 @@
 
 @include font-face(
   "Brandon-grotesque",
-  "../assets/fonts/brandon_thin-webfont",
+  $cloudfront + "fonts/brandon_thin-webfont",
   ( "eot", "ttf", "woff2", "woff", "svg")
 ) {
   font-weight: 300;
@@ -26,7 +26,7 @@
 
 @include font-face(
   "Brandon-grotesque",
-  "../assets/fonts/brandon_med-webfont",
+  $cloudfront + "fonts/brandon_med-webfont",
   ( "eot", "ttf", "woff2", "woff", "svg")
 ) {
   font-style: bold;
@@ -35,7 +35,7 @@
 
 @include font-face(
   "Brandon-grotesque",
-  "../assets/fonts/brandon_blk-webfont",
+  $cloudfront + "fonts/brandon_blk-webfont",
   ( "eot", "ttf", "woff2", "woff", "svg")
 ) {
   font-weight: 600;
@@ -43,7 +43,7 @@
 
 @include font-face(
   "Akkurat-mono",
-  "../assets/fonts/Akkurat-Mono",
+  $cloudfront + "fonts/Akkurat-Mono",
   ( "ttf" )
 ) {
   font-style: normal;
@@ -52,7 +52,7 @@
 
 @include font-face(
   "Akkurat-normal",
-  "../assets/fonts/Akkurat-Normal",
+  $cloudfront + "fonts/Akkurat-Normal",
   ( "ttf" )
 ) {
   font-style: normal;
@@ -61,7 +61,7 @@
 
 @include font-face(
   "Akkurat-bold",
-  "../assets/fonts/Akkurat-Bold",
+  $cloudfront + "fonts/Akkurat-Bold",
   ( "ttf" )
 ) {
   font-style: normal;
@@ -70,7 +70,7 @@
 
 @include font-face(
   "Rustico",
-  "../assets/fonts/rustico-regular-webfont",
+  $cloudfront + "fonts/rustico-regular-webfont",
   ( "ttf", "woff2", "woff")
 ) {
   font-style: normal;
