@@ -89,6 +89,11 @@ html {
         @include type(16px, false);
     }
 }
+
+body {
+    @include type(16px);
+}
+
 h1 {
     @include type(48px);
 }
