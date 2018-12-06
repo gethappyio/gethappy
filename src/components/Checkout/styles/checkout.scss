@@ -9,4 +9,9 @@
         color: color("brand-primary");
         text-align: center;
     }
+
+    &__fblogin {
+        display: block;
+        margin: 40px 0;
+    }
 }

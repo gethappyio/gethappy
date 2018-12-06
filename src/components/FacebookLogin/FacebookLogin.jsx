@@ -10,9 +10,9 @@ class FacebookLogin extends Component {
   
 
   render() {
-    
+    const { className } = this.props;
     return (
-        <a style={{ textDecoration: 'none' }} href={this.url}>
+        <a style={{ textDecoration: 'none' }} className={className} href={this.url}>
             <BtnPrimary className="btn-primary--vibrant-blue">Sign in via facebook</BtnPrimary>
         </a>
     );
