@@ -26,18 +26,17 @@ class ExperienceMain extends Component {
   
     componentDidMount() {
       let self = this;
-      axios.get('/experience/' + this.slug + '.json')
-      .then(function (response) {
-          var product = response.data.product;
-          var tiers = response.data.tiers;
-          var layout = response.data.layout;
+      let cache = JSON.parse(localStorage.getItem(this.slug + 'Cache') || "{}");
+
+      if(cache.hasOwnProperty('cached') && cache.hasOwnProperty('experience')) {
+          var experience = cache.experience;
+          var product = experience.product;
+          var tiers = experience.tiers;
+          var layout = experience.layout;
           self.setState({product: product});
           self.setState({tiers: tiers});
           self.setState({layout: layout});
-      })
-      .catch(function (error) {
-          console.log(error);
-      });
+      }
 
       setTimeout(function() {
         var scene = new ScrollMagic.Scene({triggerElement:"#experience__close-trigger", offset: -50})

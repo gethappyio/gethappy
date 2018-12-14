@@ -14,15 +14,36 @@ class FeaturedExperiences extends Component {
 
   componentDidMount() {
     let self = this;
+    let cache = JSON.parse(localStorage.getItem('featuredExperiencesCache') || "{}");
+
+    if(cache.hasOwnProperty('cached') && cache.hasOwnProperty('experiences')) {
+        self.setState({experiences: cache.experiences});
+        console.log("cached");
+    } else {
+        axios.get('/experiences.json')
+        .then(function (response) {
+            var experiences = response.data.data;
+            self.setState({experiences: experiences});
+
+            localStorage.setItem('featuredExperiencesCache', JSON.stringify({cached: true, experiences: experiences}));
+
+            experiences.map( experience => {
+                axios.get('/experience/' + experience.slug + '.json')
+                .then(function (response) {
+                    localStorage.setItem(experience.slug + 'Cache', JSON.stringify({cached: true, experience: response.data}));
+
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+
+            });
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
     
-    axios.get('/experiences.json')
-    .then(function (response) {
-        var experiences = response.data.data;
-        self.setState({experiences: experiences});
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
 
   }
 

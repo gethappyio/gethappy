@@ -12,17 +12,28 @@ class HomeSlider extends Component {
     }
 
     componentDidMount() {
+
+        window.onbeforeunload = function() {
+            localStorage.clear();
+            return "goodbye";
+         }
         let self = this;
+        let cache = JSON.parse(localStorage.getItem('homeSliderCache') || "{}");
         
-        axios.get('/homeslider.json')
-        .then(function (response) {
-            var slides = response.data.slides;
-            self.setState({slides: slides});
-            
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+        if(cache.hasOwnProperty('cached') && cache.hasOwnProperty('slides')) {
+            self.setState({slides: cache.slides});
+        } else {
+            axios.get('/homeslider.json')
+            .then(function (response) {
+                var slides = response.data.slides;
+                self.setState({slides: slides});
+                
+                localStorage.setItem('homeSliderCache', JSON.stringify({cached: true, slides: slides}));
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
     
     }
 
