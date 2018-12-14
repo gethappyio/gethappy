@@ -15,7 +15,7 @@ class HomeSlider extends Component {
 
         window.onbeforeunload = function() {
             localStorage.clear();
-            return "goodbye";
+            return undefined;
          }
         let self = this;
         let cache = JSON.parse(localStorage.getItem('homeSliderCache') || "{}");
