@@ -36,6 +36,21 @@ class ExperienceMain extends Component {
           self.setState({product: product});
           self.setState({tiers: tiers});
           self.setState({layout: layout});
+      } else {
+        axios.get('/experience/' + this.slug + '.json')
+        .then(function (response) {
+            localStorage.setItem(this.slug + 'Cache', JSON.stringify({cached: true, experience: response.data}));
+            var experience = response.data;
+            var product = experience.product;
+            var tiers = experience.tiers;
+            var layout = experience.layout;
+            self.setState({product: product});
+            self.setState({tiers: tiers});
+            self.setState({layout: layout});
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
       }
 
       setTimeout(function() {
