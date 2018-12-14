@@ -39,9 +39,10 @@ class ExperienceMain extends Component {
       } else {
         axios.get('/experience/' + this.slug + '.json')
         .then(function (response) {
-            localStorage.setItem(this.slug + 'Cache', JSON.stringify({cached: true, experience: response.data}));
+            localStorage.setItem(self.slug + 'Cache', JSON.stringify({cached: true, experience: response.data}));
             var experience = response.data;
             var product = experience.product;
+            console.log(product);
             var tiers = experience.tiers;
             var layout = experience.layout;
             self.setState({product: product});
