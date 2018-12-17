@@ -14,8 +14,8 @@ class Home extends Component {
     render() {
         return (
             <Page className="base__abs app__slide" transparentNav="true">
-                <HomeSlider />
-                <FeaturedExperiences />
+                <HomeSlider slider={this.props.slider}/>
+                <FeaturedExperiences experiences={this.props.experiences}/>
             </Page>
         );
     }
