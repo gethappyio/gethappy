@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route} from "react-router-dom";
+import { CSSTransition } from 'react-transition-group'
 import Orders from "./components/Orders/Orders";
 import OrderView from "./components/OrderView/OrderView";
 

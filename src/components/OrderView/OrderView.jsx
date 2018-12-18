@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
+import { Interstitial } from "../Loading/Loading";
+import { CSSTransition } from 'react-transition-group'
 import BtnPrimary from "../BtnPrimary/BtnPrimary";
 import Page from "../Page/Page";
 import NavigationBar from "../NavigationBar/NavigationBar";
@@ -16,7 +18,8 @@ class OrderView extends Component {
         this.state = {
             order: "",
             address: "",
-            totals: ""
+            totals: "",
+            in: true
         }
 
         this.number = props.match.params.number;
@@ -37,7 +40,8 @@ class OrderView extends Component {
            self.setState({
                 order: order,
                 address: address,
-                totals: totals
+                totals: totals,
+                in: false
            });
         })
         .catch(function (error) {
@@ -136,21 +140,30 @@ class OrderView extends Component {
         const address = this.getAddress();
         const payment = this.getPayment();
         return (
-            <Page navigation={ <NavigationBar title="Order view" to="/user/orders" /> }>
-                <div className="base__pad section__wrapper order-view">
-                    <div className="section__content">
-                        <div className="order-view__date">Ordered on {order.dateFormatted}</div>
-                        <div className="order-view__number">Order no. {order.id}</div>
+            <div className="base__expand">
+                <CSSTransition
+                        in={this.state.in}
+                        timeout={400}
+                        classNames="loading-interstitial"
+                        unmountOnExit>
+                        <Interstitial loading="true" solid="true" />
+                </CSSTransition>
+                <Page navigation={ <NavigationBar title="Order view" to="/user/orders" /> } footer="false">
+                    <div className="base__pad section__wrapper order-view">
+                        <div className="section__content">
+                            <div className="order-view__date">Ordered on {order.dateFormatted}</div>
+                            <div className="order-view__number">Order no. {order.id}</div>
+                        </div>
+                        {items}
+                        {address}
+                        {payment}
+                        
+                        <a className="order-view__receipt" href={order.receipt}>
+                            <BtnPrimary className="btn-primary--blue">Receipt</BtnPrimary>
+                        </a>
                     </div>
-                    {items}
-                    {address}
-                    {payment}
-                    
-                    <a className="order-view__receipt" href={order.receipt}>
-                        <BtnPrimary className="btn-primary--blue">Receipt</BtnPrimary>
-                    </a>
-                </div>
-            </Page>
+                </Page>
+            </div>
         );
     }
 }
