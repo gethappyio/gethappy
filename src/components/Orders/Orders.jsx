@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
 import { Interstitial } from "../Loading/Loading";
-import { CSSTransition } from 'react-transition-group'
+import { CSSTransition } from 'react-transition-group';
 import Page from "../Page/Page";
 import NavigationBar from "../NavigationBar/NavigationBar";
 import OrderItem from "./OrderItem";
