@@ -58,7 +58,7 @@ class App extends Component {
 
                 var testArray = [];
                 siftJSON(self.appCache,testArray);
-                preLoadImages(findImages(testArray), self.transitionIntro);
+                preLoadImages(findImages(testArray), self.transitionIntro.bind(self));
                 localStorage.setItem('appCache', JSON.stringify(self.appCache));
 
             })
@@ -69,6 +69,7 @@ class App extends Component {
     }
 
     transitionIntro() {
+        let self = this;
         this.setState({
             experiences: self.experiences, 
             slides: self.slides,
