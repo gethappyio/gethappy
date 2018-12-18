@@ -8,9 +8,11 @@
         background: rgba(255,255,255,0.8);
         display: none;
         left: 0;
+        opacity: 1;
         position: fixed;
         top: 0;
         z-index: 999;
+        transition: opacity 4s ease;
 
         align-items: center;
         height: 100%;
@@ -25,4 +27,12 @@
     &__prompt {
         color: color("vibrant-blue");
     }
+
+    &-exit {
+        &-active {
+            opacity: 0;
+        }
+    }
+
+
 }

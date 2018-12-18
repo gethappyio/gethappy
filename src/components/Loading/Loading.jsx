@@ -13,10 +13,11 @@ class Interstitial extends Component {
   }
 
   render() {
+    let {className} = this.props;
     let classes = classNames({
         "loading-interstitial__wrapper": true,
         "loading-interstitial--active": this.props.loading ? true : false
-    });
+    }, className);
 
     return (
         <div className={classes}>

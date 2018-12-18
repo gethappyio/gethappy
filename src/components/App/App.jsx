@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route, Link, Redirect, withRouter} from "react-router-dom";
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import axios from "axios";
+import { Interstitial } from "../Loading/Loading";
 import Home from "../Home/Home";
 import Experience from "../Experience/Experience";
 import User from "../User/User";
@@ -21,7 +22,8 @@ class App extends Component {
         this.state = {
           title: "",
           slides: "",
-          experiences: ""
+          experiences: "",
+          in: true
         };
 
         this.appCache = {};
@@ -51,7 +53,7 @@ class App extends Component {
             }).then(function (response) {
                 self.experiences = response.data.data;
                 self.appCache = {cache: true, experiences: self.experiences};
-                self.setState({experiences: self.experiences, slides: self.slides});
+                self.setState({experiences: self.experiences, slides: self.slides, in: false});
 
                 localStorage.setItem('appCache', JSON.stringify(self.appCache));
 
@@ -64,8 +66,15 @@ class App extends Component {
     
       render() {
           let {location} = this.props;
-
         return (
+            <div className="base__expand">
+            <CSSTransition
+                in={this.state.in}
+                timeout={4000}
+                classNames="loading-interstitial"
+                unmountOnExit>
+                <Interstitial loading="true" />
+            </CSSTransition>
             <TransitionGroup 
                 className="base__expand"
                 childFactory={child => React.cloneElement(
@@ -97,6 +106,7 @@ class App extends Component {
                     </Switch>
                 </CSSTransition>
             </TransitionGroup>
+            </div>
         );
       }
 }
