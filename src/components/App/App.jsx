@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route, Link, Redirect, withRouter} from "react-router-dom";
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import axios from "axios";
+import {siftJSON, findImages, preLoadImages} from "../../utils/preload";
 import { Interstitial } from "../Loading/Loading";
 import Home from "../Home/Home";
 import Experience from "../Experience/Experience";
@@ -52,9 +53,12 @@ class App extends Component {
                 return axios.get('/experiences.json');
             }).then(function (response) {
                 self.experiences = response.data.data;
-                self.appCache = {cache: true, experiences: self.experiences};
-                self.setState({experiences: self.experiences, slides: self.slides, in: false});
+                self.appCache.cache = true
+                self.appCache.experiences = self.experiences;
 
+                var testArray = [];
+                siftJSON(self.appCache,testArray);
+                preLoadImages(findImages(testArray), self.transitionIntro);
                 localStorage.setItem('appCache', JSON.stringify(self.appCache));
 
             })
@@ -63,6 +67,14 @@ class App extends Component {
             });
         }
     }
+
+    transitionIntro() {
+        this.setState({
+            experiences: self.experiences, 
+            slides: self.slides,
+            in: false
+        });
+    }
     
       render() {
           let {location} = this.props;
@@ -70,10 +82,10 @@ class App extends Component {
             <div className="base__expand">
             <CSSTransition
                 in={this.state.in}
-                timeout={4000}
+                timeout={400}
                 classNames="loading-interstitial"
                 unmountOnExit>
-                <Interstitial loading="true" />
+                <Interstitial loading="true" solid="true" />
             </CSSTransition>
             <TransitionGroup 
                 className="base__expand"
