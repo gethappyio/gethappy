@@ -24,6 +24,7 @@ class App extends Component {
           title: "",
           slides: "",
           experiences: "",
+          experiencesDetail: "",
           in: true
         };
 
@@ -45,6 +46,8 @@ class App extends Component {
         cache.hasOwnProperty('experiences')) {
             self.setState({experiences: cache.experiences, slides: cache.slides});
         } else {
+            var promises = [];
+
             axios.get('/homeslider.json')
             .then(function (response) {
                 self.slides = response.data.slides;
@@ -61,10 +64,19 @@ class App extends Component {
                 preLoadImages(findImages(testArray), self.transitionIntro.bind(self));
                 localStorage.setItem('appCache', JSON.stringify(self.appCache));
 
+                self.experiences.map( experience => {
+                    promises.push(axios.get('/experience/' + experience.slug + '.json'));
+                });
+
+                return axios.all(promises);
+            }).then(function(response){
+                console.log(response);
             })
             .catch(function (error) {
                 console.log(error);
             });
+
+            
         }
     }
 
