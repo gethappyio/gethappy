@@ -74,6 +74,8 @@ class App extends Component {
                     localStorage.setItem( 'appCache', JSON.stringify({cached:true, experiencesDetail: self.experiencesDetail}));
                 });
 
+                self.appCache.experiencesDetail = self.experiencesDetail;
+
                 var testArray = [];
                 siftJSON(self.appCache,testArray);
                 preLoadImages(findImages(testArray), self.transitionIntro.bind(self));
