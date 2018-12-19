@@ -14,6 +14,7 @@ import TermsAndConditions from "../TermsAndConditions/TermsAndConditions";
 import Login from "../Login/Login";
 import { AuthConsumer } from '../AuthContext/AuthContext';
 import "./styles/app.scss";
+import { throws } from "assert";
 
 class App extends Component {
 
@@ -31,6 +32,7 @@ class App extends Component {
         this.appCache = {};
         this.slides = "";
         this.experiences = "";
+        this.experiencesDetail = "";
       }
 
     componentDidMount() {
@@ -59,18 +61,23 @@ class App extends Component {
                 self.appCache.cache = true
                 self.appCache.experiences = self.experiences;
 
-                var testArray = [];
-                siftJSON(self.appCache,testArray);
-                preLoadImages(findImages(testArray), self.transitionIntro.bind(self));
-                localStorage.setItem('appCache', JSON.stringify(self.appCache));
-
                 self.experiences.map( experience => {
                     promises.push(axios.get('/experience/' + experience.slug + '.json'));
                 });
 
                 return axios.all(promises);
             }).then(function(response){
-                console.log(response);
+                self.experiencesDetail = {};
+                response.map( item => {
+                    var data = item.data;
+                    self.experiencesDetail[data.product.slub] = data;
+                    localStorage.setItem( 'appCache', JSON.stringify({cached:true, experiencesDetail: self.experiencesDetail}));
+                });
+
+                var testArray = [];
+                siftJSON(self.appCache,testArray);
+                preLoadImages(findImages(testArray), self.transitionIntro.bind(self));
+                localStorage.setItem('appCache', JSON.stringify(self.appCache));
             })
             .catch(function (error) {
                 console.log(error);
@@ -85,6 +92,7 @@ class App extends Component {
         this.setState({
             experiences: self.experiences, 
             slides: self.slides,
+            experiencesDetail: self.experiencesDetail,
             in: false
         });
     }
@@ -116,7 +124,9 @@ class App extends Component {
                             <Home slider={this.state.slides} experiences={this.state.experiences}/>
                         }/>
                         <Route exact path='/about' component={About} />
-                        <Route path='/experience/:slug' component={Experience}/> 
+                        <Route path='/experience/:slug' render={(props) =>
+                            <Experience data={this.state.experiencesDetail} {...props}/>
+                        }/> 
                         <Route exact path='/signin' render={ ({location}) =>
                             <AuthConsumer>
                                 { context =>

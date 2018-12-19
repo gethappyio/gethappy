@@ -12,7 +12,7 @@ class Experience extends Component {
   render() {
     return (
         <Page footer="false" noNav="true" className="base__abs app__swoop experience__wrapper" transparentNav="true">
-            <ExperienceMain slug={this.slug}/>
+            <ExperienceMain slug={this.slug} data={this.props.data}/>
         </Page>
     );
   }

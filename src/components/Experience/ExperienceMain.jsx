@@ -26,26 +26,13 @@ class ExperienceMain extends Component {
   
     componentDidMount() {
       let self = this;
-      axios.get('/experience/' + this.slug + '.json')
-      .then(function (response) {
-          var product = response.data.product;
-          var tiers = response.data.tiers;
-          var layout = response.data.layout;
-          self.setState({product: product});
-          self.setState({tiers: tiers});
-          self.setState({layout: layout});
-      })
-      .catch(function (error) {
-          console.log(error);
-      });
-
-      setTimeout(function() {
-        var scene = new ScrollMagic.Scene({triggerElement:"#experience__close-trigger", offset: -50})
-          .triggerHook("onLeave")
-          .setClassToggle("#closePin","experience__close-fixed")
-          .addTo(self.controller);
-      },200)
       
+        setTimeout(function() {
+            var scene = new ScrollMagic.Scene({triggerElement:"#experience__close-trigger", offset: -50})
+              .triggerHook("onLeave")
+              .setClassToggle("#closePin","experience__close-fixed")
+              .addTo(self.controller);
+          },200);
     }
   
     buildLayoutBlock(block) {
@@ -60,14 +47,28 @@ class ExperienceMain extends Component {
       }
   
     }
+
+    getData() {
+        let cache = JSON.parse(localStorage.getItem('appCache') || "{}");
+        let data = "";
+        if(cache.hasOwnProperty('cached') && cache.hasOwnProperty('experiencesDetail')) {
+            data = cache.experiencesDetail[this.slug];
+        } else if(this.props.data) { 
+            data = this.props.data[this.slug]; 
+        }
+
+        return data;
+    }
   
     render() {
-      let layout = this.state && this.state.layout.length > 0 ? this.state.layout.map( block => this.buildLayoutBlock(block)) : "";
-      let product = this.state.product;
-      let donations = this.state && this.state.tiers.length > 0 ?
-      this.state.tiers.map(tier =>
+      let data = this.getData();
+      let layout = data && data.layout.length > 0 ? data.layout.map( block => this.buildLayoutBlock(block)) : "";
+      let product = data && data.product ? data.product : "";
+      let donations = data && data.tiers.length > 0 ?
+      data.tiers.map(tier =>
           <DonationTier tierData={tier}/>
       ) : <span></span>;
+
       return (
             <div>
               <div className="experience__video-wrapper">
