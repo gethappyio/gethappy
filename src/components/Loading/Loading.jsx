@@ -22,7 +22,9 @@ class Interstitial extends Component {
 
     return (
         <div className={classes}>
-            <div className="loader">loading...</div>
+            {this.props.logo  ? 
+                <img className="loading-interstitial__logo" src={window.cloudfront + "logo-happy.svg"} /> : 
+                <div className="loader">loading...</div>}
             {this.props.prompt ? <p className="loading-interstitial__prompt">{this.props.prompt}</p> : ""}
         </div>
     );

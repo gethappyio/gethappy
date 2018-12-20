@@ -105,10 +105,10 @@ class App extends Component {
             <div className="base__expand">
             <CSSTransition
                 in={this.state.in}
-                timeout={400}
+                timeout={200}
                 classNames="loading-interstitial"
                 unmountOnExit>
-                <Interstitial loading="true" solid="true" />
+                <Interstitial loading="true" solid="true" logo="true" />
             </CSSTransition>
             <TransitionGroup 
                 className="base__expand"
