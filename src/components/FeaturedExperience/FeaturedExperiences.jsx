@@ -14,7 +14,7 @@ class FeaturedExperiences extends Component {
 
   componentDidMount() {
     let self = this;
-    
+    /*
     axios.get('/experiences.json')
     .then(function (response) {
         var experiences = response.data.data;
@@ -23,11 +23,12 @@ class FeaturedExperiences extends Component {
     .catch(function (error) {
         console.log(error);
     });
+    */
 
   }
 
   render() {
-    let experiences = this.state && this.state.experiences.length > 0 ? this.state.experiences.map(experience =>
+    let experiences = this.props && this.props.experiences.length > 0 ? this.props.experiences.map(experience =>
         <FeaturedExperience data={experience}/>
     ) : <span></span>;
     return (

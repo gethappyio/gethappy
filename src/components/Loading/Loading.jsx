@@ -13,15 +13,19 @@ class Interstitial extends Component {
   }
 
   render() {
+    let {className} = this.props;
     let classes = classNames({
         "loading-interstitial__wrapper": true,
+        "loading-interstitial--solid": this.props.solid ? true : false,
         "loading-interstitial--active": this.props.loading ? true : false
-    });
+    }, className);
 
     return (
         <div className={classes}>
-            <div className="loader">loading...</div>
-            <p className="loading-interstitial__prompt">prcoessing payment... do not refresh</p>
+            {this.props.logo  ? 
+                <img className="loading-interstitial__logo" src={window.cloudfront + "logo-happy.svg"} /> : 
+                <div className="loader">loading...</div>}
+            {this.props.prompt ? <p className="loading-interstitial__prompt">{this.props.prompt}</p> : ""}
         </div>
     );
   }

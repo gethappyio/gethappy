@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
+import { Interstitial } from "../Loading/Loading";
+import { CSSTransition } from 'react-transition-group';
 import Page from "../Page/Page";
 import NavigationBar from "../NavigationBar/NavigationBar";
 import OrderItem from "./OrderItem";
@@ -12,7 +14,8 @@ class Orders extends Component {
         super(props);
 
         this.state = {
-            orders: ""
+            orders: "",
+            in: true
         }
     }
 
@@ -26,7 +29,8 @@ class Orders extends Component {
            var orders = response.data.orders;
 
            self.setState({
-                orders: orders
+                orders: orders,
+                in: false
            });
         })
         .catch(function (error) {
@@ -47,16 +51,26 @@ class Orders extends Component {
     render() {
         const orders = this.getOutput();
         return (
-            <Page navigation={
-                <NavigationBar title="Orders" href="/user" />
-            } footer="false">
-                <div className="base__pad">
-                    <HeaderIcon icon={iconTime} /> 
-                    <div className="base__narrow base__margin-top">
-                        {orders}
+            <div className="base__expand">
+                <CSSTransition
+                    in={this.state.in}
+                    timeout={400}
+                    classNames="loading-interstitial"
+                    unmountOnExit>
+                    <Interstitial loading="true" solid="true" />
+                </CSSTransition>
+                <Page navigation={
+                    <NavigationBar title="Orders" href="/user" />
+                } footer="false">
+                    <div className="base__pad">
+                        <HeaderIcon icon={iconTime} /> 
+                        <div className="base__narrow base__margin-top">
+                            {orders}
+                        </div>
                     </div>
-                </div>
-            </Page>
+                </Page>
+            </div>
+            
         );
     }
 }

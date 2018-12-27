@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
 import Page from "../Page/Page";
+import { Interstitial } from "../Loading/Loading";
+import { CSSTransition } from 'react-transition-group';
 import NavigationBar from "../NavigationBar/NavigationBar";
 import AddressCard from "../AddressCard/AddressCard";
 import BtnPrimary from "../BtnPrimary/BtnPrimary";
@@ -13,7 +15,8 @@ class Addresses extends Component {
         super(props);
 
         this.state = {
-            addresses: null
+            addresses: null,
+            in: true
         };
     }
 
@@ -31,7 +34,8 @@ class Addresses extends Component {
            var addresses = response.data.addresses;
 
            self.setState({
-                addresses: addresses
+                addresses: addresses,
+                in: false
            });
         })
         .catch(function (error) {
@@ -50,18 +54,27 @@ class Addresses extends Component {
     render() {
         const addresses = this.getOutput(); 
         return (
-            <Page navigation={ <NavigationBar title="Addresses" href="/user" /> } footer="false">
-                <div className="base__pad">
-                    <div className="base__narrow base__margin-top">
-                        <div class="addresses__main">
-                            <Link to="/user/addresses/edit">
-                                <BtnPrimary className="btn-primary--blue">Add new address</BtnPrimary>
-                            </Link>
+            <div className="base__expand">
+                <CSSTransition
+                    in={this.state.in}
+                    timeout={400}
+                    classNames="loading-interstitial"
+                    unmountOnExit>
+                    <Interstitial loading="true" solid="true" />
+                </CSSTransition>
+                <Page navigation={ <NavigationBar title="Addresses" href="/user" /> } footer="false">
+                    <div className="base__pad">
+                        <div className="base__narrow base__margin-top">
+                            <div class="addresses__main">
+                                <Link to="/user/addresses/edit">
+                                    <BtnPrimary className="btn-primary--blue">Add new address</BtnPrimary>
+                                </Link>
+                            </div>
+                            {addresses}
                         </div>
-                        {addresses}
                     </div>
-                </div>
-            </Page>
+                </Page>
+            </div>
         );
     }
 }

@@ -13,7 +13,7 @@ class HomeSlider extends Component {
 
     componentDidMount() {
         let self = this;
-        
+        /*
         axios.get('/homeslider.json')
         .then(function (response) {
             var slides = response.data.slides;
@@ -23,11 +23,12 @@ class HomeSlider extends Component {
         .catch(function (error) {
             console.log(error);
         });
+        */
     
     }
 
     render() {
-        let slides = this.state && this.state.slides.length > 0 ? this.state.slides.map(slide => 
+        let slides = this.props && this.props.slider.length > 0 ? this.props.slider.map(slide => 
             <div className="home-slider__slide">
                 <a href={slide.slideLink} className="home-slider__slide-link">
                     <img src={slide.image} className="home-slider__slide-image"/>
