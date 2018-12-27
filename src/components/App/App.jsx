@@ -95,7 +95,7 @@ class App extends Component {
             experiences: self.experiences, 
             slides: self.slides,
             experiencesDetail: self.experiencesDetail,
-            in: true
+            in: false
         });
     }
     
