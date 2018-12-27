@@ -33,7 +33,38 @@
     }
 
     &__logo {
+        fill: color("brand-primary");
         width: 40px;
+
+        &--left,
+        &--right,
+        &--nose,
+        &--mouth{
+            animation-iteration-count: infinite;
+            animation-duration: 2s;
+            opacity: 0;
+        }
+
+        &--left {
+            animation-name: loading-interstitial__logoLeftIn;
+            animation-duration: 2s;
+        }
+
+        &--right {
+            animation-name: loading-interstitial__logoRightIn;
+            animation-duration: 2s;
+        }
+
+        &--nose {
+            animation-name: loading-interstitial__logoNoseIn;
+            animation-duration: 2s;
+        }
+
+        &--mouth{
+            animation-name: loading-interstitial__logoMouthIn;
+            animation-duration: 2s;
+        }
+
     }
 
     &-exit {
@@ -44,3 +75,87 @@
 
 
 }
+
+@keyframes loading-interstitial__logoLeftIn {
+    0% {
+        opacity: 0;
+    }
+  
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+  }
+
+@keyframes loading-interstitial__logoRightIn {
+    0% {
+        opacity: 0;
+    }
+  
+    10% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+  }
+
+  @keyframes loading-interstitial__logoNoseIn {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+  }
+
+  @keyframes loading-interstitial__logoMouthIn {
+    0% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+        
+    }
+
+    100% {
+        opacity: 0;
+    }
+  }
