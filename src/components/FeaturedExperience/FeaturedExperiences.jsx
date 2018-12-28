@@ -32,7 +32,7 @@ class FeaturedExperiences extends Component {
         <FeaturedExperience data={experience}/>
     ) : <span></span>;
     return (
-        <div className="featured-experiences">
+        <div className="featured-experiences base__narrow">
             <div className="section__wrapper">
                 <div className="section__col-xs-12">
                     <div className="featured-experiences__header-top">Check Out Our</div>
