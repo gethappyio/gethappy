@@ -19,7 +19,7 @@ class About extends Component {
             <Page className="base__abs app__slide about__wrapper" navigation={
                 <Header returnType="logo-return" returnUrl="/" title="info-yellow" direction="left" />
             } footer="false" transparentNav="true">
-                <div className="base__narrow">
+                <div className="base__md-narrow">
                     <div className="section__wrapper about__first">
                         <div className="about__section section__col-xs-12">
                             <h1 className="about__title">Hi there!<br/>We’re a digital giving platform for a new generation.</h1>
