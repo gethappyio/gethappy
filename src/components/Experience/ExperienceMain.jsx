@@ -70,7 +70,7 @@ class ExperienceMain extends Component {
       ) : <span></span>;
 
       return (
-            <div>
+            <div className="base__md-narrow">
               <div className="experience__video-wrapper">
                   {product.featuredVideo ? <ExperienceVideo src={product.featuredVideo} poster={product.featuredVideoThumbnail} /> : ""}
                   <Link to={{ pathname: "/", state: {animate: "app__swoop--up", timeout:200}}}><div id="closePin" className="experience__close"><img className="experience__close-x" src={window.cloudfront + "close.svg"} /></div></Link>

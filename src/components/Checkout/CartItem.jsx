@@ -15,10 +15,10 @@ class CartItem extends Component {
 
         return (
             <div className="section__wrapper cart-item">
-                <div className="section__col-xs-4">
+                <div className="section__col-xs-4 section__col-m-3 section__col-l-2">
                     <img className="cart-item__image" src={purchasable.experienceFeaturedImage} />
                 </div>
-                <div className="section__col-xs-8 cart-item__right">
+                <div className="section__col-xs-8 section__col-m-9 section__col-l-10 cart-item__right">
                     <div className="cart-item__right-inner">
                         <h2 className="cart-item__title">{product.title}</h2>
                         <div className="cart-item__description">{variant.tierDescription}</div>

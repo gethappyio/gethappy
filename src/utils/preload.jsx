@@ -38,19 +38,25 @@ export {findImages};
 function preLoadImages(array, callback) {
     let total = array.length;
     let count = 0;
-    array.map(asset => {
-        let image;
-        image = new Image();
-
-        image.onload = function() {
-            
-            count += 1;
-            if (count == total) {
-                callback();
+    if (total > 0) {
+        array.map(asset => {
+            let image;
+            image = new Image();
+    
+            image.onload = function() {
+                
+                count += 1;
+                if (count == total) {
+                    callback();
+                }
             }
-        }
-        image.src = asset;
-    });
+            image.src = asset;
+        });
+
+    } else {
+        callback();
+    }
+    
   }
 
 export {preLoadImages};

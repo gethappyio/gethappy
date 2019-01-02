@@ -30,13 +30,15 @@ class Footer extends Component {
   renderFooter() {
       return (
         <div className="footer footer--grey section__wrapper">
-            <div className="footer__wrapper section__col-xs-12">
-                <h2 className="footer__title">join our journey</h2>
-                <p className="footer__subtitle">#GETHAPPY</p>
-                <FooterNewsletter />
-                <Share />
-                <div className="footer__logo"><img src={imgLogo} /></div>
-                <div className="footer__copyright">All Rights Reserved 2018</div>
+            <div className="section__wrapper base__narrow">
+                <div className="footer__wrapper section__col-xs-12">
+                    <h2 className="footer__title">join our journey</h2>
+                    <p className="footer__subtitle">#GETHAPPY</p>
+                    <FooterNewsletter />
+                    <Share />
+                    <div className="footer__logo"><img src={imgLogo} /></div>
+                    <div className="footer__copyright">All Rights Reserved 2018</div>
+                </div>
             </div>
         </div>
       );
