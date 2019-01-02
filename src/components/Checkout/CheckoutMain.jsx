@@ -78,7 +78,7 @@ class CheckoutMain extends Component {
                 </CSSTransition>
                 <Page navigation={<CheckoutBar title="Checkout" />} footer="false" scrollId="scrollWindow">
                     <Interstitial loading={this.state.loading} prompt="processing payment... do not refresh" />
-                    <div className="base__narrow">
+                    <div className="base__lg-narrow">
                         <h2 className="checkout__msg">Awesome, almost there!</h2>
                         {this.state.cart ? <Cart data={this.state.cart}/> : "" }
                         <CheckoutAddress data={this.state.shippingAddress}/>                

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
+import "./styles/paypal.scss";
 
 class PaypalForm extends Component {
 
@@ -59,7 +60,7 @@ class PaypalForm extends Component {
     render() {
 
         return (
-            <div className="form__wrapper">
+            <div className="form__wrapper paypal__wrapper">
                 <div className="form-field__wrapper form-field__col-xs-12">
                     <div id="paypal-button"></div>
                 </div>

@@ -48,15 +48,15 @@
     &__right {
         position: absolute;
         top: 0;
-        /* right: 0; */
+        right: 0;
         height: 100%;
-        left: calc(33%);
         padding: 20px 0;
 
         &-inner {
             align-items: center;
             display: flex;
             height: 100%;
+            left: -10px;
             position: relative;
         }
     }
