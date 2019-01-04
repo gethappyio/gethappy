@@ -1,0 +1,45 @@
+{% include '_emails/header' with {title: "Thanks for saving the world!"} %}
+
+    <b class="blue">Hi Adam,</b>
+
+    <p>All of us at {{ siteName }} were so excited to see your support.</p>
+    
+    <p>We will treat your gift with care and will let you know when we have shipped it out.</p>
+    
+    <p>Here is the information on your contribution:</p>
+    <table style="width: 100%;">
+        <thead>
+        <tr>
+            <th class="tbl-head">Experience</th>
+            <th class="tbl-head" style="text-align: right;">Contribution</th>
+        </tr>
+        </thead>
+        <tbody>
+        {# {% for item in order.lineItems %} #}
+            <tr>
+                <td class="tbl-cell">
+                    David Beckham{# {{ item.description }} #}<br>
+                    100 Entries<br><br>
+                    Support Brick Children’s School and Meet Pharell Williams and Score VIP Tickets to Stand Up for Heroes.
+                </td>
+                <td class="tbl-cell" style="text-align: right; vertical-align: top;">$100{# {{ item.total|commerceCurrency(order.paymentCurrency) }} #}</td>
+            </tr>
+        {# {% endfor %} #}
+    
+        {# {% for adjustment in order.adjustments %}
+            <tr>
+                <td>{{ adjustment.type }}</td>
+                <td colspan="2"><strong>{{ adjustment.name }}</strong><br>({{ adjustment.description }})</td>
+                <td style="text-align: right;">{{ adjustment.amount|commerceCurrency(order.paymentCurrency) }}</td>
+            </tr>
+        {% endfor %}
+        #}
+
+        </tbody>
+    </table>
+    <hr class="line"/>
+    <p><i>If you have any order questions, don't hesitate to</i> <a href="">contact us.</a></p>
+
+{% include '_emails/footer' %}
+
+

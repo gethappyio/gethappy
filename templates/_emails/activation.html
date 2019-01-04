@@ -1,0 +1,15 @@
+{% include '_emails/header' with {title: "Let's get started!"} %}
+
+<b class="blue">Hi Adam,</b>
+
+<p>All of us at {{ siteName }} were so excited to see your support.</p>
+
+<p>Please click the link below and we'll get you activated:</p>
+
+<p>{{link}}</p>
+
+<hr class="line"/>
+<p><i>If you have any order questions, don't hesitate to</i> <a href="">contact us.</a></p>
+
+{% include '_emails/footer' %}
+

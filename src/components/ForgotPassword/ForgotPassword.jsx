@@ -42,13 +42,13 @@ class ForgotPassword extends Component {
                     
                     <Formik 
                         validationSchema={Yup.object().shape({
-                            username: Yup.string()
+                            loginName: Yup.string()
                             .required('A username is required')
                         })}
                         initialValues={{
                             CRAFT_CSRF_TOKEN: window.csrfTokenValue,
                             action: "users/send-password-reset-email",
-                            username: ""
+                            loginName: ""
                         }}
                         onSubmit={() => {
                             this.form.submit();
@@ -64,7 +64,8 @@ class ForgotPassword extends Component {
                             <form method="post" className="form__wrapper" onSubmit={handleSubmit} ref={  (input) => { this.form = input } }>
                                 <div className="form__col-xs-12">
                                     <input type="hidden" name="CRAFT_CSRF_TOKEN" value={values.CRAFT_CSRF_TOKEN} />
-                                    <input type="hidden" name="action" value={values.action} />                                    <Field component={InputText} className="form-field__col-xs-12" onChange={handleChange} type="text" name="username" placeholder="Username / Email" value={values.username}/>
+                                    <input type="hidden" name="action" value={values.action} />                                    
+                                    <Field component={InputText} className="form-field__col-xs-12" onChange={handleChange} type="text" name="loginName" placeholder="Username / Email" value={values.username}/>
                                     <div className="form-field__wrapper form-field__col-xs-12">
                                         <BtnPrimary className="btn-primary--blue" submit="true">Request password</BtnPrimary>
                                     </div>
