@@ -1,141 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <style>
-            body {
-                font-family: Helvetica,Arial,sans-serif;
-                line-height: 1.46;
-            }         
+{% include '_emails/header' with {title: "Thanks for saving the world!"} %}
 
-            a {
-                color: #003AFF;
-                text-decoration: none;
-            }
+    <b class="blue">Hi Adam,</b>
 
-            table {
-                text-align: left;
-                border-collapse: collapse;
-            }
+    <p>All of us at {{ siteName }} were so excited to see your support.</p>
+    
+    <p>We will treat your gift with care and will let you know when we have shipped it out.</p>
+    
+    <p>Here is the information on your contribution:</p>
+    <table style="width: 100%;">
+        <thead>
+        <tr>
+            <th class="tbl-head">Experience</th>
+            <th class="tbl-head" style="text-align: right;">Contribution</th>
+        </tr>
+        </thead>
+        <tbody>
+        {# {% for item in order.lineItems %} #}
+            <tr>
+                <td class="tbl-cell">
+                    David Beckham{# {{ item.description }} #}<br>
+                    100 Entries<br><br>
+                    Support Brick Children’s School and Meet Pharell Williams and Score VIP Tickets to Stand Up for Heroes.
+                </td>
+                <td class="tbl-cell" style="text-align: right; vertical-align: top;">$100{# {{ item.total|commerceCurrency(order.paymentCurrency) }} #}</td>
+            </tr>
+        {# {% endfor %} #}
+    
+        {# {% for adjustment in order.adjustments %}
+            <tr>
+                <td>{{ adjustment.type }}</td>
+                <td colspan="2"><strong>{{ adjustment.name }}</strong><br>({{ adjustment.description }})</td>
+                <td style="text-align: right;">{{ adjustment.amount|commerceCurrency(order.paymentCurrency) }}</td>
+            </tr>
+        {% endfor %}
+        #}
 
-            .e-prompt {
-                font-size: 30px;
-                color: #00416B;
-                margin-top: 10px;
-            }
+        </tbody>
+    </table>
+    <hr class="line"/>
+    <p><i>If you have any order questions, don't hesitate to</i> <a href="">contact us.</a></p>
 
-            .text-center {
-                text-align: center;
-            }
-            
-            .tbl-head {
-                padding: 10px 0;
-                font-weight:  normal;
-                border-bottom: 1px dashed #00416B;
-            }
-            .tbl-head,
-            .tbl-cell {
-                padding: 10px 0;
-            }
+{% include '_emails/footer' %}
 
-            .blue {
-                color: #00416B;
-            }
-
-            .line {
-                height: 1px;
-                width: 100%;
-                background: #00416B;
-                border: none;
-            }
-
-            .footer {
-                padding: 20px;
-                text-align: center;
-            }
-
-            .footer-text, 
-            .footer-link {
-                color: #707070;
-                font-size: 14px;
-            }
-
-            .social-icon {
-                width: 22px;
-                display: inline-block;
-                margin: 0 10px;
-            }
-
-
-        </style>
-    </head>
-    <body>
-        <div style="max-width: 600px; margin: 0 auto;">
-            <div class="text-center">
-                <div>
-                    <img style="width: 160px; margin: 0 auto;" src="https://d3c1139e5imjli.cloudfront.net/ui/logo-full-navy-1.jpg" />
-                </div>
-                <h2 class="e-prompt">Thanks for saving the world!</h2>
-                <div>
-                    <img style="width: 100px; margin: 0 auto 20px;" src="https://d3c1139e5imjli.cloudfront.net/ui/yellow-smile.jpg" />
-                </div>
-            </div>
-            <b class="blue">Hi Adam,</b>
-
-            <p>All of us at {{ siteName }} were so excited to see your support.</p>
-            
-            <p>We will treat your gift with care and will let you know when we have shipped it out.</p>
-            
-            <p>Here is the information on your contribution:</p>
-            <table style="width: 100%;">
-                <thead>
-                <tr>
-                    <th class="tbl-head">Experience</th>
-                    <th class="tbl-head" style="text-align: right;">Contribution</th>
-                </tr>
-                </thead>
-                <tbody>
-                {# {% for item in order.lineItems %} #}
-                    <tr>
-                        <td class="tbl-cell">
-                            David Beckham{# {{ item.description }} #}<br>
-                            100 Entries<br><br>
-                            Support Brick Children’s School and Meet Pharell Williams and Score VIP Tickets to Stand Up for Heroes.
-                        </td>
-                        <td class="tbl-cell" style="text-align: right; vertical-align: top;">$100{# {{ item.total|commerceCurrency(order.paymentCurrency) }} #}</td>
-                    </tr>
-                {# {% endfor %} #}
-            
-                {# {% for adjustment in order.adjustments %}
-                    <tr>
-                        <td>{{ adjustment.type }}</td>
-                        <td colspan="2"><strong>{{ adjustment.name }}</strong><br>({{ adjustment.description }})</td>
-                        <td style="text-align: right;">{{ adjustment.amount|commerceCurrency(order.paymentCurrency) }}</td>
-                    </tr>
-                {% endfor %}
-                #}
-        
-                </tbody>
-            </table>
-            <hr class="line"/>
-            <p><i>If you have any order questions, don't hesitate to</i> <a href="">contact us.</a></p>
-
-            <div class="footer">
-                <p class="footer-text"><a href="" class="footer-link">Terms & Conditions</a>&nbsp;•&nbsp;<a href="" class="footer-link">Faqs</a></p>
-                <div>
-                    <img class="social-icon" src="https://d3c1139e5imjli.cloudfront.net/ui/fb-social.jpg">
-                    <img class="social-icon" src="https://d3c1139e5imjli.cloudfront.net/ui/insta-social.jpg">
-                    <img class="social-icon" src="https://d3c1139e5imjli.cloudfront.net/ui/twitter-social.jpg">
-                </div>
-                <p class="footer-text">Copyright 2019 Get Happy Ltd. All rights reserved.<br>We are located at 
-                        111 Singapore St, Singapore</p>
-                <div>
-                    <img style="width: 100px; margin: 10px auto 0;" src="https://d3c1139e5imjli.cloudfront.net/ui/logo-full-navy-1.jpg" />
-                </div>
-            </div>
-        </div>
-        
-    </body>
-</html>
 
