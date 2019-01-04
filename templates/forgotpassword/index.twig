@@ -4,5 +4,8 @@
 
 {% set token %}
     window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
+    {% if errors is defined %}
+    window.errors = "{{ errors|json_encode }}";
+    {% endif %}
 {% endset %}
 {% includeJs token first %}
