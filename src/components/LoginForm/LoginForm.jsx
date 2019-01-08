@@ -22,7 +22,6 @@ class LoginForm extends Component {
         
         return (
             <div className="section__content">
-                <h1 className="login-form__header">Login</h1>
                 <Formik 
                     validationSchema={Yup.object().shape({
                         loginName: Yup.string()
