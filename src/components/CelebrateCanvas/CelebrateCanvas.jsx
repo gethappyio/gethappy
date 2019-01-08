@@ -67,7 +67,7 @@ class CelebrateCanvas extends Component {
                 height: height,
                 num:14,
                 array: this.emitters,
-                gravity: 0,
+                gravity: 1,
                 context: this.ctx,
                 particles: particleImages
             });
@@ -77,7 +77,9 @@ class CelebrateCanvas extends Component {
         /*var emitter = this.createEmitter({x: event.clientX, y: event.clientY}, 50, 50);
         this.emitters.push(emitter);
         console.log(this.emitters);*/
-        this.setCelebration();
+        if (this.counter == this.emitterAmt) {
+            this.setCelebration();
+        }
     }
 
     setCelebration() {

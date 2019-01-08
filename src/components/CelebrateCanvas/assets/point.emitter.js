@@ -43,7 +43,7 @@ function pointEmitter(options) {
     p_object.array = this.pointmasses;
     p_object.context = this.ctx;
     p_object.fade = false;
-    p_object.gravity = 3;
+    p_object.gravity = options.gravity;
     p_object.boundaries = true;
 
     for (var i = 0; i < this.num; i++) {
