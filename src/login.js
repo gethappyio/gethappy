@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route} from "react-router-dom";
 import Page from "./components/Page/Page";
 import LoginForm from "./components/LoginForm/LoginForm";
+import Errors from "./components/Errors/Errors";
 import NewUserForm from "./components/NewUserForm/NewUserForm";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import "normalize.css";
@@ -15,6 +16,7 @@ ReactDOM.render(
         } footer="false">
             <div class="base__pad">
                 <div className="base__narrow base__margin-top">
+                    <Errors />
                     <LoginForm />
                     <NewUserForm />
                 </div>
