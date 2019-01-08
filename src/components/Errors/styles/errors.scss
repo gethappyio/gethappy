@@ -1,0 +1,10 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.errors {
+    &__msg {
+        color: #ec8181;
+        text-align: center;
+    }
+}
