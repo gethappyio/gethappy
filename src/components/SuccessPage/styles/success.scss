@@ -14,23 +14,22 @@
         justify-content: center;
         position: relative;
         text-align: center;
-        
     }
 
     &__checkmark {
         display: block;
         margin: 0 auto 40px;
         position: relative;
-        width: 150px;
+        width: 100px;
     }
 
     &__header {
-        @include type(54px);
+        @include type(42px);
         margin: 20px 0;
     }
 
     &__sub {
-        @include type(20px);
+        @include type(16px);
     }
 
     &__continue {
