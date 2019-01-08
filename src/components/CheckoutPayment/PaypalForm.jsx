@@ -11,7 +11,7 @@ class PaypalForm extends Component {
     }
 
     componentDidMount() {
-        axios.post('/',  qs.stringify({
+        /*axios.post('/',  qs.stringify({
             action: '/gethappy/gateway/get-gateway-by-id',
             CRAFT_CSRF_TOKEN: window.csrfTokenValue,
             id: 3
@@ -21,7 +21,7 @@ class PaypalForm extends Component {
         })
         .catch(function (error) {
             console.log(error);
-        });
+        });*/
 
         paypal.Button.render({
 
