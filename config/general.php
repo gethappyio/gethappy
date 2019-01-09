@@ -27,6 +27,8 @@ return [
         'securityKey' => getenv('SECURITY_KEY'),
 
         'autoLoginAfterAccountActivation' => true,
+
+        'activateAccountSuccessPath' => 'signedup',
     ],
 
     // Dev environment settings
