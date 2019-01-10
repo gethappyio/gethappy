@@ -74,12 +74,8 @@ class CelebrateCanvas extends Component {
     }
 
     mouseClick(event) {
-        /*var emitter = this.createEmitter({x: event.clientX, y: event.clientY}, 50, 50);
+        var emitter = this.createEmitter({x: event.clientX, y: event.clientY}, 50, 50);
         this.emitters.push(emitter);
-        console.log(this.emitters);*/
-        if (this.counter == this.emitterAmt) {
-            this.setCelebration();
-        }
     }
 
     setCelebration() {
