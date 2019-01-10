@@ -22,8 +22,10 @@ class NewUserForm extends Component {
                         username: Yup.string()
                         .required('Username is required'),
                         email: Yup.string()
+                        .email('Email is not valid')
                         .required('Email is required'),
                         password: Yup.string()
+                        .min(6, 'Password must be more than 6 characters')  
                         .required('Password is required')
                     })}
                     initialValues={{
