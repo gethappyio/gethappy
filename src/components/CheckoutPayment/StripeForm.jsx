@@ -115,10 +115,13 @@ class StripeForm extends Component {
                 token: token.id
             }));
         }).then((response) => {
-            self.setState({
-                redirect: true
-            });
-            console.log(response);
+            if (response.success) {
+                self.setState({
+                    redirect: true
+                });
+            } else {
+                this.props.loadingCallback(false);
+            }
         })
         .catch((e) => {
         console.log('got error', e);
