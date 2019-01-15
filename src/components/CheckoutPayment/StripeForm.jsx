@@ -115,16 +115,36 @@ class StripeForm extends Component {
                 token: token.id
             }));
         }).then((response) => {
-            if (response.success) {
+            let data = response.data;
+            if (data.success) {
                 self.setState({
-                    redirect: true
+                    redirect: "/checkout/success"
                 });
             } else {
+                self.errors = {
+                    stripe: {
+                        message: "There has been an error. Please try again."
+                    }
+                };
+
+                self.setState({
+                    errors: self.errors
+                });
                 this.props.loadingCallback(false);
             }
+            
         })
         .catch((e) => {
-        console.log('got error', e);
+            self.errors = {
+                stripe: {
+                    message: "There has been an error. Please try again."
+                }
+            };
+
+            self.setState({
+                errors: self.errors
+            });
+            this.props.loadingCallback(false);
         });
 
     }
@@ -165,13 +185,13 @@ class StripeForm extends Component {
                     </div>
                     <div className="form__wrapper">
                         <div className="form-field__wrapper form-field__col-xs-12">
-                            <BtnPrimary className="btn-primary--blue" submit="true" onClick={this.submit}>Pay</BtnPrimary>
-                        </div>
-                        <div className="form-field__wrapper form-field__col-xs-12">
                             {this.state && this.state.errors ? Object.keys(this.state.errors).map( (key) => {
                                 let error = this.state.errors[key];
-                                return <p>{error.message}</p>
+                                return <p className="card__error">{error.message}</p>
                             }) : ''}
+                        </div>
+                        <div className="form-field__wrapper form-field__col-xs-12">
+                            <BtnPrimary className="btn-primary--blue" submit="true" onClick={this.submit}>Pay</BtnPrimary>
                         </div>
                     </div>
                 </div>
