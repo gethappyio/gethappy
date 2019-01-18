@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import iconFb from "./assets/social-drawn-fb.svg";
-import iconInsta from "./assets/social-drawn-insta.svg";
-import iconTwitter from "./assets/social-drawn-twitter.svg";
-import iconYoutube from "./assets/social-drawn-youtube.svg";
+
 import "./styles/share.scss";
 
 class Share extends Component {
@@ -14,6 +11,12 @@ class Share extends Component {
     };
   }
   render() {
+
+    let iconFb = window.cloudfront + "social-drawn-fb.svg";
+    let iconInsta = window.cloudfront + "social-drawn-insta.svg";
+    let iconTwitter = window.cloudfront + "social-drawn-twitter.svg";
+    let iconYoutube = window.cloudfront + "social-drawn-youtube.svg";
+
     return (
         <div className="share__wrapper">
             <div className="share__icon"><img className="share__image" src={iconFb}/></div>
