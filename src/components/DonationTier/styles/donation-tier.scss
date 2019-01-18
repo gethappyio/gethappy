@@ -25,7 +25,7 @@
     }
 
     &__title {
-        @include type(16px);
+        @include type(20px);
         color: color("vibrant-blue");
         font-family: "Rustico", monospace, sans-serif;
         font-weight: normal;
@@ -44,7 +44,7 @@
     }
 
     &__entries {
-        @include type(18px);
+        @include type(20px);
         color: color("brand-primary");
         line-height: 1;
         display: block;
