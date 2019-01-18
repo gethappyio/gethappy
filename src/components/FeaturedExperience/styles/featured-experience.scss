@@ -5,6 +5,10 @@
 .featured-experience { 
     margin: 80px 0;
 
+    &__margin-small {
+        margin: 60px 0;
+    }
+
     &__top {
         @include size(80%, auto);
         margin: 0 auto;

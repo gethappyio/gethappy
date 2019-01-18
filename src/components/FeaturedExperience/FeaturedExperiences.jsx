@@ -28,8 +28,8 @@ class FeaturedExperiences extends Component {
   }
 
   render() {
-    let experiences = this.props && this.props.experiences.length > 0 ? this.props.experiences.map(experience =>
-        <FeaturedExperience data={experience}/>
+    let experiences = this.props && this.props.experiences.length > 0 ? this.props.experiences.map((experience,index) =>
+        <FeaturedExperience data={experience} index={index}/>
     ) : <span></span>;
     return (
         <div className="featured-experiences base__md-narrow">
