@@ -15,11 +15,11 @@
     }
 
     &__header-top {
-        @include type(28px);
+        @include type(20px);
     }
 
     &__header {
-        @include type(54px);
+        @include type(42px);
         margin: 0;
         position: relative;
 
@@ -29,13 +29,13 @@
     }
 
     &__line {
-        @include size(260px, 10px);
+        @include size(240px, 10px);
         background: url("../assets/gethappy-line.svg") no-repeat 0 center;
         background-size: auto 100%;
         display: block;
         position: absolute;
         top: 40%;
         left: 50%;
-        margin-left: -140px;
+        margin-left: -120px;
     }
 }

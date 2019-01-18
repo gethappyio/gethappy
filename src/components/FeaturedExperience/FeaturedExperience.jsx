@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import BtnPrimary from "../BtnPrimary/BtnPrimary";
+import classNames from 'classnames/bind';
 import "./styles/featured-experience.scss";
 import { Link } from "react-router-dom";
 
@@ -12,9 +13,13 @@ class FeaturedExperience extends Component {
   }
 
   render() {
-        let data = this.props.data;
+        let {data, index} = this.props;
+        let classes = classNames({
+            "featured-experience__margin-small": index == 0 ? true : false
+        }, "featured-experience");
+
         return (
-            <div className="featured-experience">
+            <div className={classes}>
                 <div className="featured-experience__top">
                     <div className="featured-experience__days">
                         <div className="featured-experience__days--number">{data.days}</div>
