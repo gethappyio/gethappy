@@ -1,7 +1,11 @@
 import React, { Component } from "react";
+import ScrollMagic from 'scrollmagic/scrollmagic/minified/ScrollMagic.min';
+import TweenMax from 'gsap/src/minified/TweenMax.min.js';
+import 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min';
 import classNames from 'classnames/bind';
 import randomInt from "../CelebrateCanvas/assets/random.int";
 import "./styles/abstract-shape.scss";
+var uniqid = require('uniqid');
 
 class AbstractShape extends Component {
     constructor(props) {
@@ -20,21 +24,44 @@ class AbstractShape extends Component {
         this.shapeDimensions = {
             width: this.width,
             height: this.height,
-            transform: "translate(-" + this.width/2 + "px,-" + this.height/2 + "px)"
+            left: "-" + this.width/2 + "px",
+            top: "-" + this.height/2 + "px"
         };
 
         this.shapePosition = {
-            transform: "translate(" + Math.floor(randomInt(0, 100)) + "%, " + Math.floor(randomInt(0, 100)) + "%)"
+            left: Math.floor(randomInt(0, 100)) + "%",
+            top: Math.floor(randomInt(0, 60)) + "%"
         };
+
+        this.controller  = new ScrollMagic.Controller();
+
+        this.myElement = null;
+        this.targetY = Math.floor(randomInt(0,2)) == 0 ? Math.floor(randomInt(-100, -50)) : Math.floor(randomInt(50,100));
+    }
+    componentWillMount() {
+        this.uniqid = uniqid();
+    }
+    componentDidMount() {
+        var scene = new ScrollMagic.Scene({triggerElement:"#abstract-shape__id-" + this.uniqid, duration: 600, triggerHook: 0.8})
+              .addTo(this.controller);
+
+        scene.on("progress", this.executeTween.bind(this));
+    }
+
+    executeTween(event) {
+        let progress = event.progress;
+        let curY = this.targetY * progress;
+
+        TweenLite.to(this.myElement, 1, {y:curY, x:0});
     }
 
     render() {
         let colour = Math.floor(randomInt(0,2)) == 0 ? "grey" : "yellow";
         let shapeClasses = classNames("abstract-shape", "abstract-shape--" + colour, "abstract-shape__" + this.shape);
-     
+        
         return (
-            <div className="abstract-shape__wrapper" style={this.shapePosition}>
-                <div style={this.shapeDimensions} className={shapeClasses}></div>
+            <div id={"abstract-shape__id-" + this.uniqid} style={this.shapePosition} className="abstract-shape__wrapper">
+                <div ref={div => this.myElement = div} style={this.shapeDimensions} className={shapeClasses}></div>
             </div>   
         );
     }

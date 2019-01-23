@@ -12,7 +12,7 @@ class FeaturedExperience extends Component {
       title: ""
     };
   }
-  
+
   render() {
         let {data, index} = this.props;
         let classes = classNames({
@@ -21,7 +21,7 @@ class FeaturedExperience extends Component {
 
         return (
             <div className={classes}>
-                {[...Array(10)].map((x, i) =>
+                {[...Array(5)].map((x, i) =>
                     <AbstractShape />
                 )}
                 <div className="featured-experience__top">

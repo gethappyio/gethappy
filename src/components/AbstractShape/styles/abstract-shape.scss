@@ -4,11 +4,11 @@
 
 .abstract-shape {
     display: block;
-    position: absolute;
+    position: relative;
 
     &__wrapper {
         position: absolute;
-        @include size(100%);
+        z-index: -1;
     }
 
     &__circle {
