@@ -4,6 +4,7 @@ import TweenMax from 'gsap/src/minified/TweenMax.min.js';
 import 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min';
 import classNames from 'classnames/bind';
 import randomInt from "../CelebrateCanvas/assets/random.int";
+import randomInRanges from "../CelebrateCanvas/assets/random.inranges";
 import "./styles/abstract-shape.scss";
 var uniqid = require('uniqid');
 
@@ -29,8 +30,8 @@ class AbstractShape extends Component {
         };
 
         this.shapePosition = {
-            left: Math.floor(randomInt(0, 100)) + "%",
-            top: Math.floor(randomInt(0, 60)) + "%"
+            left: Math.floor(randomInRanges([[0,20],[80,100]])) + "%",
+            top: Math.floor(randomInt(0, 70)) + "%"
         };
 
         this.controller  = new ScrollMagic.Controller();
@@ -56,7 +57,7 @@ class AbstractShape extends Component {
     }
 
     render() {
-        let colour = Math.floor(randomInt(0,2)) == 0 ? "grey" : "yellow";
+        let colour = Math.floor(randomInt(0,3)) < 2 ? "grey" : "yellow";
         let shapeClasses = classNames("abstract-shape", "abstract-shape--" + colour, "abstract-shape__" + this.shape);
         
         return (

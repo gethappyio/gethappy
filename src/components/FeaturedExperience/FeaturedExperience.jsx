@@ -21,7 +21,7 @@ class FeaturedExperience extends Component {
 
         return (
             <div className={classes}>
-                {[...Array(5)].map((x, i) =>
+                {[...Array(8)].map((x, i) =>
                     <AbstractShape />
                 )}
                 <div className="featured-experience__top">
