@@ -57,7 +57,7 @@ class AbstractShape extends Component {
     }
 
     render() {
-        let colour = Math.floor(randomInt(0,3)) < 2 ? "grey" : "yellow";
+        let colour = Math.floor(randomInt(0,4)) < 3 ? "grey" : "yellow";
         let shapeClasses = classNames("abstract-shape", "abstract-shape--" + colour, "abstract-shape__" + this.shape);
         
         return (
