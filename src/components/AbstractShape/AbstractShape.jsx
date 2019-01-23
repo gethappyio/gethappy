@@ -15,10 +15,10 @@ class AbstractShape extends Component {
         this.shape = Math.floor(randomInt(0,2)) == 0 ? "rect" : "circle";
 
         if (this.shape == "rect") {
-            this.width = Math.floor(randomInt(100, 300));
-            this.height = Math.floor(randomInt(100, 300));
+            this.width = Math.floor(randomInt(50, 200));
+            this.height = Math.floor(randomInt(50, 200));
         } else {
-            this.width = Math.floor(randomInt(100, 300));
+            this.width = Math.floor(randomInt(50, 200));
             this.height = this.width;
         }
 
@@ -37,7 +37,7 @@ class AbstractShape extends Component {
         this.controller  = new ScrollMagic.Controller();
 
         this.myElement = null;
-        this.targetY = Math.floor(randomInt(0,2)) == 0 ? Math.floor(randomInt(-100, -50)) : Math.floor(randomInt(50,100));
+        this.targetY = Math.floor(randomInt(0,2)) == 0 ? Math.floor(randomInt(-150, -70)) : Math.floor(randomInt(70,150));
     }
     componentWillMount() {
         this.uniqid = uniqid();
