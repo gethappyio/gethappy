@@ -3,6 +3,8 @@
 {% header "Cache-Control: max-age=" ~ expiry.timestamp %}
 {% header "Pragma: cache" %}
 {% header "Expires: " ~ expiry|date('D, d M Y H:i:s', 'GMT') ~ " GMT" %}
+
+{% set hasSystemIcon = craft.rebrand.isIconUploaded %}
 <!DOCTYPE html>
 <html id="Gethappy" class="base__expand" lang="en">
     <head>
@@ -11,6 +13,9 @@
         <title>{{ "Craft Commerce"|t }}</title>
         {% include "_includes/meta" %}
         {% include "_includes/globals" %}
+        {% if hasSystemIcon %}
+            <link rel="icon" type="image/png" sizes="32x32" href="{{ craft.rebrand.icon.url }}">
+        {% endif %}
     </head>
     <body class="base__expand">
         <!--[if lt IE 8]>
