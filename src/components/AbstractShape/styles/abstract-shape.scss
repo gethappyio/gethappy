@@ -1,0 +1,25 @@
+@import "bourbon";
+@import "neat";
+@import "gh-utilities";
+
+.abstract-shape {
+    display: block;
+    position: relative;
+
+    &__wrapper {
+        position: absolute;
+        z-index: -1;
+    }
+
+    &__circle {
+        border-radius: 50%;
+    }
+
+    &--yellow {
+        background: color("brand-secondary");
+    }
+
+    &--grey {
+        background: color("grey");
+    }
+}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import BtnPrimary from "../BtnPrimary/BtnPrimary";
+import AbstractShape from "../AbstractShape/AbstractShape";
 import classNames from 'classnames/bind';
 import "./styles/featured-experience.scss";
 import { Link } from "react-router-dom";
@@ -20,6 +21,9 @@ class FeaturedExperience extends Component {
 
         return (
             <div className={classes}>
+                {[...Array(6)].map((x, i) =>
+                    <AbstractShape />
+                )}
                 <div className="featured-experience__top">
                     <div className="featured-experience__days">
                         <div className="featured-experience__days--number">{data.days}</div>
