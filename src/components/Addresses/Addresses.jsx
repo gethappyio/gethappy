@@ -60,7 +60,7 @@ class Addresses extends Component {
                     timeout={400}
                     classNames="loading-interstitial"
                     unmountOnExit>
-                    <Interstitial loading="true" solid="true" />
+                    <Interstitial loading="true" solid="true" logo="true" />
                 </CSSTransition>
                 <Page navigation={ <NavigationBar title="Addresses" href="/user" /> } footer="false">
                     <div className="base__pad">
