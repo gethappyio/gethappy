@@ -35,7 +35,8 @@ class AbstractShape extends Component {
         };
 
         
-
+        this.controller = null;
+        this.scene = null;
         this.myElement = null;
         this.targetY = Math.floor(randomInt(0,2)) == 0 ? Math.floor(randomInt(-150, -70)) : Math.floor(randomInt(70,150));
     }
@@ -43,21 +44,24 @@ class AbstractShape extends Component {
         this.uniqid = uniqid();
     }
     componentDidMount() {
+        let self = this;
         setTimeout(function(){
-            this.controller  = new ScrollMagic.Controller();
-            this.scene = new ScrollMagic.Scene({triggerElement:"#abstract-shape__id-" + this.uniqid, duration: 600, triggerHook: 0.8})
-                .addTo(this.controller);
+            self.controller  = new ScrollMagic.Controller();
+            self.scene = new ScrollMagic.Scene({triggerElement:"#abstract-shape__id-" + self.uniqid, duration: 600, triggerHook: 0.8})
+                .addTo(self.controller);
 
-            this.scene.on("progress", this.executeTween.bind(this));
+            self.scene.on("progress", self.executeTween.bind(self));
         }, 200);
-        
     }
 
     executeTween(event) {
         let progress = event.progress;
         let curY = this.targetY * progress;
-
-        TweenLite.to(this.myElement, 1, {y:curY, x:0});
+        if(this.myElement) {
+            TweenLite.to(this.myElement, 1, {y:curY, x:0});
+        }
+        
+        
     }
 
     render() {
