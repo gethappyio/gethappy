@@ -34,7 +34,7 @@ class AbstractShape extends Component {
             top: Math.floor(randomInt(0, 70)) + "%"
         };
 
-        this.controller  = new ScrollMagic.Controller();
+        
 
         this.myElement = null;
         this.targetY = Math.floor(randomInt(0,2)) == 0 ? Math.floor(randomInt(-150, -70)) : Math.floor(randomInt(70,150));
@@ -43,10 +43,14 @@ class AbstractShape extends Component {
         this.uniqid = uniqid();
     }
     componentDidMount() {
-        var scene = new ScrollMagic.Scene({triggerElement:"#abstract-shape__id-" + this.uniqid, duration: 600, triggerHook: 0.8})
-              .addTo(this.controller);
+        setTimeout(function(){
+            this.controller  = new ScrollMagic.Controller();
+            this.scene = new ScrollMagic.Scene({triggerElement:"#abstract-shape__id-" + this.uniqid, duration: 600, triggerHook: 0.8})
+                .addTo(this.controller);
 
-        scene.on("progress", this.executeTween.bind(this));
+            this.scene.on("progress", this.executeTween.bind(this));
+        }, 200);
+        
     }
 
     executeTween(event) {
