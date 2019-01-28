@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import ReactGA from 'react-ga';
 import Addresses from "./components/Addresses/Addresses";
 import AddressFormContainer from "./components/AddressForm/AddressFormContainer";
 import { BrowserRouter, Switch, Route} from "react-router-dom";
 
 import "normalize.css";
 import "./styles/app.scss";
+
+ReactGA.initialize('UA-133360397-1');
 
 ReactDOM.render(
     <BrowserRouter>

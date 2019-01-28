@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import ReactGA from 'react-ga';
 import { BrowserRouter, Switch, Route} from "react-router-dom";
 import Page from "./components/Page/Page";
 import LoginForm from "./components/LoginForm/LoginForm";
@@ -9,6 +10,7 @@ import NavigationBar from "./components/NavigationBar/NavigationBar";
 import "normalize.css";
 import "./styles/app.scss";
 
+ReactGA.initialize('UA-133360397-1');
 ReactDOM.render(
     <BrowserRouter>
         <Page navigation={

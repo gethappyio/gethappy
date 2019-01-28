@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactGA from 'react-ga';
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import classNames from 'classnames/bind';
@@ -11,6 +12,8 @@ class Page extends Component {
         this.state = {
           title: ""
         };
+        ReactGA.pageview(window.location.pathname + window.location.search);
+        
       }
     
       render() {
