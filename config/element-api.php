@@ -1,5 +1,6 @@
 <?php
 
+use Craft;
 use craft\commerce\elements\Product;
 use craft\elements\GlobalSet;
 use craft\helpers\UrlHelper;
@@ -27,6 +28,23 @@ return [
                     return [
                         "slides" => $blocks
                     ];
+                }
+            ];
+        },
+        "about.json" => function() {
+            return [
+                "elementType" => GlobalSet::class,
+                "criteria" => [
+                    "handle"    => "about"
+                ],
+                "one" => true,
+                "transformer" => function(GlobalSet $globalset) {
+
+                    $blocks = [];
+                    foreach ($globalset->aboutContent as $block) {
+                        $blocks[] = $block;
+                    }
+                    return ['content' => $blocks];
                 }
             ];
         },
