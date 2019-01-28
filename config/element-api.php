@@ -42,7 +42,12 @@ return [
 
                     $blocks = [];
                     foreach ($globalset->aboutContent as $block) {
-                        $blocks[] = $block;
+                        $temp = [];
+                        $temp["aboutHeaderText"] = $block["aboutHeaderText"];
+                        $temp["aboutBodyText"] = $block["aboutBodyText"];
+                        $temp["placeholder"] = $block["placeholder"];
+                        $temp["handle"] = $block->getType()->handle;
+                        $blocks[] = $temp;
                     }
                     return ['content' => $blocks];
                 }

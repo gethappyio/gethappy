@@ -22,7 +22,7 @@ class About extends Component {
                 let classes = classNames({
                     "about__first": i == 0 ? true : false
                 }, "section__wrapper");
-                if(block.placeholder) {
+                if(block.handle == "aboutHow") {
                     return <HowWorks />;
                 } else {
                     return <div className={classes}>
