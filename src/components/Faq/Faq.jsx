@@ -17,8 +17,8 @@ class Faq extends Component {
           console.log(this.props.content);
         return (
             <Page navigation={
-                <NavigationBar title="Faq" to="/user" footer="false"/>
-            }>  
+                <NavigationBar title="Faq" to="/user"/>
+            } footer="false">  
                 {this.props.content ? this.props.content.map((block) => 
                 <div className="section__wrapper">
                     <div className="section__col-xs-12">
