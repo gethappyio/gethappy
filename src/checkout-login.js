@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import ReactGA from 'react-ga';
 import { BrowserRouter, Switch, Route} from "react-router-dom";
 import Page from "./components/Page/Page";
 import CheckoutBar from "./components/Checkout/CheckoutBar";
@@ -10,6 +11,7 @@ import FacebookLogin from "./components/FacebookLogin/FacebookLogin";
 import "normalize.css";
 import "./styles/app.scss";
 
+ReactGA.initialize('UA-133360397-1');
 ReactDOM.render(
     <BrowserRouter>
         <Page navigation={<CheckoutBar title="Checkout" />} footer="false">

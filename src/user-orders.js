@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import ReactGA from 'react-ga';
 import { BrowserRouter, Switch, Route} from "react-router-dom";
 import { CSSTransition } from 'react-transition-group'
 import Orders from "./components/Orders/Orders";
@@ -8,6 +9,7 @@ import OrderView from "./components/OrderView/OrderView";
 import "normalize.css";
 import "./styles/app.scss";
 
+ReactGA.initialize('UA-133360397-1');
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
