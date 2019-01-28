@@ -7,7 +7,7 @@ import ProfileForm from "./components/ProfileForm/ProfileForm";
 import "normalize.css";
 import "./styles/app.scss";
 
-ReactGA.initialize('UA-133360397-1');
+ReactGA.initialize(window.googleTrackingId);
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
