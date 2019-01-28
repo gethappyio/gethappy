@@ -11,7 +11,7 @@ import FacebookLogin from "./components/FacebookLogin/FacebookLogin";
 import "normalize.css";
 import "./styles/app.scss";
 
-ReactGA.initialize('UA-133360397-1');
+ReactGA.initialize(window.googleTrackingId);
 ReactDOM.render(
     <BrowserRouter>
         <Page navigation={<CheckoutBar title="Checkout" />} footer="false">

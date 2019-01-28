@@ -1,4 +1,5 @@
 {% set globals %}
     window.cloudfront = "https://d3c1139e5imjli.cloudfront.net/ui/";
+    window.googleTrackingId = "{{ tracking.googleAnalyticsTrackingId }}";
 {% endset %}
 {% includeJs globals first %}
