@@ -54,6 +54,9 @@ class App extends Component {
             .then(function (response) {
                 self.slides = response.data.slides;
                 self.appCache = {slides: self.slides};
+                return axios.get('/faq.json');
+            }).then(function(response) {
+                self.faqContent = response.data.content;
                 return axios.get('/about.json');
             }).then(function(response) {
                 self.aboutContent = response.data.content;
@@ -97,6 +100,7 @@ class App extends Component {
             experiences: self.experiences, 
             slides: self.slides,
             aboutContent: self.aboutContent,
+            faqContent: self.faqContent,
             experiencesDetail: self.experiencesDetail,
             in: false
         });
@@ -143,7 +147,9 @@ class App extends Component {
                         }/>
                         <Route exact path='/user' component={User}/>
                         <Route exact path='/contact' component={Contact} />
-                        <Route exact path='/faq' component={Faq} />
+                        <Route exact path='/faq' render={() =>
+                            <Faq content={this.state.faqContent}/>
+                        } />
                         <Route exact path='/terms' component={TermsAndConditions} />
                     </Switch>
                 </CSSTransition>

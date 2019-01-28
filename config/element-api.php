@@ -53,6 +53,27 @@ return [
                 }
             ];
         },
+        "faq.json" => function() {
+            return [
+                "elementType" => GlobalSet::class,
+                "criteria" => [
+                    "handle"    => "faq"
+                ],
+                "one" => true,
+                "transformer" => function(GlobalSet $globalset) {
+
+                    $blocks = [];
+                    foreach ($globalset->faqContent as $block) {
+                        $temp = [];
+                        $temp["question"] = $block["faqQuestion"];
+                        $temp["answer"] = $block["faqAnswer"];
+                        $temp["handle"] = $block->getType()->handle;
+                        $blocks[] = $temp;
+                    }
+                    return ['content' => $blocks];
+                }
+            ];
+        },
         "experiences.json" => function() {
             return [
                 "elementType" => Product::class,
