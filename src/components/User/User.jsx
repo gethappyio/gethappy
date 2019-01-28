@@ -32,6 +32,7 @@ class User extends Component {
                     </div>
                     <LevelButtons>
                         <LevelButton to="/contact" className="user__icon user__icon--contact">Contact Us</LevelButton>
+                        <LevelButton to="/faq" className="user__icon user__icon--contact">FAQ</LevelButton>
                         <LevelButton to="/terms" className="user__icon user__icon--terms">Terms & Conditions</LevelButton>
                     </LevelButtons> 
                     {loggedIn ? <a className="user__logout" href="/logout">Logout</a> : ""} 

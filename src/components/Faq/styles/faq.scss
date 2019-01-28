@@ -2,10 +2,15 @@
 @import "neat";
 @import "gh-utilities";
 
-.faq{ 
+.faq{
+
+    &__question {
+        @include type(18px);
+        font-weight: 500;
+    }
+
     &__body {
         @include type(14px);
         font-family: "Akkurat-mono", monospace, sans-serif;
-        padding: 0 20px;
     }
 }
