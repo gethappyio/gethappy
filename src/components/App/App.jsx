@@ -54,8 +54,10 @@ class App extends Component {
             .then(function (response) {
                 self.slides = response.data.slides;
                 self.appCache = {slides: self.slides};
-            
-                return axios.get('/experiences.json');
+                return axios.get('/about.json');
+            }).then(function(response) {
+                self.aboutContent = response.data.content;
+                return axios.get('/experiences.json'); 
             }).then(function (response) {
                 self.experiences = response.data.data;
                 self.appCache.cache = true
@@ -94,6 +96,7 @@ class App extends Component {
         this.setState({
             experiences: self.experiences, 
             slides: self.slides,
+            aboutContent: self.aboutContent,
             experiencesDetail: self.experiencesDetail,
             in: false
         });
@@ -125,7 +128,9 @@ class App extends Component {
                         <Route exact path='/' render={() =>
                             <Home slider={this.state.slides} experiences={this.state.experiences}/>
                         }/>
-                        <Route exact path='/about' component={About} />
+                        <Route exact path='/about' render={() =>
+                            <About content={this.state.aboutContent}/>
+                        } />
                         <Route path='/experience/:slug' render={(props) =>
                             <Experience data={this.state.experiencesDetail} {...props}/>
                         }/> 
