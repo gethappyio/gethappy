@@ -12,6 +12,13 @@ class ExperienceVideo extends Component {
         };
     }
 
+    componentWillUnmount() {
+        var video = document.getElementById('experience-video');
+        video.pause();
+        video.removeAttribute("src");
+        video.load();
+    }
+
     openFullScreen() {
         var video = document.getElementById('experience-video');
 
