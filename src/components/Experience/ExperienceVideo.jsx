@@ -23,6 +23,10 @@ class ExperienceVideo extends Component {
         
     }
 
+    componentDidMount(){
+        console.log(this.video.videoWidth + " x " + this.video.videoHeight);
+    }
+
     openFullScreen() {
         let video = this.video;
 
@@ -41,6 +45,7 @@ class ExperienceVideo extends Component {
 
     togglePlay() {
         if(this.video) {
+            console.log(this.video.videoWidth + " x " + this.video.videoHeight);
             if(this.video.paused) {
                 this.video.play();
                 this.setState({
@@ -63,7 +68,7 @@ class ExperienceVideo extends Component {
                 <div className="experience-video__play-container">
                 {this.state.pause ? <img className="experience-video__play" src={window.cloudfront + "play-btn.svg"} /> : ""}
                 </div>
-                <video ref={video => this.video = video} width="100%" poster={poster} onClick={this.togglePlay.bind(this)}>
+                <video className="experience-video__tag" ref={video => this.video = video} width="100%" poster={poster} onClick={this.togglePlay.bind(this)}>
                     <source src={src} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
