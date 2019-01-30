@@ -10,17 +10,21 @@ class ExperienceVideo extends Component {
         this.state = {
             pause: true
         };
+
+        this.video = null;
     }
 
     componentWillUnmount() {
-        var video = document.getElementById('experience-video');
-        video.pause();
-        video.removeAttribute("src");
-        video.load();
+        if(this.video) {
+            this.video.pause();
+            this.video.removeAttribute("src");
+            this.video.load();
+        }
+        
     }
 
     openFullScreen() {
-        var video = document.getElementById('experience-video');
+        let video = this.video;
 
         if(video.requestFullscreen){
             video.requestFullscreen();
@@ -36,18 +40,19 @@ class ExperienceVideo extends Component {
     }
 
     togglePlay() {
-        var video = document.getElementById('experience-video');
-        if(video.paused) {
-            video.play();
-            this.setState({
-                pause: false
-            });
-        } else {
-            video.pause();
-            this.setState({
-                pause: true
-            });
-        }
+        if(this.video) {
+            if(this.video.paused) {
+                this.video.play();
+                this.setState({
+                    pause: false
+                });
+            } else {
+                this.video.pause();
+                this.setState({
+                    pause: true
+                });
+            }
+        }   
     }
 
     render() {
@@ -58,7 +63,7 @@ class ExperienceVideo extends Component {
                 <div className="experience-video__play-container">
                 {this.state.pause ? <img className="experience-video__play" src={window.cloudfront + "play-btn.svg"} /> : ""}
                 </div>
-                <video id="experience-video" width="100%" poster={poster} onClick={this.togglePlay.bind(this)}>
+                <video ref={video => this.video = video} width="100%" poster={poster} onClick={this.togglePlay.bind(this)}>
                     <source src={src} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
