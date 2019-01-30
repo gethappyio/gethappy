@@ -17,6 +17,7 @@
 
     &__play {
         @include size(80px);
+        display: block;
         margin: 0 auto;
         z-index: 999;
     }
