@@ -88,7 +88,14 @@ return [
 
                     $currentDate = new DateTime("NOW");
                     $endDate = $product->experienceEndDate;
-                    $diffDays = $currentDate->diff($endDate)->days;
+                    $interval = $currentDate->diff($endDate);
+                    $invert = $interval->invert;
+
+                    if($invert == 0) {
+                        $diffDays = $interval->days;
+                    } else {
+                        $diffDays = 0;
+                    }
 
                     return [
                         "days" => $diffDays,
