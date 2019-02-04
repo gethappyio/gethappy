@@ -56,11 +56,24 @@ class CartController extends Commerce_CartController
         $productId = $lineItems[0]["snapshot"]["product"]["id"];
         $product = $productsService->getProductById($productId);
 
+        // variant id
+        $purchasableId = $lineItems[0]["snapshot"]["purchasableId"];
+        $isShipping = 0;
+        foreach($product->variants as $variant) {
+            if($variant->id == $purchasableId) {
+                if(count($variant->tierGift) > 0) {
+                    $isShipping = 1;
+                }
+            } 
+        }
+
+
+
         foreach ($product->experienceFeaturedImage as $image) {
             $featuredImage = $image->getUrl("thumbnail");
         }
         $product->experienceFeaturedImage = $featuredImage;
 
-        return $this->asJson(["cart" => $this->cartArray($cart), "product" => $product]);
+        return $this->asJson(["cart" => $this->cartArray($cart), "product" => $product, "isShipping" => $isShipping]);
     }
 }

@@ -81,7 +81,7 @@ class CheckoutMain extends Component {
                     <div className="base__lg-narrow">
                         <h2 className="checkout__msg">Awesome, almost there!</h2>
                         {this.state.cart ? <Cart data={this.state.cart}/> : "" }
-                        <CheckoutAddress data={this.state.shippingAddress}/>                
+                        {this.state.cart.isShipping == 1 ? <CheckoutAddress data={this.state.shippingAddress}/> : ""}
                         <CheckoutPayment loadingCallback={this.setLoading} />
                     </div>
                 </Page>
