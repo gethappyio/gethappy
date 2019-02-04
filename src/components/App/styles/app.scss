@@ -47,23 +47,25 @@
 
     &--down {
         &-enter {
-            transform: translate(0%, -100%);
+            transform: translate3d(0, -100%, 0);
             z-index: 500;
         }
 
         &-enter-active {
-            transform: translate(0%, 0%);
+            transform: translate3d(0, 0%, 0);
+            z-index: 500;
         }
     }
 
     &--up {
         &-exit {
-            transform: translate(0%, 0%);
+            transform: translate3d(0, 0%, 0);
             z-index: 500;
         }
 
         &-exit-active {
-            transform: translate(0%, -100%);
+            transform: translate3d(0, -100%, 0);
+            z-index: 500;
         }
     }
 }
