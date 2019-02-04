@@ -6,6 +6,7 @@
 
     &__wrapper {
         position: relative;
+        padding-bottom: 56.25%;
     }
 
     &__play-container {
@@ -17,11 +18,15 @@
 
     &__play {
         @include size(80px);
+        display: block;
         margin: 0 auto;
+        z-index: 999;
     }
 
     &__tag {
         @include size(100%, auto);
+        display: block;
+        position: absolute;
     }
 
     &__thumb {
