@@ -43,29 +43,26 @@
 }
 
 .app__swoop {
-    transition: transform .25s ease;
+    transition: transform .2s ease;
+    z-index: 500;
 
     &--down {
         &-enter {
             transform: translate3d(0, -100%, 0);
-            z-index: 500;
         }
 
         &-enter-active {
             transform: translate3d(0, 0%, 0);
-            z-index: 500;
         }
     }
 
     &--up {
         &-exit {
             transform: translate3d(0, 0%, 0);
-            z-index: 500;
         }
 
         &-exit-active {
             transform: translate3d(0, -100%, 0);
-            z-index: 500;
         }
     }
 }
