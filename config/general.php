@@ -15,7 +15,7 @@ return [
         'defaultWeekStartDay' => 0,
 
         // Enable CSRF Protection (recommended)
-        'enableCsrfProtection' => true,
+        'enableCsrfProtection' => false,
 
         // Whether generated URLs should omit "index.php"
         'omitScriptNameInUrls' => true,
@@ -29,6 +29,9 @@ return [
         'autoLoginAfterAccountActivation' => true,
 
         'activateAccountSuccessPath' => 'signedup',
+
+        'tokenParam' => 'craftToken',
+        
     ],
 
     // Dev environment settings
