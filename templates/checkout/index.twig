@@ -27,12 +27,12 @@
 {% includeJsFile "/dist/js/checkout.bundle.js" %}
 {% includeCssFile "/dist/css/checkout.bundle.css" %}
 
-{% set orderRedirect =  '/shop/customer/order?number='~cart.number  %}
+{% set orderRedirect =  '/checkout/success' %}
 
 {% set token %}
     window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
     window.cancelRedirect = "{{ '/shop/checkout/payment' | hash }}";
-    window.orderRedirect = "{{ orderRedirect | hash }}";
+    window.orderRedirect = "{{ orderRedirect }}";
     window.actionUrl = "{{ actionUrl('commerce/payments/pay') }}";
     window.productDesc = "{{ productDesc }}";
     window.productUrl = "{{ productUrl }}";
