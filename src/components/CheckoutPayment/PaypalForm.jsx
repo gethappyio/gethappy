@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
+import { Redirect } from "react-router-dom";
 import "./styles/paypal.scss";
 
 class PaypalForm extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            redirect: false
+        };
     }
 
     componentDidMount() {
@@ -22,6 +25,8 @@ class PaypalForm extends Component {
         .catch(function (error) {
             console.log(error);
         });*/
+
+        let self = this;
 
         paypal.Button.render({
 
@@ -50,7 +55,9 @@ class PaypalForm extends Component {
 
             onAuthorize: function(data) {
                 return paypal.request.post(window.orderRedirect).then(function(data) {
-                    window.location = data.url;
+                    self.setState({
+                        redirect: true
+                    });
                 });
             }
 
@@ -58,7 +65,9 @@ class PaypalForm extends Component {
     }
 
     render() {
-
+        if(this.state.redirect) {
+            return <Redirect to={window.orderRedirect} />
+        }
         return (
             <div className="form__wrapper paypal__wrapper">
                 <div className="form-field__wrapper form-field__col-xs-12">
