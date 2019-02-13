@@ -6,7 +6,7 @@
 {% extends "_layouts/react" %}
 {% includeJsFile "/dist/js/checkout-login.bundle.js" %}
 {% includeCssFile "/dist/css/checkout-login.bundle.css" %}
-
+{% set setSession = craft.addSession("newuser-redirect","checkout") %}
 {% set token %}
     window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
     window.checkoutRedirect = "{{ '/checkout' | hash }}";
