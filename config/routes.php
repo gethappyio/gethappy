@@ -23,6 +23,7 @@ return [
     'checkout' => ['template' => 'checkout/index'],
     'checkout/success' => ['template' => 'checkout/index'],
     'checkout/login' => ['template' => 'checkout/login'],
+    'checkout/login/new' => ['template' => 'checkout/login'],
     'contact' => ['template' => 'index'],
     'faq' => ['template' => 'index'],
     'terms' => ['template' => 'index'],

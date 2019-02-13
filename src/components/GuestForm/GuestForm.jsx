@@ -6,6 +6,7 @@ import BtnPrimary from "../BtnPrimary/BtnPrimary";
 
 import "../Form/styles/form.scss";
 import "../LoginForm/styles/login-form.scss";
+import "./styles/guest-form.scss";
 
 class GuestForm extends Component {
 
@@ -19,7 +20,7 @@ class GuestForm extends Component {
         : "";
 
         return (
-            <div className="section__content">
+            <div className="section__content guest-form__wrapper">
                 <h1 className="login-form__header">Guest Checkout</h1>
                 <Formik 
                     validationSchema={Yup.object().shape({
