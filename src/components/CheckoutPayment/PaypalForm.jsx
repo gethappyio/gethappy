@@ -14,18 +14,6 @@ class PaypalForm extends Component {
     }
 
     componentDidMount() {
-        /*axios.post('/',  qs.stringify({
-            action: '/gethappy/gateway/get-gateway-by-id',
-            CRAFT_CSRF_TOKEN: window.csrfTokenValue,
-            id: 3
-        }))
-        .then(function (response) {
-            
-        })
-        .catch(function (error) {
-            console.log(error);
-        });*/
-
         let self = this;
 
         paypal.Button.render({
@@ -35,11 +23,9 @@ class PaypalForm extends Component {
 
             payment: function() { 
                 var postData = {};
-             
-                postData["CRAFT_CSRF_TOKEN"] = window.csrfTokenValue;
                 postData["redirect"] = window.orderRedirect;
                 postData["cancelUrl"] = window.cancelRedirect;
-                postData["orderEmail"] = "adam@gethappy.io";
+                postData["orderEmail"] = window.email;
 
                 return paypal.request.post(window.actionUrl, postData).then(function(data) {
                     if (data.error) {
@@ -54,7 +40,8 @@ class PaypalForm extends Component {
             },
 
             onAuthorize: function(data) {
-                return paypal.request.post(window.orderRedirect).then(function(data) {
+                console.log(data);
+                return paypal.request.post(data.returnUrl).then(function(data) {
                     self.setState({
                         redirect: true
                     });

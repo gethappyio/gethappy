@@ -33,6 +33,7 @@
     window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
     window.cancelRedirect = "{{ '/shop/checkout/payment' | hash }}";
     window.orderRedirect = "{{ orderRedirect }}";
+    window.email = "{{ cart.email }}";
     window.actionUrl = "{{ actionUrl('commerce/payments/pay') }}";
     window.productDesc = "{{ productDesc }}";
     window.productUrl = "{{ productUrl }}";
