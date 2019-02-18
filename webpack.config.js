@@ -99,7 +99,8 @@ module.exports = {
     },
     output: {
         path: __dirname + "/public/dist",
-        filename: 'js/[name].bundle.js'
+        publicPath: '/dist/',
+        filename: 'js/[name].bundle.[contenthash].js'
     },
     optimization: {
         splitChunks: {
@@ -113,7 +114,55 @@ module.exports = {
         }
     },
     plugins: [
-        new CleanWebpackPlugin(['public/dist']),
+        new CleanWebpackPlugin(['public/dist', 'templates/_dist']),
+        new HtmlWebpackPlugin({
+            title: 'Caching',
+            chunks: ['app-react', 'vendors'],
+            template: 'templates/_layouts/boilerplate.twig',
+            filename: '../../templates/_dist/index.boilerplate.twig'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Caching',
+            chunks: ['user-profile', 'vendors'],
+            template: 'templates/_layouts/boilerplate.twig',
+            filename: '../../templates/_dist/profile.boilerplate.twig'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Caching',
+            chunks: ['user-orders', 'vendors'],
+            template: 'templates/_layouts/boilerplate.twig',
+            filename: '../../templates/_dist/orders.boilerplate.twig'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Caching',
+            chunks: ['user-addresses', 'vendors'],
+            template: 'templates/_layouts/boilerplate.twig',
+            filename: '../../templates/_dist/addresses.boilerplate.twig'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Caching',
+            chunks: ['login', 'vendors'],
+            template: 'templates/_layouts/boilerplate.twig',
+            filename: '../../templates/_dist/login.boilerplate.twig'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Caching',
+            chunks: ['forgotpassword', 'vendors'],
+            template: 'templates/_layouts/boilerplate.twig',
+            filename: '../../templates/_dist/forgotpassword.boilerplate.twig'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Caching',
+            chunks: ['checkout-login', 'vendors'],
+            template: 'templates/_layouts/boilerplate.twig',
+            filename: '../../templates/_dist/checkout-login.boilerplate.twig'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Caching',
+            chunks: ['checkout', 'vendors'],
+            template: 'templates/_layouts/boilerplate.twig',
+            filename: '../../templates/_dist/checkout.boilerplate.twig'
+        }),
         new ExtractTextPlugin({
             filename:"css/[name].bundle.css"
         })

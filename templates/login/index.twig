@@ -1,6 +1,4 @@
-{% extends "_layouts/react" %}
-{% includeJsFile "/dist/js/login.bundle.js" %}
-{% includeCssFile "/dist/css/login.bundle.css" %}
+{% extends "_dist/login.boilerplate" %}
 {% set setSession = craft.addSession("newuser-redirect","user") %}
 {% set token %}
     window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";

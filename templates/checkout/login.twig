@@ -3,9 +3,7 @@
     {% redirect 'checkout' %}
 {% endif %}
 
-{% extends "_layouts/react" %}
-{% includeJsFile "/dist/js/checkout-login.bundle.js" %}
-{% includeCssFile "/dist/css/checkout-login.bundle.css" %}
+{% extends "_dist/checkout-login.boilerplate" %}
 {% set setSession = craft.addSession("newuser-redirect","checkout") %}
 {% set token %}
     window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";

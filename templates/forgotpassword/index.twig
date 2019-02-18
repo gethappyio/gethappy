@@ -1,7 +1,4 @@
-{% extends "_layouts/react" %}
-{% includeJsFile "/dist/js/forgotpassword.bundle.js" %}
-{% includeCssFile "/dist/css/forgotpassword.bundle.css" %}
-
+{% extends "_dist/forgotpassword.boilerplate" %}
 {% set token %}
     window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
     {% if errors is defined %}
