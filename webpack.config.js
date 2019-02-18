@@ -103,6 +103,7 @@ module.exports = {
         filename: 'js/[name].bundle.[contenthash].js'
     },
     optimization: {
+        runtimeChunk: 'single',
         splitChunks: {
             cacheGroups: {
                 vendors: {
@@ -116,50 +117,50 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['public/dist', 'templates/_dist']),
         new HtmlWebpackPlugin({
-            title: 'Caching',
-            chunks: ['app-react', 'vendors'],
+            title: 'Get Happy',
+            chunks: ['app-react', 'vendors', 'runtime'],
             template: 'templates/_layouts/boilerplate.twig',
             filename: '../../templates/_dist/index.boilerplate.twig'
         }),
         new HtmlWebpackPlugin({
-            title: 'Caching',
-            chunks: ['user-profile', 'vendors'],
+            title: 'Get Happy',
+            chunks: ['user-profile', 'vendors', 'runtime'],
             template: 'templates/_layouts/boilerplate.twig',
             filename: '../../templates/_dist/profile.boilerplate.twig'
         }),
         new HtmlWebpackPlugin({
-            title: 'Caching',
-            chunks: ['user-orders', 'vendors'],
+            title: 'Get Happy',
+            chunks: ['user-orders', 'vendors', 'runtime'],
             template: 'templates/_layouts/boilerplate.twig',
             filename: '../../templates/_dist/orders.boilerplate.twig'
         }),
         new HtmlWebpackPlugin({
-            title: 'Caching',
-            chunks: ['user-addresses', 'vendors'],
+            title: 'Get Happy',
+            chunks: ['user-addresses', 'vendors', 'runtime'],
             template: 'templates/_layouts/boilerplate.twig',
             filename: '../../templates/_dist/addresses.boilerplate.twig'
         }),
         new HtmlWebpackPlugin({
-            title: 'Caching',
-            chunks: ['login', 'vendors'],
+            title: 'Get Happy',
+            chunks: ['login', 'vendors', 'runtime'],
             template: 'templates/_layouts/boilerplate.twig',
             filename: '../../templates/_dist/login.boilerplate.twig'
         }),
         new HtmlWebpackPlugin({
-            title: 'Caching',
-            chunks: ['forgotpassword', 'vendors'],
+            title: 'Get Happy',
+            chunks: ['forgotpassword', 'vendors', 'runtime'],
             template: 'templates/_layouts/boilerplate.twig',
             filename: '../../templates/_dist/forgotpassword.boilerplate.twig'
         }),
         new HtmlWebpackPlugin({
-            title: 'Caching',
-            chunks: ['checkout-login', 'vendors'],
+            title: 'Get Happy',
+            chunks: ['checkout-login', 'vendors', 'runtime'],
             template: 'templates/_layouts/boilerplate.twig',
             filename: '../../templates/_dist/checkout-login.boilerplate.twig'
         }),
         new HtmlWebpackPlugin({
-            title: 'Caching',
-            chunks: ['checkout', 'vendors'],
+            title: 'Get Happy',
+            chunks: ['checkout', 'vendors', 'runtime'],
             template: 'templates/_layouts/boilerplate.twig',
             filename: '../../templates/_dist/checkout.boilerplate.twig'
         }),
