@@ -1,4 +1,5 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -112,6 +113,7 @@ module.exports = {
         }
     },
     plugins: [
+        new CleanWebpackPlugin(['public/dist']),
         new ExtractTextPlugin({
             filename:"css/[name].bundle.css"
         })
