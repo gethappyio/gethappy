@@ -164,7 +164,7 @@ module.exports = {
             filename: '../../templates/_dist/checkout.boilerplate.twig'
         }),
         new ExtractTextPlugin({
-            filename:"css/[name].bundle.css"
+            filename:"css/[name].bundle.[hash].css"
         })
     ]
 }; 
