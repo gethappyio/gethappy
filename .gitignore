@@ -13,3 +13,4 @@
 /node_modules
 /public/dist
 /public/images
+/templates/_dist

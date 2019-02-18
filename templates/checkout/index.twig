@@ -21,11 +21,9 @@
     {% endif %}
 {% endif %}
 
-{% extends "_layouts/react" %}
+{% extends "_dist/checkout.boilerplate" %}
 {% includeJsFile "https://js.stripe.com/v3/" %}
 {% includeJsFile "https://www.paypalobjects.com/api/checkout.js" %}
-{% includeJsFile "/dist/js/checkout.bundle.js" %}
-{% includeCssFile "/dist/css/checkout.bundle.css" %}
 
 {% set orderRedirect =  '/checkout/success' %}
 

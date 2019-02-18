@@ -1,7 +1,5 @@
 {% requireLogin %}
-{% extends "_layouts/react" %}
-{% includeJsFile "/dist/js/user-addresses.bundle.js" %}
-{% includeCssFile "/dist/css/user-addresses.bundle.css" %}
+{% extends "_dist/addresses.boilerplate" %}
 {% set token %}
     window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
 {% endset %}

@@ -1,4 +1,5 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -98,9 +99,11 @@ module.exports = {
     },
     output: {
         path: __dirname + "/public/dist",
-        filename: 'js/[name].bundle.js'
+        publicPath: '/dist/',
+        filename: 'js/[name].bundle.[contenthash].js'
     },
     optimization: {
+        runtimeChunk: 'single',
         splitChunks: {
             cacheGroups: {
                 vendors: {
@@ -112,8 +115,57 @@ module.exports = {
         }
     },
     plugins: [
+        new CleanWebpackPlugin(['public/dist', 'templates/_dist']),
+        new HtmlWebpackPlugin({
+            title: 'Get Happy',
+            chunks: ['app-react', 'vendors', 'runtime'],
+            template: 'templates/_layouts/boilerplate.twig',
+            filename: '../../templates/_dist/index.boilerplate.twig'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Get Happy',
+            chunks: ['user-profile', 'vendors', 'runtime'],
+            template: 'templates/_layouts/boilerplate.twig',
+            filename: '../../templates/_dist/profile.boilerplate.twig'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Get Happy',
+            chunks: ['user-orders', 'vendors', 'runtime'],
+            template: 'templates/_layouts/boilerplate.twig',
+            filename: '../../templates/_dist/orders.boilerplate.twig'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Get Happy',
+            chunks: ['user-addresses', 'vendors', 'runtime'],
+            template: 'templates/_layouts/boilerplate.twig',
+            filename: '../../templates/_dist/addresses.boilerplate.twig'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Get Happy',
+            chunks: ['login', 'vendors', 'runtime'],
+            template: 'templates/_layouts/boilerplate.twig',
+            filename: '../../templates/_dist/login.boilerplate.twig'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Get Happy',
+            chunks: ['forgotpassword', 'vendors', 'runtime'],
+            template: 'templates/_layouts/boilerplate.twig',
+            filename: '../../templates/_dist/forgotpassword.boilerplate.twig'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Get Happy',
+            chunks: ['checkout-login', 'vendors', 'runtime'],
+            template: 'templates/_layouts/boilerplate.twig',
+            filename: '../../templates/_dist/checkout-login.boilerplate.twig'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Get Happy',
+            chunks: ['checkout', 'vendors', 'runtime'],
+            template: 'templates/_layouts/boilerplate.twig',
+            filename: '../../templates/_dist/checkout.boilerplate.twig'
+        }),
         new ExtractTextPlugin({
-            filename:"css/[name].bundle.css"
+            filename:"css/[name].bundle.[hash].css"
         })
     ]
 }; 
